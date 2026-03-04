@@ -13,11 +13,16 @@ load_dotenv()
 # API Configuration
 ZHIPU_API_KEY = os.getenv("ZHIPU_API_KEY", "")
 ZHIPU_MODEL = os.getenv("ZHIPU_MODEL", "glm-4-plus")  # GLM-4.7 uses glm-4-plus
+TAVILY_API_KEY = os.getenv("TAVILY_API_KEY", "")
+TAVILY_SEARCH_URL = os.getenv("TAVILY_SEARCH_URL", "https://api.tavily.com/search")
 
 # Risk Scoring Configuration
 MIN_RISK_SCORE = 0
 MAX_RISK_SCORE = 100
 DEFAULT_RISK_THRESHOLD = 50  # Scores above this are considered high risk
+DEFAULT_WEB_SEARCH_MAX_RESULTS = int(os.getenv("TAVILY_SEARCH_MAX_RESULTS", "5"))
+DEFAULT_WEB_SEARCH_DEPTH = os.getenv("TAVILY_SEARCH_DEPTH", "basic")
+DEFAULT_WEB_SEARCH_TOPIC = os.getenv("TAVILY_SEARCH_TOPIC", "general")
 
 # Predefined Risk Tags
 RISK_TAGS = [

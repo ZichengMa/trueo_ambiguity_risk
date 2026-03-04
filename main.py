@@ -7,9 +7,35 @@ and detecting ambiguity risks.
 
 from typing import Optional
 
-from agent import SemanticAnalysisAgent
 from scorer import RiskScorer
 from models import RiskScoreResult, MarketProposal
+from search import WebSearchClient
+
+
+def merge_analysis_context(
+    context: Optional[str] = None,
+    web_search_context: Optional[str] = None
+) -> Optional[str]:
+    """
+    Merge user-provided context with web-search evidence.
+
+    Args:
+        context: User-provided context
+        web_search_context: Formatted web-search evidence
+
+    Returns:
+        Combined context string or None if neither exists
+    """
+    sections = []
+
+    if context:
+        sections.append("User-Provided Context:")
+        sections.append(context)
+
+    if web_search_context:
+        sections.append(web_search_context)
+
+    return "\n\n".join(sections) if sections else None
 
 
 def analyze_market_prompt(
@@ -26,9 +52,9 @@ def analyze_market_prompt(
     
     Args:
         question: The market question to analyze
-        context: Optional additional context (for future web search integration)
+        context: Optional additional context supplied by the caller
         use_few_shot: Whether to use few-shot examples for better prompting
-        use_web_search: Whether to perform web search (not yet implemented)
+        use_web_search: Whether to augment the analysis with web-search evidence
         
     Returns:
         RiskScoreResult containing:
@@ -45,16 +71,21 @@ def analyze_market_prompt(
         >>> print(result.risk_tags)
         ['ambiguous_time', 'undefined_term']
     """
-    # TODO: Implement web search when context is None and use_web_search is True
-    if use_web_search and context is None:
-        # Placeholder for future web search integration
-        pass
+    merged_context = context
+
+    if use_web_search:
+        search_client = WebSearchClient()
+        web_search_context = search_client.build_context(question)
+        merged_context = merge_analysis_context(
+            context=context,
+            web_search_context=web_search_context
+        )
     
     # Create scorer and analyze
     scorer = RiskScorer()
     return scorer.score(
         question=question,
-        context=context,
+        context=merged_context,
         include_few_shot=use_few_shot
     )
 
@@ -98,6 +129,11 @@ if __name__ == "__main__":
         help="Disable few-shot examples in prompting"
     )
     parser.add_argument(
+        "--use-web-search",
+        action="store_true",
+        help="Augment the analysis with Tavily web-search evidence"
+    )
+    parser.add_argument(
         "--json",
         action="store_true",
         help="Output as JSON"
@@ -108,7 +144,8 @@ if __name__ == "__main__":
     result = analyze_market_prompt(
         question=args.question,
         context=args.context,
-        use_few_shot=not args.no_few_shot
+        use_few_shot=not args.no_few_shot,
+        use_web_search=args.use_web_search
     )
     
     if args.json:

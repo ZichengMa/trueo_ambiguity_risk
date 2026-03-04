@@ -8,13 +8,15 @@ risk scoring system.
 import sys
 import os
 import json
+from unittest.mock import patch
 
 # Add parent directory to path for imports
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from main import analyze_market_prompt
-from models import RiskScoreResult
+from models import RiskScoreResult, SearchContext, SearchEvidenceItem
 from config import FEW_SHOT_EXAMPLES_PATH
+from search import WebSearchClient, format_search_context
 
 
 def test_basic_analysis():
@@ -173,6 +175,115 @@ def test_few_shot_examples_file():
     print("="*60)
 
 
+def test_format_search_context():
+    """
+    Test that structured search evidence is formatted for prompt injection.
+    """
+    print("\n" + "="*60)
+    print("TEST: Web Search Context Formatting")
+    print("="*60)
+
+    search_context = SearchContext(
+        query="OpenAI release new model official source definition resolution criteria",
+        provider="tavily",
+        summary="Multiple official release channels may create resolution ambiguity.",
+        evidence=[
+            SearchEvidenceItem(
+                title="OpenAI News",
+                url="https://openai.com/news",
+                snippet="Official announcements are published on the OpenAI website.",
+                source="openai.com",
+                score=0.95,
+                published_date="2025-03-01",
+            )
+        ],
+    )
+
+    formatted = format_search_context(search_context)
+
+    assert "Web Search Evidence:" in formatted
+    assert "Provider: tavily" in formatted
+    assert "Top Sources:" in formatted
+    assert "OpenAI News" in formatted
+    assert "https://openai.com/news" in formatted
+
+    print("\n✓ Search context formatting includes provider, evidence, and URL")
+
+    print("\n" + "="*60)
+    print("✅ TEST PASSED: Web Search Context Formatting")
+    print("="*60)
+
+
+def test_web_search_requires_api_key():
+    """
+    Test that explicit web search fails fast without an API key.
+    """
+    print("\n" + "="*60)
+    print("TEST: Web Search API Key Requirement")
+    print("="*60)
+
+    with patch("search.TAVILY_API_KEY", ""):
+        try:
+            WebSearchClient(api_key="")
+            raise AssertionError("Expected WebSearchClient to require an API key")
+        except ValueError as exc:
+            assert "TAVILY_API_KEY" in str(exc)
+
+    print("\n✓ Missing Tavily API key is reported clearly")
+
+    print("\n" + "="*60)
+    print("✅ TEST PASSED: Web Search API Key Requirement")
+    print("="*60)
+
+
+def test_analyze_market_prompt_with_web_search():
+    """
+    Test that analyze_market_prompt merges caller context with web-search evidence.
+    """
+    print("\n" + "="*60)
+    print("TEST: Analyze Market Prompt With Web Search")
+    print("="*60)
+
+    captured = {}
+
+    class FakeSearchClient:
+        def build_context(self, question: str) -> str:
+            captured["search_question"] = question
+            return "Web Search Evidence:\nProvider: tavily\nTop Sources:\n1. Official Blog"
+
+    class FakeScorer:
+        def score(self, question: str, context=None, include_few_shot: bool = True):
+            captured["score_question"] = question
+            captured["score_context"] = context
+            captured["include_few_shot"] = include_few_shot
+            return RiskScoreResult(
+                risk_score=55,
+                risk_tags=["unverified_source"],
+                rationale="Test result from mocked scorer.",
+            )
+
+    with patch("main.WebSearchClient", FakeSearchClient), patch("main.RiskScorer", FakeScorer):
+        result = analyze_market_prompt(
+            "Will OpenAI release a new model in March this year?",
+            context="Caller supplied context.",
+            use_few_shot=False,
+            use_web_search=True,
+        )
+
+    assert captured["search_question"] == "Will OpenAI release a new model in March this year?"
+    assert "User-Provided Context:" in captured["score_context"]
+    assert "Caller supplied context." in captured["score_context"]
+    assert "Web Search Evidence:" in captured["score_context"]
+    assert captured["include_few_shot"] is False
+    assert isinstance(result, RiskScoreResult)
+
+    print("\n✓ Web search evidence is merged into scorer context")
+
+    print("\n" + "="*60)
+    print("✅ TEST PASSED: Analyze Market Prompt With Web Search")
+    print("="*60)
+
+
 def run_all_tests():
     """
     Run all tests and report results.
@@ -183,6 +294,9 @@ def run_all_tests():
     
     tests = [
         ("Few-Shot Examples File", test_few_shot_examples_file),
+        ("Web Search Context Formatting", test_format_search_context),
+        ("Web Search API Key Requirement", test_web_search_requires_api_key),
+        ("Web Search Integration", test_analyze_market_prompt_with_web_search),
         ("Basic Analysis", test_basic_analysis),
         ("Output Format", test_output_format),
         ("High Risk Detection", test_high_risk_question),

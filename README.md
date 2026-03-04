@@ -14,6 +14,7 @@ This system analyzes market questions for potential ambiguity, vagueness, or cla
 - 🔧 **File-Based Few-Shot Examples**: Default examples are loaded from `few_shot_examples/examples.json`
 - ♻️ **Hot Reload Friendly**: Updating `examples.json` affects the next analysis call without code changes
 - 🛡️ **Safe Fallback**: Falls back to built-in examples if the JSON file is missing or invalid
+- 🌐 **Optional Web Search Evidence**: Can enrich scoring with Tavily search evidence when resolution criteria depend on real-world sources
 - 🔌 **Extensible**: Designed for web search integration and custom prompt iteration
 
 ## Installation
@@ -39,6 +40,10 @@ cp .env.example .env
    ```
    ZHIPU_API_KEY=your_api_key_here
    ```
+4. Optional: add a Tavily API key to enable `use_web_search=True`:
+   ```
+   TAVILY_API_KEY=your_tavily_api_key_here
+   ```
 
 ### Few-shot Examples
 
@@ -62,6 +67,25 @@ Example file format:
   }
 ]
 ```
+
+### Web Search Configuration
+
+Web search is optional and is only used when `use_web_search=True` or `--use-web-search` is enabled.
+
+- Provider: Tavily
+- Required env var: `TAVILY_API_KEY`
+- Optional env vars:
+  - `TAVILY_SEARCH_MAX_RESULTS` defaults to `5`
+  - `TAVILY_SEARCH_DEPTH` defaults to `basic`
+  - `TAVILY_SEARCH_TOPIC` defaults to `general`
+
+The search layer is designed to help with ambiguity scoring, not event prediction. It looks for evidence about:
+
+- authoritative sources
+- naming ambiguity
+- competing interpretations
+- resolution criteria
+- dispute risk
 
 ## Usage
 
@@ -87,6 +111,43 @@ result = analyze_market_prompt(
 )
 ```
 
+To augment the analysis with web-search evidence:
+
+```python
+result = analyze_market_prompt(
+    "Will OpenAI release a new model in March this year?",
+    use_web_search=True
+)
+```
+
+### How Web Search Is Used
+
+When web search is enabled, the system does four things:
+
+1. Builds a search query from the market question, biased toward authoritative and resolution-related evidence.
+2. Calls Tavily and collects the top results plus Tavily's short answer when available.
+3. Simplifies the raw results into a compact `SearchContext` with:
+   - `query`
+   - `provider`
+   - `summary`
+   - `evidence[]` containing `title`, `url`, `snippet`, `source`, `score`, and `published_date`
+4. Formats that simplified context into prompt text and injects it into the ambiguity analysis.
+
+This means the LLM does not receive the full raw API payload. It receives a reduced, prompt-friendly summary of the search evidence.
+
+High-level flow:
+
+```text
+Market question
+  -> Tavily search
+  -> raw search results
+  -> simplified SearchContext
+  -> formatted prompt context
+  -> ambiguity scoring
+```
+
+The implementation lives in `search.py`.
+
 ### Command Line
 
 ```bash
@@ -99,6 +160,12 @@ To bypass few-shot examples:
 python main.py "Will OpenAI release a new model in March this year?" --no-few-shot
 ```
 
+To augment the analysis with web-search evidence:
+
+```bash
+python main.py "Will OpenAI release a new model in March this year?" --use-web-search
+```
+
 ## Output Format
 
 ```json
@@ -108,6 +175,8 @@ python main.py "Will OpenAI release a new model in March this year?" --no-few-sh
   "rationale": "1) 'this year' does not specify which year; 2) 'new model' is not clearly defined"
 }
 ```
+
+When web search is enabled, the returned JSON still has the same schema. The search evidence is used internally to improve the score and rationale; it is not returned as a separate field in the final API result.
 
 ## Risk Categories
 
@@ -130,10 +199,11 @@ trueo_ambiguity_risk/
 ├── requirements.txt     # Python dependencies
 ├── config.py            # Configuration settings
 ├── models.py            # Data models (Pydantic)
-├── prompts.py           # Prompt templates and few-shot loading logic
+├── prompts.py           # Prompt templates and context injection logic
 ├── agent.py             # LLM Agent (GLM-4.7)
 ├── scorer.py            # Risk Scorer
 ├── main.py              # Main entry point
+├── search.py            # Tavily search client and evidence formatter
 ├── few_shot_examples/   # Default few-shot examples loaded at runtime
 └── tests/               # Test cases
     └── test_scorer.py
@@ -153,9 +223,16 @@ Quick test (single API call):
 python tests/test_scorer.py --quick
 ```
 
+Note: the examples file and web-search integration tests are local-only, but the main scoring tests still call the live Zhipu API.
+
+Web-search-specific local tests currently cover:
+
+- search context formatting
+- missing Tavily API key handling
+- main pipeline integration with mocked search evidence
+
 ## Future Enhancements
 
-- [ ] Web search integration for context enrichment
 - [ ] Batch processing API
 - [ ] External Retrieval Agent (MCP/Tools)
 

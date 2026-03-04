@@ -150,7 +150,7 @@ def build_context_section(context: Optional[str] = None) -> str:
     if not context:
         return ""
     
-    return f"""Additional Context (from web search):
+    return f"""Additional Context:
 {context}
 
 Please consider this context in your analysis."""

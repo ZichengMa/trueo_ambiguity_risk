@@ -73,6 +73,45 @@ class AnalysisResult(BaseModel):
     )
 
 
+class SearchEvidenceItem(BaseModel):
+    """
+    Evidence item returned from a web search provider.
+
+    Attributes:
+        title: Result title
+        url: Result URL
+        snippet: Short snippet or extracted content
+        source: Domain or source label
+        score: Optional provider relevance score
+        published_date: Optional publication date string
+    """
+    title: str = Field(..., description="Search result title")
+    url: str = Field(..., description="Search result URL")
+    snippet: str = Field(..., description="Search result snippet or extracted content")
+    source: Optional[str] = Field(None, description="Source or domain name")
+    score: Optional[float] = Field(None, description="Provider relevance score")
+    published_date: Optional[str] = Field(None, description="Publication date if available")
+
+
+class SearchContext(BaseModel):
+    """
+    Structured search context injected into the prompt.
+
+    Attributes:
+        query: Search query sent to the provider
+        provider: Search provider name
+        summary: Optional search summary
+        evidence: Search evidence items
+    """
+    query: str = Field(..., description="Query sent to the search provider")
+    provider: str = Field(..., description="Search provider name")
+    summary: Optional[str] = Field(None, description="Optional high-level summary")
+    evidence: List[SearchEvidenceItem] = Field(
+        default_factory=list,
+        description="Structured evidence returned from search"
+    )
+
+
 class MarketProposal(BaseModel):
     """
     Input model for a market proposal.
