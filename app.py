@@ -7,6 +7,7 @@ from html import escape
 import streamlit as st
 
 from main import analyze_market_prompt
+from rewriter import suggest_resolvable_rewrites
 
 
 SAMPLE_QUESTIONS = [
@@ -103,7 +104,7 @@ def inject_styles() -> None:
             line-height: 1.6;
         }
 
-        .metric-card, .panel-card, .evidence-card, .tag-chip, .prompt-pill {
+        .metric-card, .panel-card, .evidence-card, .rewrite-card, .tag-chip, .prompt-pill {
             border: 1px solid var(--border);
             box-shadow: var(--shadow);
         }
@@ -212,6 +213,34 @@ def inject_styles() -> None:
             color: var(--ink);
             line-height: 1.6;
             font-size: 0.96rem;
+        }
+
+        .rewrite-card {
+            background: rgba(255,255,255,0.82);
+            border-radius: 20px;
+            padding: 0.95rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .rewrite-head {
+            color: var(--muted);
+            font-size: 0.8rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin-bottom: 0.3rem;
+        }
+
+        .rewrite-question {
+            color: var(--ink);
+            font-weight: 700;
+            line-height: 1.55;
+            margin-bottom: 0.45rem;
+        }
+
+        .rewrite-why {
+            color: var(--muted);
+            font-size: 0.92rem;
+            line-height: 1.5;
         }
 
         .mono-block {
@@ -374,6 +403,28 @@ def render_search_debug(search_debug) -> None:
             st.json(search_debug.simplified_context.model_dump())
 
 
+def render_rewrite_suggestions(suggestions) -> None:
+    if suggestions is None or not suggestions.suggestions:
+        st.info("No rewrite suggestions were generated.")
+        return
+
+    for idx, suggestion in enumerate(suggestions.suggestions, 1):
+        st.markdown(
+            f"""
+            <div class="rewrite-card">
+                <div class="rewrite-head">Suggestion {idx}</div>
+                <div class="rewrite-question">{escape(suggestion.rewritten_question)}</div>
+                <div class="rewrite-why">{escape(suggestion.why_clearer)}</div>
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )
+        st.code(suggestion.rewritten_question, language="text")
+
+    if suggestions.general_guidance:
+        panel_card("Rewrite Guidance", suggestions.general_guidance)
+
+
 def main() -> None:
     st.set_page_config(
         page_title="Ambiguity Risk Studio",
@@ -394,6 +445,8 @@ def main() -> None:
         use_few_shot = st.toggle("Use few-shot examples", value=True)
         use_web_search = st.toggle("Use web search", value=True)
         include_search_debug = st.toggle("Show search debug", value=True, disabled=not use_web_search)
+        generate_rewrites = st.toggle("Generate rewrite suggestions", value=True)
+        rewrite_count = st.slider("Rewrite suggestions", min_value=1, max_value=3, value=2)
 
         st.markdown("---")
         st.markdown("### Output Focus")
@@ -446,6 +499,25 @@ def main() -> None:
                 st.error(f"Analysis failed: {exc}")
                 return
 
+        rewrite_suggestions = None
+        if generate_rewrites:
+            with st.spinner("Generating clearer, more resolvable rewrites..."):
+                try:
+                    search_summary = (
+                        result.search_debug.simplified_context.summary
+                        if result.search_debug is not None
+                        else None
+                    )
+                    rewrite_suggestions = suggest_resolvable_rewrites(
+                        question=question.strip(),
+                        risk_tags=result.risk_tags,
+                        rationale=result.rationale,
+                        search_summary=search_summary,
+                        max_suggestions=rewrite_count,
+                    )
+                except Exception as exc:
+                    st.warning(f"Rewrite suggestion generation failed: {exc}")
+
         risk_score = result.risk_score
         level = (
             "Low clarity risk"
@@ -476,6 +548,11 @@ def main() -> None:
             panel_card("Rationale", result.rationale)
             st.markdown('<div class="panel-card"><div class="panel-title">Risk Tags</div></div>', unsafe_allow_html=True)
             render_tag_row(result.risk_tags)
+            st.markdown('<div class="panel-card"><div class="panel-title">Question Rewrite Suggestions</div></div>', unsafe_allow_html=True)
+            if generate_rewrites:
+                render_rewrite_suggestions(rewrite_suggestions)
+            else:
+                st.info("Enable 'Generate rewrite suggestions' from the sidebar to view improved market wording.")
 
         with right:
             search_summary = (

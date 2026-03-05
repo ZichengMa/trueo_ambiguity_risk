@@ -15,6 +15,7 @@ This system analyzes market questions for potential ambiguity, vagueness, or cla
 - ♻️ **Hot Reload Friendly**: Updating `examples.json` affects the next analysis call without code changes
 - 🛡️ **Safe Fallback**: Falls back to built-in examples if the JSON file is missing or invalid
 - 🌐 **Optional Web Search Evidence**: Can enrich scoring with Tavily search evidence when resolution criteria depend on real-world sources
+- ✍️ **Automatic Rewrite Suggestions**: Generates clearer, more resolvable versions of ambiguous market questions
 - 🔌 **Extensible**: Designed for web search integration and custom prompt iteration
 
 ## Installation
@@ -105,6 +106,7 @@ The UI supports:
 - few-shot toggle
 - web-search toggle
 - search-debug toggle
+- automatic rewrite suggestions
 - evidence cards for front-end-style display
 - raw/simplified search inspection for internal review
 
@@ -260,6 +262,7 @@ If `include_search_debug=True`, the JSON response additionally includes a `searc
 trueo_ambiguity_risk/
 ├── app.py               # Streamlit frontend
 ├── PLAN.md              # Design documentation
+├── TODO.md              # Paused and upcoming work items
 ├── README.md            # This file
 ├── requirements.txt     # Python dependencies
 ├── config.py            # Configuration settings
@@ -269,9 +272,11 @@ trueo_ambiguity_risk/
 ├── scorer.py            # Risk Scorer
 ├── main.py              # Main entry point
 ├── search.py            # Tavily search client and evidence formatter
+├── rewriter.py          # Automatic rewrite suggestion generator
 ├── few_shot_examples/   # Default few-shot examples loaded at runtime
 └── tests/               # Test cases
-    └── test_scorer.py
+    ├── test_scorer.py
+    └── test_rewriter.py
 ```
 
 ## Testing

@@ -185,6 +185,36 @@ class SearchDisplayEvidenceItem(BaseModel):
     display_reason: str = Field(..., description="Short explanation for why this evidence is useful")
 
 
+class RewriteSuggestionItem(BaseModel):
+    """
+    Single rewrite suggestion for a more resolvable market question.
+
+    Attributes:
+        rewritten_question: Suggested market question rewrite
+        why_clearer: Why this rewrite is easier to resolve objectively
+    """
+    rewritten_question: str = Field(..., description="Suggested rewritten market question")
+    why_clearer: str = Field(..., description="Brief explanation of why the rewrite is clearer")
+
+
+class RewriteSuggestions(BaseModel):
+    """
+    Collection of rewrite suggestions and optional guidance.
+
+    Attributes:
+        suggestions: Suggested rewritten questions
+        general_guidance: Optional high-level guidance
+    """
+    suggestions: List[RewriteSuggestionItem] = Field(
+        default_factory=list,
+        description="List of suggested rewritten questions"
+    )
+    general_guidance: Optional[str] = Field(
+        None,
+        description="Optional high-level guidance for writing resolvable questions"
+    )
+
+
 class MarketProposal(BaseModel):
     """
     Input model for a market proposal.
