@@ -1,0 +1,1202 @@
+[
+  {
+    "prompt": "Will Verizon (VZ) beat quarterly earnings?",
+    "link": "https://polymarket.com/event/vz-quarterly-earnings-nongaap-eps-04-27-2026-1pt21",
+    "risk_score": 18,
+    "reasons": "This is low risk because the trigger is numerical and the page points to a single authoritative source: Verizon’s official earnings documents. There is little room for interpretation beyond the reported non-GAAP EPS crossing the stated threshold."
+  },
+  {
+    "prompt": "Will Goldman Sachs (GS) beat quarterly earnings?",
+    "link": "https://polymarket.com/event/gs-quarterly-earnings-gaap-eps-04-13-2026-15pt95",
+    "risk_score": 18,
+    "reasons": "This is low risk because it resolves against a specific GAAP EPS threshold using Goldman Sachs’s official earnings release. The event is objective, time-bounded, and tied to a clearly named source."
+  },
+  {
+    "prompt": "Will Oracle (ORCL) beat quarterly earnings?",
+    "link": "https://polymarket.com/event/orcl-quarterly-earnings-nongaap-eps-03-09-2026-1pt71",
+    "risk_score": 19,
+    "reasons": "This market is low risk because it asks about a precise earnings number and uses Oracle’s official non-GAAP EPS as the resolution source. The rule is straightforward and leaves very little judgment to the resolver."
+  },
+  {
+    "prompt": "Will Strategy (MSTR) beat quarterly earnings?",
+    "link": "https://polymarket.com/event/mstr-quarterly-earnings-gaap-eps-10-30-2025-9pt67",
+    "risk_score": 20,
+    "reasons": "This is low risk because the outcome depends on a single company-reported GAAP EPS figure versus a fixed threshold. Company earnings filings make the resolution concrete and easy to verify."
+  },
+  {
+    "prompt": "Trump wins every swing state?",
+    "link": "https://polymarket.com/event/trump-wins-every-swing-state",
+    "risk_score": 24,
+    "reasons": "This market is relatively clear because it explicitly lists the relevant swing states and uses major election-call sources for resolution. The only modest risk is the possibility of delayed calls or recount-related timing issues, but the underlying condition is still objective."
+  },
+  {
+    "prompt": "Which party will win the Senate in 2026?",
+    "link": "https://polymarket.com/event/which-party-will-win-the-senate-in-2026",
+    "risk_score": 32,
+    "reasons": "This is on the lower-risk side because Senate control is a standard election outcome with official results. Some modest ambiguity can arise around independents, caucusing, or temporary post-election uncertainty, but the question is still much clearer than intent-based or subjective markets."
+  },
+  {
+    "prompt": "Maduro guilty of all counts?",
+    "link": "https://polymarket.com/event/maduro-guilty-of-all-counts",
+    "risk_score": 22,
+    "reasons": "This market is low risk because it resolves off a court verdict in a named indictment. Court outcomes are formal and well documented, so the main condition is clear even if the case timeline is uncertain."
+  },
+  {
+    "prompt": "Who will buy the Seattle Seahawks?",
+    "link": "https://polymarket.com/event/who-will-buy-the-seattle-seahawks-814",
+    "risk_score": 34,
+    "reasons": "This market is fairly clear because it specifies that a binding agreement to sell a majority interest must be publicly announced. It has a bit more risk than a pure numeric market because deal structures and announcements can be messy, but the page still gives a concrete threshold."
+  },
+  {
+    "prompt": "Will the Supreme Court rule on Trump's tariffs by the listed date?",
+    "link": "https://polymarket.com/event/will-the-supreme-court-rule-on-trumps-tarriffs-by",
+    "risk_score": 23,
+    "reasons": "This is low risk because the question points to an official Supreme Court ruling in a named case and even defines what counts as a ruling on the merits. That makes the resolution source and event boundary unusually clean."
+  },
+  {
+    "prompt": "Google (GOOGL) closes above the listed price on April 14?",
+    "link": "https://polymarket.com/event/googl-close-above-on-april-14-2026",
+    "risk_score": 15,
+    "reasons": "This is low risk because it uses the official closing price for a named stock on a named date. The market even addresses shortened sessions, so there is very little room for dispute."
+  },
+  {
+    "prompt": "Inflation in April 2026 (CPI YoY)?",
+    "link": "https://kalshi.com/markets/kxcpiyoy/inflation",
+    "risk_score": 14,
+    "reasons": "This is low risk because it resolves directly from the Bureau of Labor Statistics CPI release. The source is authoritative, the metric is standardized, and the settlement rule is numerical."
+  },
+  {
+    "prompt": "Highest temperature in Boston today?",
+    "link": "https://kalshi.com/markets/kxhightbos/boston-maximum-daily-temperature/kxhightbos-26apr13",
+    "risk_score": 12,
+    "reasons": "This market is low risk because it resolves from the National Weather Service daily climatological report. It uses a concrete observed temperature and a named source, so interpretation risk is minimal."
+  },
+  {
+    "prompt": "Fed rate cut in 2026?",
+    "link": "https://kalshi.com/markets/kxratecut/fed-rate-cut/kxratecut-26dec31",
+    "risk_score": 18,
+    "reasons": "This is low risk because Federal Reserve target-range changes are official and publicly announced. The event is institutionally defined and not dependent on fuzzy interpretation."
+  },
+  {
+    "prompt": "CPI core in January 2026?",
+    "link": "https://kalshi.com/markets/kxcpicore/cpi-core/kxcpicore-26jan",
+    "risk_score": 13,
+    "reasons": "This market is low risk because it resolves against a published BLS core CPI figure. It is quantitative, standardized, and tied to a single official data release."
+  },
+  {
+    "prompt": "Number of Fed rate changes before 2027",
+    "link": "https://kalshi.com/markets/kxfedchgcount/number-of-rate-changes/kxfedchgcount-27jan01",
+    "risk_score": 20,
+    "reasons": "This is low risk because the page defines what counts as a rate change and uses the Federal Reserve as the verification source. Counting official moves is much cleaner than interpreting political or social events."
+  },
+  {
+    "prompt": "Oscar for Best International Feature Film? (2026)",
+    "link": "https://kalshi.com/markets/kxoscarintlfilm/oscar-for-best-international-feature-film/kxoscarintlfilm-26",
+    "risk_score": 21,
+    "reasons": "This market is relatively clear because the Academy’s official award result is the settlement source. Awards can be uncertain to predict, but they are usually not ambiguous to resolve."
+  },
+  {
+    "prompt": "Jobs numbers in June 2026?",
+    "link": "https://kalshi.com/markets/kxpayrolls/jobs-numbers/kxpayrolls-26jun",
+    "risk_score": 15,
+    "reasons": "This is low risk because it resolves from the Bureau of Labor Statistics Employment Situation Report. The rule is numeric and data-driven, with a named official source."
+  },
+  {
+    "prompt": "PPI YoY > CPI YoY for 3+ consecutive months in 2026?",
+    "link": "https://kalshi.com/markets/kxppivscpi/ppi-yoy-exceeds-cpi-yoy-for-time-period/kxppivscpi-27feb01",
+    "risk_score": 24,
+    "reasons": "This market remains fairly low risk because it compares two official BLS series using an explicit time-window rule. It is a little more complex than a one-release market, but the settlement logic is still objective."
+  },
+  {
+    "prompt": "Will rates hit zero this year? (2026)",
+    "link": "https://kalshi.com/markets/kxzerorate/zero-rates/kxzerorate-2026",
+    "risk_score": 16,
+    "reasons": "This is low risk because it resolves from the official federal funds target range crossing a clearly stated boundary. The rule is binary and tied to a formal central-bank decision."
+  },
+  {
+    "prompt": "Bank of Korea rate decision in May 2026",
+    "link": "https://kalshi.com/markets/kxcbdecisionkorea/bank-of-korea-policy-interest-rate-decision/kxcbdecisionkorea-26may27",
+    "risk_score": 18,
+    "reasons": "This market is low risk because it resolves from the central bank’s official policy rate announcement. It is a formal institutional action with a clearly named source."
+  },
+  {
+    "prompt": "Which party will control the Senate after the 2026 election?",
+    "link": "https://www.predictit.org/markets/detail/8155/Which-party-will-control-the-Senate-after-the-2026-election",
+    "risk_score": 34,
+    "reasons": "This is relatively low risk because party control after an election is a standard political outcome. Some limited ambiguity can arise around caucusing or delayed certifications, but the core event is still well understood."
+  },
+  {
+    "prompt": "Who will win the 2028 Democratic presidential nomination?",
+    "link": "https://www.predictit.org/markets/detail/8153/Who-will-win-the-2028-Democratic-presidential-nomination",
+    "risk_score": 22,
+    "reasons": "This market is low risk because it resolves to the officially nominated candidate. Party nominations are formal events, so while forecasting is hard, settlement is usually clear."
+  },
+  {
+    "prompt": "Who will win the 2026 Iowa Democratic Senate nomination?",
+    "link": "https://www.predictit.org/markets/detail/8593/Who-will-win-the-2026-Iowa-Democratic-Senate-nomination",
+    "risk_score": 20,
+    "reasons": "This is low risk because the rule points to the winner of a specific nominating contest. The resolution event is formal and publicly documented."
+  },
+  {
+    "prompt": "Who will win the 2026 Massachusetts Democratic Senate nomination?",
+    "link": "https://www.predictit.org/markets/detail/8359/Who-will-win-the-2026-Massachusetts-Democratic-Senate-nomination",
+    "risk_score": 20,
+    "reasons": "This market is low risk because it resolves to the official winner of a named primary contest. That makes the outcome clear even if the political race itself is uncertain."
+  },
+  {
+    "prompt": "Who will win the 2026 Maine Democratic Senate nomination?",
+    "link": "https://www.predictit.org/markets/detail/8256/Who-will-win-the-2026-Maine-Democratic-Senate-nomination",
+    "risk_score": 21,
+    "reasons": "This is low risk because it resolves based on a formal party nomination outcome. The wording maps closely to a standard election-process milestone, which keeps settlement relatively clean."
+  },
+  {
+    "prompt": "Will Israel invade Syria in 2024?",
+    "link": "https://polymarket.com/event/will-israel-invade-syria-in-2024",
+    "risk_score": 82,
+    "reasons": "This is high risk because “invade” depends on subjective judgments about military intent and territorial control rather than a single observable trigger. Limited incursions, raids, or temporary occupations can create gray areas that are hard to classify consistently."
+  },
+  {
+    "prompt": "Will Israel invade Lebanon in September?",
+    "link": "https://polymarket.com/event/will-israel-invade-lebanon-in-september",
+    "risk_score": 89,
+    "reasons": "This is very risky because it hinges on whether operations were intended to establish control, which is hard to prove cleanly from public reporting. Even the time framing can create confusion if the headline and formal rule window do not line up intuitively."
+  },
+  {
+    "prompt": "Will RFK drop out before November?",
+    "link": "https://polymarket.com/event/will-rfk-drop-out-before-november",
+    "risk_score": 76,
+    "reasons": "This market is risky because “drop out” can mean different things for an independent candidate, such as suspending campaigning, endorsing someone else, or formally withdrawing. Public messaging and legal ballot status do not always move together, which creates edge cases."
+  },
+  {
+    "prompt": "Will the US strike Iraq by February 28?",
+    "link": "https://polymarket.com/event/us-strikes-iraq-by-february-28",
+    "risk_score": 91,
+    "reasons": "This is very risky because military actions can be indirect, deniable, or ambiguously attributed, making “US strike” difficult to pin down. Fast-breaking conflict reporting also increases the chance of disputed timing and source interpretation."
+  },
+  {
+    "prompt": "IDF entering Lebanon by the end of September",
+    "link": "https://polymarket.com/event/israeli-forces-enters-lebanon-in-september",
+    "risk_score": 86,
+    "reasons": "This looks more concrete than “invade,” but it is still risky because even a small raid or brief cross-border operation could technically count. Fragmented reporting and unclear confirmation standards make the threshold easy to contest."
+  },
+  {
+    "prompt": "Will Eleven die in Stranger Things season 5?",
+    "link": "https://polymarket.com/event/who-will-die-in-stranger-things-season-5",
+    "risk_score": 85,
+    "reasons": "This is high risk because fictional deaths are often written ambiguously, especially in finales or cliffhangers. If the story leaves room for interpretation, the market can turn into an argument about narrative intent rather than a clean fact."
+  },
+  {
+    "prompt": "Epstein blackmail evidence released in 2025",
+    "link": "https://polymarket.com/event/epstein-blackmail-files-released-in-2025",
+    "risk_score": 88,
+    "reasons": "This market is very risky because it depends on what counts as “blackmail evidence,” which is a strict but interpretive standard. Real-world document releases often contain suggestive but incomplete material that can split opinion on whether the threshold was met."
+  },
+  {
+    "prompt": "Lord Miles completes 40-day water fast in the desert",
+    "link": "https://polymarket.com/event/lord-miles-completes-40-day-water-fast-in-the-dessert",
+    "risk_score": 94,
+    "reasons": "This is extremely risky because the event depends on informal verification of a personal challenge with no obvious authoritative source. Definitions of completion, monitoring, and allowed conditions are all vulnerable to dispute."
+  },
+  {
+    "prompt": "Fact Check: Maduro capture staged?",
+    "link": "https://polymarket.com/event/fact-check-maduro-capture-staged",
+    "risk_score": 92,
+    "reasons": "This market is highly risky because “staged” is a fuzzy, evidentiary concept rather than a single official event. It invites retrospective interpretation of reports, leaks, and narratives instead of resolving against a simple public record."
+  },
+  {
+    "prompt": "Will the U.S. invade Iran before 2027?",
+    "link": "https://polymarket.com/event/will-the-us-invade-iran-before-2027",
+    "risk_score": 90,
+    "reasons": "This is very risky because the rule turns on a military offensive intended to establish control, which requires reading intent from messy conflict reporting. Border strikes, raids, and temporary occupations can all generate major classification fights."
+  },
+  {
+    "prompt": "Will the U.S. invade a Latin American country in 2026?",
+    "link": "https://polymarket.com/event/will-the-us-invade-a-latin-american-country-in-2026",
+    "risk_score": 89,
+    "reasons": "This is high risk for the same reason as other invasion markets: the settlement depends on intent and control, not just on troops crossing a border. The category “Latin American country” also creates extra room for territorial and sovereignty edge cases."
+  },
+  {
+    "prompt": "Iran leadership change by the listed date?",
+    "link": "https://polymarket.com/event/iran-leadership-change-by",
+    "risk_score": 84,
+    "reasons": "This is risky because it uses the concept of a “de facto leader,” which can be politically and institutionally murky. Power can shift informally before it shifts officially, and that makes the exact trigger hard to define."
+  },
+  {
+    "prompt": "Iran leadership change or US x Iran ceasefire first?",
+    "link": "https://polymarket.com/event/iran-leadership-change-or-us-x-iran-ceasefire-first",
+    "risk_score": 87,
+    "reasons": "This market is risky because both legs of the race involve contested definitions: “de facto leader” on one side and “official ceasefire agreement” on the other. If either event is partial, delayed, or ambiguously announced, settlement can become contentious."
+  },
+  {
+    "prompt": "Mohammed bin Salman out as leader of Saudi Arabia by the listed date?",
+    "link": "https://polymarket.com/event/mohammed-bin-salman-out-as-leader-of-saudi-arabia-by",
+    "risk_score": 83,
+    "reasons": "This is risky because it is built around de facto leadership rather than a single constitutional office change. In systems where formal titles and actual power can diverge, resolution is especially vulnerable to interpretation."
+  },
+  {
+    "prompt": "Hamad bin Isa Al Khalifa out as leader of Bahrain by the listed date?",
+    "link": "https://polymarket.com/event/hamad-bin-isa-al-khalifa-out-as-bahrain-king",
+    "risk_score": 80,
+    "reasons": "This market is risky because the moment someone ceases to be the country’s effective leader can be politically fuzzy even if legal titles remain in place. Consensus-of-reporting standards make that fuzziness more important, not less."
+  },
+  {
+    "prompt": "Travis Hunter and GF break up before Draft?",
+    "link": "https://polymarket.com/event/travis-hunter-and-gf-break-up-before-nfl-draft",
+    "risk_score": 88,
+    "reasons": "This is highly risky because romantic relationship status is not a formal public fact and may be intentionally private or ambiguous. The rule itself admits uncertainty by referring to the “stronger argument” from credible reporting."
+  },
+  {
+    "prompt": "Will Jude Bellingham break up with his GF before April?",
+    "link": "https://polymarket.com/event/will-jude-bellingham-break-up-with-his-gf-before-april-2025",
+    "risk_score": 87,
+    "reasons": "This market is risky for the same reason as other celebrity-relationship markets: relationship status is often unclear, undeclared, or selectively public. That makes the final call depend on interpretation of gossip reporting and social signals."
+  },
+  {
+    "prompt": "Who will die on The White Lotus (S3)?",
+    "link": "https://polymarket.com/event/who-will-die-on-the-white-lotus-s3",
+    "risk_score": 90,
+    "reasons": "This is very risky because the market explicitly says unclear cases go to whichever side has the stronger argument after the episodes air. That is a direct sign that narrative ambiguity is expected and that settlement may hinge on interpretation."
+  },
+  {
+    "prompt": "Who will die in The Boys: Season 5?",
+    "link": "https://polymarket.com/event/who-will-die-in-the-boys-season-5",
+    "risk_score": 84,
+    "reasons": "This market is risky because fictional deaths can be reversible, off-screen, or deliberately ambiguous. Even when the rule looks simple, genre storytelling creates many edge cases about whether a character truly died during the season."
+  },
+  {
+    "prompt": "Will China invade Taiwan by end of 2026?",
+    "link": "https://polymarket.com/event/will-china-invade-taiwan-before-2027",
+    "risk_score": 91,
+    "reasons": "This is very risky because the market depends on whether China begins an offensive intended to establish control over qualifying territory. Military escalation can fall into a wide gray zone between blockade, raid, seizure, and full invasion."
+  },
+  {
+    "prompt": "Will AI resolve this market yes?",
+    "link": "https://manifold.markets/100Anonymous/will-ai-resolve-this-market-yes",
+    "risk_score": 95,
+    "reasons": "This is extremely risky because the resolver is itself an AI system that can be influenced by hidden context and side-channel behavior. The outcome depends less on a real-world event than on an opaque adjudication process."
+  },
+  {
+    "prompt": "This market will resolve yes in 24 hours",
+    "link": "https://manifold.markets/agi202something/this-market-will-resolve-yes-in-24-5RNqI2R5Oz",
+    "risk_score": 96,
+    "reasons": "This is extremely risky because the title and intended resolution are self-referential and time-sensitive, which creates obvious interpretation traps. Even small deviations in timing or meaning can flip the result."
+  },
+  {
+    "prompt": "Eleven dies in Stranger Things: Season 5",
+    "link": "https://manifold.markets/ookina_inu/eleven-dies-in-stranger-things-seas",
+    "risk_score": 93,
+    "reasons": "This is highly risky because the creator’s own clarification discusses NA, YES, NO, and even 50% as plausible resolutions, which signals deep ambiguity. When multiple reasonable settlement modes are on the table, the market design itself is unstable."
+  },
+  {
+    "prompt": "If AI wipes out humanity, which organization(s) will be responsible?",
+    "link": "https://manifold.markets/IhorKendiukhov/if-ai-wipes-out-humanity-which-orga",
+    "risk_score": 98,
+    "reasons": "This is extremely risky because it asks a counterfactual, causal-attribution question about a hypothetical extinction event. Even the detailed rules cannot remove the enormous subjectivity in deciding which organization was 'most causally responsible.'"
+  },
+  {
+    "prompt": "When will the AI bubble crash?",
+    "link": "https://manifold.markets/life/when-will-the-ai-bubble-crash",
+    "risk_score": 90,
+    "reasons": "This is highly risky because “AI bubble crash” is not a standardized event and the linked discussion itself points out structural problems with the market setup. If the event can happen outside the provided buckets or not happen at all, the design is inherently contentious."
+  },
+  {
+    "prompt": "Will Microsoft (MSFT) beat quarterly earnings?",
+    "link": "https://polymarket.com/event/msft-quarterly-earnings-gaap-eps-01-28-2026-3pt85",
+    "risk_score": 20,
+    "reasons": "This is low risk because it resolves from a specific GAAP EPS figure in Microsoft’s official earnings materials. The threshold is numeric, the source is authoritative, and the event is straightforward to verify."
+  },
+  {
+    "prompt": "Will NVIDIA (NVDA) beat quarterly earnings?",
+    "link": "https://polymarket.com/event/nvda-quarterly-earnings-nongaap-eps-02-25-2026-1pt52",
+    "risk_score": 18,
+    "reasons": "This market is low risk because it uses a single non-GAAP EPS threshold from NVIDIA’s official earnings release. There is very little room for interpretation once the company publishes the relevant figure."
+  },
+  {
+    "prompt": "Will Moody's (MCO) beat quarterly earnings?",
+    "link": "https://polymarket.com/event/mco-quarterly-earnings-nongaap-eps-04-22-2026-4pt32",
+    "risk_score": 18,
+    "reasons": "This is low risk because the outcome turns on a specific non-GAAP EPS number in Moody’s official earnings documents. The rule is numerical and anchored to a clearly defined company source."
+  },
+  {
+    "prompt": "Will Best Buy (BBY) beat quarterly earnings?",
+    "link": "https://polymarket.com/event/bby-quarterly-earnings-nongaap-eps-03-03-2026-2pt47",
+    "risk_score": 19,
+    "reasons": "This is low risk because it resolves against a fixed earnings threshold using Best Buy’s own reported number. Company filings make the trigger objective and easy to confirm."
+  },
+  {
+    "prompt": "Will BuzzFeed (BZFD) beat quarterly earnings?",
+    "link": "https://polymarket.com/event/bzfd-quarterly-earnings-gaap-eps-03-12-2026-0pt03",
+    "risk_score": 20,
+    "reasons": "This market is low risk because the settlement depends on a single GAAP EPS figure from BuzzFeed’s official earnings release. The rules are numerical and leave minimal room for judgment."
+  },
+  {
+    "prompt": "Will Bank First (BFC) beat quarterly earnings?",
+    "link": "https://polymarket.com/event/bfc-quarterly-earnings-gaap-eps-01-20-2026-1pt8",
+    "risk_score": 19,
+    "reasons": "This is low risk because it resolves from Bank First’s reported GAAP EPS relative to a fixed threshold. The outcome is data-driven and tied to a single company source."
+  },
+  {
+    "prompt": "Will General Dynamics (GD) beat quarterly earnings?",
+    "link": "https://polymarket.com/event/gd-quarterly-earnings-gaap-eps-04-22-2026-3pt67",
+    "risk_score": 19,
+    "reasons": "This market is low risk because the rule is a direct comparison between General Dynamics’ reported GAAP EPS and a stated threshold. Official earnings documents make settlement concrete."
+  },
+  {
+    "prompt": "Will State Street (STT) beat quarterly earnings?",
+    "link": "https://polymarket.com/event/stt-quarterly-earnings-gaap-eps-01-16-2026-2pt67",
+    "risk_score": 18,
+    "reasons": "This is low risk because it uses a specific GAAP EPS number from State Street’s official release. The trigger is objective and the settlement source is clear."
+  },
+  {
+    "prompt": "Will Coinbase Global (COIN) beat quarterly earnings?",
+    "link": "https://polymarket.com/event/coin-quarterly-earnings-gaap-eps-02-12-2026-0pt61",
+    "risk_score": 19,
+    "reasons": "This is low risk because the rule asks whether Coinbase reports GAAP EPS above a fixed threshold in its official earnings materials. The event is numerical and verifiable."
+  },
+  {
+    "prompt": "Will Shopify (SHOP) beat quarterly earnings?",
+    "link": "https://polymarket.com/event/shop-quarterly-earnings-gaap-eps-11-04-2025-0pt25",
+    "risk_score": 20,
+    "reasons": "This market is low risk because it resolves against a clearly stated GAAP EPS threshold from Shopify’s official earnings report. There is little ambiguity once the company publishes the figure."
+  },
+  {
+    "prompt": "Highest temperature in NYC today?",
+    "link": "https://kalshi.com/markets/kxhighny/highest-temperature-in-nyc",
+    "risk_score": 12,
+    "reasons": "This is low risk because it resolves from an official observed high temperature for a named city and day. The outcome is purely numerical and tied to a standard weather source."
+  },
+  {
+    "prompt": "Amazon (AMZN) Up or Down on April 14?",
+    "link": "https://polymarket.com/event/amzn-up-or-down-on-april-14-2026",
+    "risk_score": 17,
+    "reasons": "This market is low risk because it resolves from a simple up-or-down stock move on a named trading day. Official market data makes the outcome straightforward to determine."
+  },
+  {
+    "prompt": "Meta (META) closes above ___ on April 1?",
+    "link": "https://polymarket.com/event/meta-close-above-on-april-1-2026",
+    "risk_score": 16,
+    "reasons": "This is low risk because it resolves directly from Meta’s official closing price on a specific date. The trigger is numerical and cleanly observable."
+  },
+  {
+    "prompt": "Amazon (AMZN) closes above ___ on April 1?",
+    "link": "https://polymarket.com/event/amzn-close-above-on-april-1-2026",
+    "risk_score": 16,
+    "reasons": "This is low risk because settlement depends on a single end-of-day stock price. There is almost no interpretation required beyond reading the official close."
+  },
+  {
+    "prompt": "Meta (META) closes above ___ on April 2?",
+    "link": "https://polymarket.com/event/meta-close-above-on-april-2-2026",
+    "risk_score": 16,
+    "reasons": "This market is low risk because it resolves from a concrete closing-price observation on a named day. It uses standard market data rather than fuzzy real-world reporting."
+  },
+  {
+    "prompt": "Amazon (AMZN) closes above ___ on March 31?",
+    "link": "https://polymarket.com/event/amzn-close-above-on-march-31-2026",
+    "risk_score": 16,
+    "reasons": "This is low risk because the outcome is tied to Amazon’s official closing price on a specific date. The settlement event is objective and easy to verify."
+  },
+  {
+    "prompt": "Microsoft (MSFT) closes above ___ on March 31?",
+    "link": "https://polymarket.com/event/msft-close-above-on-march-31-2026",
+    "risk_score": 16,
+    "reasons": "This market is low risk because it resolves from a single observable stock close. The event is precise, time-bounded, and based on standard price data."
+  },
+  {
+    "prompt": "Highest temperature in San Antonio today?",
+    "link": "https://kalshi.com/markets/kxhightsatx/san-antonio-daily-maximum-temperature",
+    "risk_score": 12,
+    "reasons": "This is low risk because it resolves from an official observed weather reading for a named city and day. The settlement source is standardized and the condition is purely numerical."
+  },
+  {
+    "prompt": "Massachusetts Governor winner?",
+    "link": "https://kalshi.com/markets/govpartyma/massachusetts-governor/govpartyma-26",
+    "risk_score": 30,
+    "reasons": "This is relatively low risk because it resolves to which party’s candidate is inaugurated as governor after a formal election. The result is institutionally defined and publicly documented."
+  },
+  {
+    "prompt": "Which party will win the U.S. Senate?",
+    "link": "https://kalshi.com/markets/controls/senate-winner/controls-2026",
+    "risk_score": 28,
+    "reasons": "This market is relatively low risk because Senate control is a standard political outcome with official post-election verification. Some modest complexity can arise around delayed certifications or caucusing, but the core event is still clear."
+  },
+  {
+    "prompt": "How many House incumbents will not seek re-election by March 1?",
+    "link": "https://kalshi.com/markets/kxnotseekreelection/how-many-house-incumbents-will-not-seek-reelection/kxnotseekreelection-26mar01",
+    "risk_score": 26,
+    "reasons": "This is fairly low risk because it counts a defined set of incumbents using a named outside source. The market is more complex than a single binary event, but the rule still maps to a concrete tally."
+  },
+  {
+    "prompt": "Which party will win the U.S. House?",
+    "link": "https://kalshi.com/markets/controlh/house-winner/controlh-2026",
+    "risk_score": 28,
+    "reasons": "This is relatively low risk because House control is a formal institutional outcome that can be verified from official records. Edge cases exist, but the settlement standard is still much cleaner than subjective or intent-based markets."
+  },
+  {
+    "prompt": "How many Governors will lose reelection this year?",
+    "link": "https://kalshi.com/markets/kxlosereelectiongov/governors-losing-reelection/kxlosereelectiongov-2026",
+    "risk_score": 30,
+    "reasons": "This market is relatively low risk because it counts a defined class of election outcomes using explicit conditions about seeking reelection and losing. It is slightly more complex than a one-event market, but still grounded in official results."
+  },
+  {
+    "prompt": "Vermont Governor winner?",
+    "link": "https://kalshi.com/markets/govpartyvt/vermont-governor/govpartyvt-26",
+    "risk_score": 29,
+    "reasons": "This is relatively low risk because it resolves to which party’s candidate is inaugurated governor after the election. The trigger is public, formal, and easy to verify."
+  },
+  {
+    "prompt": "Ohio Governor winner?",
+    "link": "https://kalshi.com/markets/govpartyoh/ohio-governor/govpartyoh-26",
+    "risk_score": 29,
+    "reasons": "This market is relatively low risk because it resolves from a formal gubernatorial election outcome. The event is clear and documented through official state results."
+  },
+  {
+    "prompt": "Will the Iranian regime fall before 2027?",
+    "link": "https://polymarket.com/event/will-the-iranian-regime-fall-by-the-end-of-2026",
+    "risk_score": 86,
+    "reasons": "This is highly risky because “regime fall” depends on broad, contestable judgments about continuity of governance and de facto control rather than a single official trigger. It relies on consensus reporting and leaves many coup, succession, and partial-collapse edge cases."
+  },
+  {
+    "prompt": "Will the Iranian regime fall by April 30?",
+    "link": "https://polymarket.com/event/will-the-iranian-regime-fall-by-april-30",
+    "risk_score": 85,
+    "reasons": "This is highly risky because it asks whether a complex regime-collapse threshold is crossed by a fixed date, which requires interpreting messy political realities through public reporting. The definition is more structured than a headline alone, but still leaves substantial room for dispute."
+  },
+  {
+    "prompt": "Will the Iranian regime fall by May 31?",
+    "link": "https://polymarket.com/event/will-the-iranian-regime-fall-by-may-31",
+    "risk_score": 85,
+    "reasons": "This market is highly risky because “regime fall” is not a single institutionally certified event. Power can fragment, transfer informally, or appear to collapse without meeting the market’s threshold, making resolution heavily dependent on interpretation."
+  },
+  {
+    "prompt": "Will Israel or Iran break the ceasefire first?",
+    "link": "https://polymarket.com/event/will-israel-or-iran-break-the-ceasefire-first",
+    "risk_score": 84,
+    "reasons": "This is high risk because ceasefire violations are often partial, disputed, or attributed differently by competing sources. The market also requires deciding both whether a breach occurred and which side is properly credited first."
+  },
+  {
+    "prompt": "Was the shooter a Democrat or Republican?",
+    "link": "https://polymarket.com/event/was-the-shooter-a-democrat-or-republican",
+    "risk_score": 87,
+    "reasons": "This is highly risky because partisan identity is not always an objective, public, single-source fact. Registration, donations, self-identification, and media characterization can diverge, creating obvious resolution fights."
+  },
+  {
+    "prompt": "Russia x Ukraine ceasefire before October?",
+    "link": "https://polymarket.com/event/russia-x-ukraine-ceasefire-before-october",
+    "risk_score": 80,
+    "reasons": "This is high risk because ceasefires can be informal, partial, local, temporary, or quickly violated. That makes the difference between a real ceasefire and a diplomatic headline much harder to adjudicate cleanly."
+  },
+  {
+    "prompt": "Will the U.S. invade Iran in 2025?",
+    "link": "https://polymarket.com/event/will-the-us-invade-iran-in-2025",
+    "risk_score": 89,
+    "reasons": "This is highly risky because “invade” depends on intent and territorial control rather than a simple observable military action. Limited raids, strikes, or temporary deployments create major gray areas."
+  },
+  {
+    "prompt": "Will John Green's next book be fiction?",
+    "link": "https://manifold.markets/Conflux/will-john-greens-next-book-be-ficti",
+    "risk_score": 72,
+    "reasons": "This is risky because the market explicitly says ambiguous cases will be settled by the creator’s best judgment. Genre boundaries can also blur for hybrid or loosely categorized works, which makes the trigger less clean than it first appears."
+  },
+  {
+    "prompt": "Will the ARC-AGI grand prize be claimed by an LLM-like model?",
+    "link": "https://manifold.markets/Tossup/will-the-arcagi-grand-prize-be-clai-t2or6lg54g",
+    "risk_score": 84,
+    "reasons": "This market is highly risky because it relies on fuzzy category judgments about what counts as sufficiently “LLM-like,” with the creator explicitly reserving discretion for ambiguity. The concept being tested is technical and interpretive rather than institutionally defined."
+  },
+  {
+    "prompt": "Will Sparse Autoencoders be successfully used on a frontier model?",
+    "link": "https://manifold.markets/NeelNanda/will-sparse-autoencoders-be-success",
+    "risk_score": 78,
+    "reasons": "This is risky because “successfully used” is evaluative, not binary, and the market text leaves room for best-judgment interpretation. Research outcomes often improve incrementally, which makes thresholds of success easy to dispute."
+  },
+  {
+    "prompt": "Will LLMs mostly overcome the Reversal Curse by the end of 2024?",
+    "link": "https://manifold.markets/DanielEth/will-llms-mostly-overcome-the-rever",
+    "risk_score": 80,
+    "reasons": "This market is high risk because “mostly overcome” is inherently subjective, and the creator explicitly notes that legitimate ambiguity could lead to N/A. Evaluating model capability across messy evidence adds another layer of judgment."
+  },
+  {
+    "prompt": "Will models be able to do the work of an AI researcher by 2027?",
+    "link": "https://manifold.markets/Tossup/lasa-will-models-be-able-to-do-the",
+    "risk_score": 88,
+    "reasons": "This is highly risky because it asks about the full bundle of duties of a changing job category and explicitly relies on the creator’s best judgment. The question is broad, future-facing, and highly sensitive to interpretation."
+  },
+  {
+    "prompt": "Is Attention All You Need?",
+    "link": "https://manifold.markets/Sss19971997/is-attention-all-you-need",
+    "risk_score": 90,
+    "reasons": "This market is extremely risky because the title is rhetorical and the settlement discussion itself suggests uncertainty about what source or standard should govern resolution. The core proposition is not naturally binary in the first place."
+  },
+  {
+    "prompt": "Claude Sonnet 5 released this week?",
+    "link": "https://manifold.markets/Bayesian/claude-sonnet-5-released-this-week",
+    "risk_score": 68,
+    "reasons": "This is risky because even the date boundary is treated as ambiguous in the rules, with Sunday and timezone edge cases explicitly called out. That makes the calendar trigger less clean than a standard release market."
+  },
+  {
+    "prompt": "Is the SHOW-1 model fake?",
+    "link": "https://manifold.markets/PabloVillalobos227d/is-the-show1-model-fake",
+    "risk_score": 86,
+    "reasons": "This is highly risky because “fake” is a fuzzy accusation rather than a standardized event, and the creator admits the criteria are vague. Evidence can be partial or contested, which invites subjective adjudication."
+  },
+  {
+    "prompt": "What will happen in 2026 related to AI?",
+    "link": "https://manifold.markets/mr_mino/what-will-happen-in-2026-related-to",
+    "risk_score": 92,
+    "reasons": "This is extremely risky because it bundles many different AI subclaims and explicitly says ambiguity will be settled by best judgment. Multi-part creator-resolved markets are especially prone to interpretation disputes."
+  },
+  {
+    "prompt": "When will the AWS UAE outage be recovered?",
+    "link": "https://manifold.markets/wylderai/when-will-the-aws-uae-outage-be-rec",
+    "risk_score": 73,
+    "reasons": "This is risky because “fully healthy” is not a single official milestone and the creator says they will use best judgment across multiple sources. Operational recovery can be gradual and uneven, which makes exact settlement timing contestable."
+  },
+  {
+    "prompt": "April 2026 AI model releases",
+    "link": "https://manifold.markets/prismatic/april-2026-ai-model-releases",
+    "risk_score": 78,
+    "reasons": "This market is risky because it includes model-identity and timing edge cases and explicitly notes creator discretion for ambiguous release naming. Leaks, rebrands, and partial launches create many borderline scenarios."
+  },
+  {
+    "prompt": "Will there be a Luigi Mangione copycat before Jan 1, 2026",
+    "link": "https://manifold.markets/FrisbeeFilosophy/will-there-be-a-luigi-mangione-copy",
+    "risk_score": 82,
+    "reasons": "This is high risk because it requires judging whether a later act is sufficiently a “copycat,” which is an interpretive social label rather than a formal status. The rule also leans on hypothetical charging judgments if the perpetrator is uncaught."
+  },
+  {
+    "prompt": "Was seizure of the devices of Shayne Coplan, Polymarket CEO, politically motivated?",
+    "link": "https://manifold.markets/CKLorentzen/was-arrest-of-shayne-coplan-polymar",
+    "risk_score": 88,
+    "reasons": "This is highly risky because political motivation is not directly observable and typically has to be inferred from reporting and context. The creator’s best-judgment approach makes the settlement especially subjective."
+  },
+  {
+    "prompt": "Will GPT-5 involve a model router?",
+    "link": "https://manifold.markets/Bayesian/will-gpt5-involve-a-model-router",
+    "risk_score": 73,
+    "reasons": "This is risky because the technical feature in question may be partly hidden, marketed differently, or only indirectly inferable from product behavior. The rules themselves acknowledge ambiguity and possible N/A cases."
+  },
+  {
+    "prompt": "What distinguishes sweepstakes from illegal gambling?",
+    "link": "https://manifold.markets/ChristopherRandles/what-distinguishes-sweepstakes-from",
+    "risk_score": 95,
+    "reasons": "This is extremely risky because it is framed as a conceptual and legal distinction rather than a single external event. The creator discussion suggests best-judgment resolution tied to evolving platform circumstances, which makes settlement highly subjective."
+  },
+  {
+    "prompt": "What will the Hamas Disarmament Agreement Document include?",
+    "link": "https://manifold.markets/MiguelLM/what-will-the-hamas-disarmament-agr",
+    "risk_score": 88,
+    "reasons": "This is highly risky because it depends on whether a formal agreement is published at all and then on exact document wording. The multi-option structure and text-parsing criteria create many opportunities for borderline interpretation fights."
+  },
+  {
+    "prompt": "Will Polish Americans vote for the winner of the 2024 US Presidential Election?",
+    "link": "https://manifold.markets/diracdeltafunk/will-polish-americans-vote-for-the",
+    "risk_score": 76,
+    "reasons": "This is risky because it depends on polling or studies rather than a single authoritative election tabulation, and the creator says they will use best judgment with community input. Data availability and representativeness can both be contested."
+  },
+  {
+    "prompt": "Gemini 3.0 Prop Bets",
+    "link": "https://manifold.markets/Bayesian/gemini-30-prop-bets",
+    "risk_score": 82,
+    "reasons": "This is high risk because it groups several ambiguous release-related claims and explicitly allows N/A if interpretation gets murky. Product-launch timing and feature-availability questions are especially vulnerable to semantic disputes."
+  },
+  {
+    "prompt": "Will AMD (AMD) close above the listed price on April 13?",
+    "link": "https://polymarket.com/event/amd-close-above-on-april-13-2026",
+    "risk_score": 16,
+    "reasons": "This is low risk because it resolves from AMD’s official closing price on a specific trading day. The trigger is numerical and does not depend on subjective interpretation."
+  },
+  {
+    "prompt": "Will Amazon (AMZN) close above the listed price on April 10?",
+    "link": "https://polymarket.com/event/amzn-close-above-on-april-10-2026",
+    "risk_score": 16,
+    "reasons": "This is low risk because settlement depends on a single observable closing price for AMZN on a named date. Standard market data makes the outcome easy to verify."
+  },
+  {
+    "prompt": "Will NVIDIA (NVDA) close above the listed price on April 10?",
+    "link": "https://polymarket.com/event/nvda-close-above-on-april-10-2026",
+    "risk_score": 16,
+    "reasons": "This is low risk because it resolves directly from NVDA’s official closing price on a specific date. The market is precise, numerical, and source-clean."
+  },
+  {
+    "prompt": "Will Apple (AAPL) be up or down on April 10?",
+    "link": "https://polymarket.com/event/aapl-up-or-down-on-april-10-2026",
+    "risk_score": 16,
+    "reasons": "This is low risk because it resolves from a simple up-or-down stock move on a named trading day. The event is objective and based on standard exchange data."
+  },
+  {
+    "prompt": "Will Boeing (BA) close above the listed price on April 10?",
+    "link": "https://polymarket.com/event/ba-close-above-on-april-10-2026",
+    "risk_score": 16,
+    "reasons": "This is low risk because it depends only on Boeing’s official closing price on a specific day. There is almost no room for interpretation in settlement."
+  },
+  {
+    "prompt": "Will Boeing (BA) beat quarterly earnings?",
+    "link": "https://polymarket.com/event/ba-quarterly-earnings-gaap-eps-04-23-2025-1pt38",
+    "risk_score": 20,
+    "reasons": "This is low risk because it resolves against a specific GAAP EPS threshold in Boeing’s official earnings materials. The source and metric are both clearly defined."
+  },
+  {
+    "prompt": "Will Bullish (BLSH) beat quarterly earnings?",
+    "link": "https://polymarket.com/event/blsh-quarterly-earnings-gaap-eps-11-06-2025-0pt13",
+    "risk_score": 20,
+    "reasons": "This market is low risk because it compares a company-reported GAAP EPS figure to a fixed threshold. Earnings filings make the trigger objective and verifiable."
+  },
+  {
+    "prompt": "Will CME Group (CME) beat quarterly earnings?",
+    "link": "https://polymarket.com/event/cme-quarterly-earnings-gaap-eps-02-12-2025-2pt48",
+    "risk_score": 19,
+    "reasons": "This is low risk because settlement comes from CME’s reported GAAP EPS relative to a stated threshold. It is a standard official-source earnings market."
+  },
+  {
+    "prompt": "Will Deutsche Bank (DB) beat quarterly earnings?",
+    "link": "https://polymarket.com/event/db-quarterly-earnings-gaap-eps-10-29-2025-0pt65",
+    "risk_score": 20,
+    "reasons": "This market is low risk because it resolves from Deutsche Bank’s reported GAAP EPS and a fixed threshold. The outcome is numerical and company-sourced."
+  },
+  {
+    "prompt": "Will Maple Leaf Foods (MFI) beat quarterly earnings?",
+    "link": "https://polymarket.com/event/mfi-quarterly-earnings-nongaap-eps-11-13-2025-0pt4",
+    "risk_score": 20,
+    "reasons": "This is low risk because it resolves from Maple Leaf Foods’ non-GAAP EPS versus a stated threshold. The rule is straightforward and tied to official financial reporting."
+  },
+  {
+    "prompt": "Will Bank7 (BSVN) beat quarterly earnings?",
+    "link": "https://polymarket.com/event/bsvn-quarterly-earnings-gaap-eps-01-16-2026-1pt1",
+    "risk_score": 19,
+    "reasons": "This is low risk because it asks whether Bank7 reports GAAP EPS above a fixed threshold. Official earnings documents keep the settlement clean."
+  },
+  {
+    "prompt": "Will Meta (META) be up or down on April 10?",
+    "link": "https://polymarket.com/event/meta-up-or-down-on-april-10-2026",
+    "risk_score": 16,
+    "reasons": "This market is low risk because it resolves from a simple stock-direction result on a specific date. The outcome is determined by standard price data rather than interpretation."
+  },
+  {
+    "prompt": "Will Google (GOOGL) be up or down on April 10?",
+    "link": "https://polymarket.com/event/googl-up-or-down-on-april-10-2026",
+    "risk_score": 16,
+    "reasons": "This is low risk because the market asks only whether GOOGL finishes up or down on a named day. Standard market data makes the resolution unambiguous."
+  },
+  {
+    "prompt": "Highest temperature in Los Angeles today?",
+    "link": "https://kalshi.com/markets/kxhighlax",
+    "risk_score": 12,
+    "reasons": "This is low risk because it resolves from an official observed high temperature for Los Angeles. The event is purely numerical and tied to standard weather data."
+  },
+  {
+    "prompt": "Highest temperature in Washington, DC today?",
+    "link": "https://kalshi.com/markets/kxhightdc/washington-dc-daily-max-temp/kxhightdc-26apr13",
+    "risk_score": 12,
+    "reasons": "This is low risk because it resolves from an official observed high temperature in Washington, DC on a named day. The rule is purely data-driven."
+  },
+  {
+    "prompt": "Highest temperature in Houston tomorrow?",
+    "link": "https://kalshi.com/markets/kxhighthou/daily-high-temperature-houston/kxhighthou-26apr14",
+    "risk_score": 12,
+    "reasons": "This is low risk because it settles from a single official weather observation for Houston. There is almost no interpretive room in the trigger."
+  },
+  {
+    "prompt": "Highest temperature in Austin today?",
+    "link": "https://kalshi.com/markets/kxhighaus/highest-temperature-in-austin/kxhighaus-26apr12",
+    "risk_score": 12,
+    "reasons": "This market is low risk because it resolves from an official daily high-temperature reading for Austin. The condition is objective and measurable."
+  },
+  {
+    "prompt": "Highest temperature in Phoenix today?",
+    "link": "https://kalshi.com/markets/kxhightphx/phoenix-high-temperature-daily/kxhightphx-26apr13",
+    "risk_score": 12,
+    "reasons": "This is low risk because it resolves from a single official temperature observation in Phoenix. The outcome is numerical and easy to verify."
+  },
+  {
+    "prompt": "Highest temperature in New Orleans today?",
+    "link": "https://kalshi.com/markets/KXHIGHTNOLA",
+    "risk_score": 12,
+    "reasons": "This is low risk because it depends on a concrete observed daily high for New Orleans. Weather-market settlement is typically very clean when tied to official readings."
+  },
+  {
+    "prompt": "Highest temperature in Miami today?",
+    "link": "https://kalshi.com/markets/kxhighmia/highest-temperature-in-miami/kxhighmia-26apr11",
+    "risk_score": 12,
+    "reasons": "This market is low risk because it resolves from an official observed high temperature in Miami on a specific day. The trigger is numerical and unambiguous."
+  },
+  {
+    "prompt": "Oscar for Best Picture? (2026)",
+    "link": "https://kalshi.com/markets/kxoscarpic/oscar-for-best-picture/kxoscarpic-26",
+    "risk_score": 21,
+    "reasons": "This is relatively low risk because the Academy’s official award result determines settlement. Awards are uncertain to predict but usually not ambiguous to resolve."
+  },
+  {
+    "prompt": "Oscar for Best Actor? (2026)",
+    "link": "https://kalshi.com/markets/kxoscaracto/oscar-for-best-actor/kxoscaracto-26",
+    "risk_score": 21,
+    "reasons": "This market is relatively low risk because the Academy’s official Best Actor winner is the settlement source. The event is formal and publicly documented."
+  },
+  {
+    "prompt": "Oscar for Best Director? (2026)",
+    "link": "https://kalshi.com/markets/kxoscardir/oscar-for-best-director/kxoscardir-26",
+    "risk_score": 21,
+    "reasons": "This is low risk because it resolves from the official Oscar result in a named category. The source is authoritative and the outcome is institutionally clear."
+  },
+  {
+    "prompt": "Oscar for Best Animated Feature? (2026)",
+    "link": "https://kalshi.com/markets/kxoscaranimated/oscar-for-best-animated-feature/kxoscaranimated-26b",
+    "risk_score": 21,
+    "reasons": "This market is relatively low risk because the official Academy result is the sole settlement trigger. There is little room for interpretation."
+  },
+  {
+    "prompt": "Oscar for Best Sound? (2026)",
+    "link": "https://kalshi.com/markets/kxoscarsound/oscar-for-best-sound/kxoscarsound-26",
+    "risk_score": 21,
+    "reasons": "This is low risk because it resolves from the Academy’s official award result in a named category. The event is formal and easy to verify."
+  },
+  {
+    "prompt": "Oscar for Live Action Short? (2026)",
+    "link": "https://kalshi.com/markets/kxoscarlasf",
+    "risk_score": 21,
+    "reasons": "This market is relatively low risk because it resolves from an official Oscar result. The settlement source is public and institutionally defined."
+  },
+  {
+    "prompt": "2028 Republican primary winner?",
+    "link": "https://kalshi.com/markets/kxpresnomr/republican-primary-winner/kxpresnomr-28",
+    "risk_score": 24,
+    "reasons": "This is low risk because it resolves to the officially nominated candidate in a formal party process. Forecasting difficulty does not make settlement itself ambiguous."
+  },
+  {
+    "prompt": "New York Governor winner?",
+    "link": "https://kalshi.com/markets/govpartyny/new-york-governor/govpartyny-26",
+    "risk_score": 29,
+    "reasons": "This is relatively low risk because it resolves from a formal gubernatorial election outcome. The result is public and institutionally defined."
+  },
+  {
+    "prompt": "Connecticut Democratic governor nominee?",
+    "link": "https://kalshi.com/markets/kxgovctnomd/connecticut-governor-democratic-nominee",
+    "risk_score": 24,
+    "reasons": "This market is low risk because it resolves from a formal party-nomination outcome. The trigger is public and standard within election markets."
+  },
+  {
+    "prompt": "California Governor winner?",
+    "link": "https://kalshi.com/markets/govpartyca/california-governor/govpartyca-26",
+    "risk_score": 29,
+    "reasons": "This is relatively low risk because it settles on the formal gubernatorial election outcome in California. The result is public and official."
+  },
+  {
+    "prompt": "Illinois Governor winner?",
+    "link": "https://kalshi.com/markets/govpartyil/illinois-governor/govpartyil-26",
+    "risk_score": 29,
+    "reasons": "This is relatively low risk because it resolves from the official winner of the Illinois governor’s race. The event is clear and publicly documented."
+  },
+  {
+    "prompt": "Alaska Governor winner?",
+    "link": "https://kalshi.com/markets/govpartyak/alaska-governor/govpartyak-26",
+    "risk_score": 29,
+    "reasons": "This market is relatively low risk because it resolves to the official Alaska gubernatorial election winner. The settlement source is formal and public."
+  },
+  {
+    "prompt": "How high will inflation be tomorrow?",
+    "link": "https://kalshi.com/markets/kxcpitmm/how-high-will-inflation-be-tomorrow",
+    "risk_score": 15,
+    "reasons": "This is low risk because it resolves from a named inflation data release using a standardized official measure. The trigger is numeric and source-clean."
+  },
+  {
+    "prompt": "Consumer sentiment next month?",
+    "link": "https://kalshi.com/markets/kxsentimentmm/consumer-sentiment-next-month",
+    "risk_score": 16,
+    "reasons": "This market is low risk because it resolves from a standardized consumer-sentiment index in an official scheduled release. The outcome is quantitative and straightforward."
+  },
+  {
+    "prompt": "Baltic Dry Index at end of 2026?",
+    "link": "https://kalshi.com/markets/kxbdi/baltic-dry-index-end-of-year-value/kxbdi-26dec31",
+    "risk_score": 17,
+    "reasons": "This is low risk because it resolves from a named published index value at a fixed date. The event is data-driven and objective."
+  },
+  {
+    "prompt": "Trade balance in December 2026?",
+    "link": "https://kalshi.com/markets/kxtradebal/trade-balance/kxtradebal-26dec",
+    "risk_score": 16,
+    "reasons": "This market is low risk because it uses a formal published trade-balance figure. The settlement source is quantitative and institutionally defined."
+  },
+  {
+    "prompt": "10-Year Treasury Note yield at end of 2026?",
+    "link": "https://kalshi.com/markets/kx10yyield/10-year-note-yield-eoy/kx10yyield-26dec31",
+    "risk_score": 17,
+    "reasons": "This market is low risk because it resolves from a named Treasury yield at a fixed point in time. The event is purely numerical and publicly observable."
+  },
+  {
+    "prompt": "Who will win the 2026 Maine Republican governor nomination?",
+    "link": "https://www.predictit.org/markets/detail/8255/Who-will-win-the-2026-Maine-Republican-governor-nomination",
+    "risk_score": 22,
+    "reasons": "This is low risk because it resolves from a formal party nomination result. The event is institutionally clear and publicly documented."
+  },
+  {
+    "prompt": "Who will win the 2026 Alaska Republican Senate nomination?",
+    "link": "https://www.predictit.org/markets/detail/8594/Who-will-win-the-2026-Alaska-Republican-Senate-nomination",
+    "risk_score": 22,
+    "reasons": "This is low risk because it resolves from the official winner of a named Republican Senate primary. The rule tracks a standard election milestone."
+  },
+  {
+    "prompt": "Who will win the 2026 Iowa Republican Senate nomination?",
+    "link": "https://www.predictit.org/markets/detail/8595/Who-will-win-the-2026-Iowa-Republican-Senate-nomination",
+    "risk_score": 22,
+    "reasons": "This market is low risk because it resolves to the official winner of a named Republican Senate nominating contest. Settlement is institutionally clear."
+  },
+  {
+    "prompt": "Who will win the 2026 Massachusetts Republican Senate nomination?",
+    "link": "https://www.predictit.org/markets/detail/8360/Who-will-win-the-2026-Massachusetts-Republican-Senate-nomination",
+    "risk_score": 22,
+    "reasons": "This is low risk because it asks about a formal primary outcome in a named race. The settlement event is standard and publicly verifiable."
+  },
+  {
+    "prompt": "Who will win the 2026 New Hampshire Republican Senate nomination?",
+    "link": "https://www.predictit.org/markets/detail/8283/Who-will-win-the-2026-New-Hampshire-Republican-Senate-nomination",
+    "risk_score": 22,
+    "reasons": "This market is low risk because it resolves from a formal party nomination result in a named state. The source of truth is public election reporting."
+  },
+  {
+    "prompt": "Who will win the 2026 Texas Democratic Senate nomination?",
+    "link": "https://www.predictit.org/markets/detail/8271/Who-will-win-the-2026-Texas-Democratic-Senate-nomination",
+    "risk_score": 22,
+    "reasons": "This is low risk because it resolves to the winner of a specific Democratic Senate primary. The outcome is institutionally defined and publicly documented."
+  },
+  {
+    "prompt": "Who will win the 2026 Illinois Republican Senate nomination?",
+    "link": "https://www.predictit.org/markets/detail/8279/Who-will-win-the-2026-Illinois-Republican-Senate-nomination",
+    "risk_score": 22,
+    "reasons": "This is low risk because it resolves from a formal Republican Senate nomination contest in Illinois. The settlement event is standard and clear."
+  },
+  {
+    "prompt": "Who will win the 2026 Kansas Democratic Senate nomination?",
+    "link": "https://www.predictit.org/markets/detail/8300/Who-will-win-the-2026-Kansas-Democratic-Senate-nomination",
+    "risk_score": 22,
+    "reasons": "This market is low risk because it asks about the official winner of a named Democratic Senate primary. The trigger is clear and public."
+  },
+  {
+    "prompt": "Who will win the 2026 Minnesota Republican Senate nomination?",
+    "link": "https://www.predictit.org/markets/detail/8303/Who-will-win-the-2026-Minnesota-Republican-Senate-nomination",
+    "risk_score": 22,
+    "reasons": "This is low risk because it resolves from a formal Republican Senate nomination outcome in Minnesota. The result is standard election-process data."
+  },
+  {
+    "prompt": "Who will win the 2026 New Jersey Senate election?",
+    "link": "https://www.predictit.org/markets/detail/8220/Who-will-win-the-2026-New-Jersey-U-S-Senate-election",
+    "risk_score": 24,
+    "reasons": "This market is low risk because it resolves from the official winner of a named U.S. Senate election. The event is formal and publicly documented."
+  },
+  {
+    "prompt": "Who will win the 2026 Maine U.S. Senate election?",
+    "link": "https://www.predictit.org/markets/detail/8261/Who-will-win-the-2026-Maine-U-S-Senate-election",
+    "risk_score": 24,
+    "reasons": "This is low risk because it resolves to the official winner of the Maine U.S. Senate election. The settlement trigger is institutionally clear."
+  },
+  {
+    "prompt": "Who will win the 2026 Michigan Republican Senate nomination?",
+    "link": "https://www.predictit.org/markets/detail/8270/Who-will-win-the-2026-Michigan-Republican-Senate-nomination",
+    "risk_score": 22,
+    "reasons": "This market is low risk because it asks about a formal Republican Senate nomination result in Michigan. The outcome is public and standard."
+  },
+  {
+    "prompt": "Who will win the 2028 Republican presidential nomination?",
+    "link": "https://www.predictit.org/markets/detail/8154/Who-will-win-the-2028-Republican-presidential-nomination",
+    "risk_score": 24,
+    "reasons": "This is low risk because it resolves to the officially nominated Republican presidential candidate in 2028. The event is formal even if the politics are uncertain."
+  },
+  {
+    "prompt": "Will Khamenei leave office in 2026?",
+    "link": "https://polymarket.com/event/will-khamenei-leave-office-in-2026",
+    "risk_score": 82,
+    "reasons": "This is high risk because even when a ruler’s formal status changes, the market often cares about effective power and timing in a messy political setting. That makes the trigger more interpretive than a standard office-vacancy event."
+  },
+  {
+    "prompt": "Will Trump be convicted of contempt before the election?",
+    "link": "https://polymarket.com/event/will-trump-be-convicted-of-contempt-before-the-election",
+    "risk_score": 74,
+    "reasons": "This market is risky because contempt proceedings can involve different procedural postures, sanctions, and legal meanings that are easy to misread from headlines. Timing and what exactly counts as a qualifying conviction can create dispute."
+  },
+  {
+    "prompt": "Who will die in Squid Game Season 3?",
+    "link": "https://polymarket.com/event/who-will-die-in-squid-game-season-3",
+    "risk_score": 84,
+    "reasons": "This is high risk because fictional deaths are often off-screen, reversible, or deliberately ambiguous. Entertainment markets like this can quickly become arguments about narrative interpretation rather than clean facts."
+  },
+  {
+    "prompt": "Will Chris Brown and his GF break up before January 2026?",
+    "link": "https://polymarket.com/event/will-chris-brown-and-his-gf-break-up-before-january-2026",
+    "risk_score": 88,
+    "reasons": "This is highly risky because relationship status is not a formal public fact and often depends on gossip reporting, social signals, or partial statements. That makes settlement vulnerable to subjective interpretation."
+  },
+  {
+    "prompt": "Will Carmy quit the restaurant in The Bear S4?",
+    "link": "https://polymarket.com/event/will-carmy-quit-the-restaurant-in-the-bear-s4",
+    "risk_score": 79,
+    "reasons": "This is risky because fiction can portray quitting, leaving, or returning in ambiguous ways. The line between a dramatic exit and a permanent quit is often not cleanly defined."
+  },
+  {
+    "prompt": "Will Qatar close Al Udeid airbase?",
+    "link": "https://polymarket.com/event/will-qatar-close-al-udeid-airbase",
+    "risk_score": 72,
+    "reasons": "This market is risky because “close” can mean full shutdown, operational restriction, partial suspension, or political announcement without complete closure. Those distinctions make the trigger contestable."
+  },
+  {
+    "prompt": "Did the U.S. bomb Iran by June 30?",
+    "link": "https://polymarket.com/event/did-the-us-bomb-iran-by-june-30",
+    "risk_score": 88,
+    "reasons": "This is highly risky because attribution, scope, and the definition of bombing can all become disputed in fast-moving military reporting. The event may not map cleanly to one uncontested public record."
+  },
+  {
+    "prompt": "Will the U.S. and Iran achieve an official ceasefire agreement by July?",
+    "link": "https://polymarket.com/event/will-the-us-and-iran-achieve-an-official-ceasefire-agreement-by-july",
+    "risk_score": 80,
+    "reasons": "This market is risky because ceasefires can be partial, informal, or politically announced without a single document everyone recognizes as definitive. The phrase 'official ceasefire agreement' still leaves room for interpretation."
+  },
+  {
+    "prompt": "Will Russia and Ukraine reach an official ceasefire agreement by July 2025?",
+    "link": "https://polymarket.com/event/will-russia-and-ukraine-reach-an-official-ceasefire-agreement-by-july-2025",
+    "risk_score": 80,
+    "reasons": "This is risky because even an 'official' ceasefire can be staged, partial, quickly broken, or differently characterized across sources. Diplomatic language does not always align with real battlefield reality."
+  },
+  {
+    "prompt": "Will there be a unicorn founded and operated by just one human?",
+    "link": "https://manifold.markets/Bayesian/will-there-be-a-unicorn-founded-an",
+    "risk_score": 77,
+    "reasons": "This market is risky because terms like 'founded,' 'operated,' and even 'just one human' are surprisingly easy to contest in edge cases involving contractors, investors, or cofounders. The creator also reserves judgment over ambiguous cases."
+  },
+  {
+    "prompt": "Will OpenAI release GPT-4.5 before the end of 2024?",
+    "link": "https://manifold.markets/alexandros/will-openai-release-gpt45-before-th",
+    "risk_score": 68,
+    "reasons": "This is risky because product-release markets often run into ambiguity about naming, partial rollouts, API-only releases, and what counts as a genuine release. The rules and comments also imply room for judgment."
+  },
+  {
+    "prompt": "How will this market's AI clarifications cause it to resolve?",
+    "link": "https://manifold.markets/ian/how-will-this-markets-ai-clarificat",
+    "risk_score": 97,
+    "reasons": "This is extremely risky because the subject of the market is the market’s own AI clarification process. Self-referential resolution makes the outcome heavily dependent on opaque adjudication rather than an external fact."
+  },
+  {
+    "prompt": "Will Claude resolve this market YES? (Hard Mode)",
+    "link": "https://manifold.markets/Bayesian/will-claude-resolve-this-market-ye",
+    "risk_score": 97,
+    "reasons": "This is extremely risky because the settlement depends on how another AI system interprets the market rather than on a normal outside event. That makes the process opaque and vulnerable to meta-level ambiguity."
+  },
+  {
+    "prompt": "This market will resolve to yes if the creator exits an abusive relationship",
+    "link": "https://manifold.markets/Bayesian/this-market-will-resolve-to-yes-i",
+    "risk_score": 96,
+    "reasons": "This is extremely risky because it ties settlement to a deeply personal, non-public, and interpretive real-world condition. The event is not cleanly observable and raises obvious evidentiary problems."
+  },
+  {
+    "prompt": "Who will be the first billionaire on Mars?",
+    "link": "https://manifold.markets/Squid/who-will-be-the-first-billionaire-o",
+    "risk_score": 92,
+    "reasons": "This market is highly risky because it combines uncertain wealth measurement, physical-presence questions, and a futuristic milestone that could be interpreted many ways. The trigger is not institutionally standardized."
+  },
+  {
+    "prompt": "Who will lay claim to the Moon first?",
+    "link": "https://manifold.markets/Bayesian/who-will-lay-claim-to-the-moon-f",
+    "risk_score": 91,
+    "reasons": "This is highly risky because 'lay claim' is a legal and political concept with no single universally accepted trigger in this context. Symbolic declarations, legal filings, and de facto control can diverge."
+  },
+  {
+    "prompt": "State of the world in 2030",
+    "link": "https://manifold.markets/mr_mino/state-of-the-world-in-2030",
+    "risk_score": 95,
+    "reasons": "This is extremely risky because it bundles many broad geopolitical and technological conditions into a creator-resolved market. Multi-part future-state markets invite massive interpretation disputes."
+  },
+  {
+    "prompt": "When will U.S. AGI be achieved?",
+    "link": "https://manifold.markets/Bayesian/when-will-us-agi-be-achieved",
+    "risk_score": 94,
+    "reasons": "This market is highly risky because AGI itself lacks a single accepted operational definition, and adding a jurisdictional label like 'U.S.' complicates things further. The trigger is fundamentally interpretive."
+  },
+  {
+    "prompt": "Has an AI become best in the world at a video game?",
+    "link": "https://manifold.markets/4thEditonofTeddyKGB/has-an-ai-become-best-in-the-world",
+    "risk_score": 85,
+    "reasons": "This is risky because 'best in the world' can depend on ladder rankings, tournament results, access restrictions, or game-specific standards. The title sounds simple, but the threshold is not."
+  },
+  {
+    "prompt": "Who are likely operators of the new LLM-benchmarks organization?",
+    "link": "https://manifold.markets/life/who-are-likely-operators-of-the-ne",
+    "risk_score": 90,
+    "reasons": "This market is highly risky because it asks for attribution of likely control behind an organization rather than a formally announced fact. Inference markets like this are especially prone to contested settlement."
+  },
+  {
+    "prompt": "What will happen in 2027 related to AI?",
+    "link": "https://manifold.markets/mr_mino/what-will-happen-in-2027-related-to",
+    "risk_score": 92,
+    "reasons": "This is extremely risky because it bundles multiple AI claims into a creator-resolved multi-event market. Ambiguity compounds across each sub-question."
+  },
+  {
+    "prompt": "Will OpenAI release an open-source human-level model by 2026?",
+    "link": "https://manifold.markets/vmcc/will-openai-release-an-opensource",
+    "risk_score": 89,
+    "reasons": "This market is highly risky because both 'open-source' and 'human-level' are contestable thresholds, and product release forms can vary widely. Multiple semantic disputes are built into the title itself."
+  },
+  {
+    "prompt": "Is Gemini 1.5 fake?",
+    "link": "https://manifold.markets/PabloVillalobos227d/is-gemini-15-fake",
+    "risk_score": 86,
+    "reasons": "This is highly risky because 'fake' is an accusation rather than a standardized event, and proving or disproving it depends on interpretive evidence. The rules themselves suggest substantial ambiguity."
+  },
+  {
+    "prompt": "Will the upcoming ChatGPT memory upgrade make your memory significantly worse?",
+    "link": "https://manifold.markets/Bayesian/will-the-upcoming-chatgpt-memory-up",
+    "risk_score": 78,
+    "reasons": "This market is risky because 'significantly worse' is an evaluative threshold that depends on user experience and interpretation rather than a clean metric. Product changes are also often gradual and hard to isolate."
+  },
+  {
+    "prompt": "What will happen in 2028 related to AI?",
+    "link": "https://manifold.markets/mr_mino/what-will-happen-in-2028-related-to",
+    "risk_score": 92,
+    "reasons": "This is extremely risky because it is another multi-part creator-resolved AI future market with broad and contestable claims. Settlement depends heavily on interpretation."
+  },
+  {
+    "prompt": "Will July 4 2026 be a US holiday under President Armstrong?",
+    "link": "https://manifold.markets/OVERVIEW/will-july-4-2026-be-a-us-holiday-u",
+    "risk_score": 88,
+    "reasons": "This is highly risky because it bakes in a speculative political scenario and then asks about legal holiday status under that hypothetical. Counterfactual political-worldbuilding markets are inherently ambiguous."
+  },
+  {
+    "prompt": "How will the U.S. decide whether or not to invade Mexico?",
+    "link": "https://manifold.markets/life/how-will-the-us-decide-whether-or-no",
+    "risk_score": 96,
+    "reasons": "This is extremely risky because it is framed around a hypothetical decision process rather than a normal observable event. It is speculative, meta, and interpretive all at once."
+  },
+  {
+    "prompt": "Will RFC #18 be merged into the internet’s content standards in the next 10 years?",
+    "link": "https://manifold.markets/MaxHiltl/will-rfc-18-be-merged-into-the-inte",
+    "risk_score": 83,
+    "reasons": "This market is risky because 'merged into standards' is not a single universally defined event and could happen in many partial or indirect ways. Long-horizon standards markets often hinge on interpretation."
+  },
+  {
+    "prompt": "What will happen in 2029 related to AI?",
+    "link": "https://manifold.markets/mr_mino/what-will-happen-in-2029-related-to",
+    "risk_score": 92,
+    "reasons": "This is extremely risky because it bundles multiple forward-looking AI outcomes into a single creator-resolved market. Broad multi-claim markets are especially vulnerable to ambiguous settlement."
+  },
+  {
+    "prompt": "Will an AI sell a 10M+ unit game by 2027?",
+    "link": "https://manifold.markets/AVX/will-an-ai-sell-a-10m-unit-game-by",
+    "risk_score": 86,
+    "reasons": "This market is highly risky because 'sell,' 'AI,' and authorship of a game can all be contested in edge cases. The threshold sounds precise but the qualifying criteria are not."
+  },
+  {
+    "prompt": "Will an AI autonomously start and scale a million-dollar business by the end of 2025?",
+    "link": "https://manifold.markets/kentouille/will-an-ai-autonomously-start-and",
+    "risk_score": 91,
+    "reasons": "This is highly risky because words like 'autonomously,' 'start,' and 'scale' introduce multiple semantic thresholds. Real businesses also mix AI and human roles in messy ways."
+  },
+  {
+    "prompt": "Will an AI-powered startup reach unicorn status by the end of 2025?",
+    "link": "https://manifold.markets/PabloVillalobos227d/will-an-aipowered-startup-reach-uni",
+    "risk_score": 74,
+    "reasons": "This market is risky because 'AI-powered startup' is not a clean category and unicorn status can depend on private valuation conventions. The event is real, but the eligibility rule is fuzzy."
+  },
+  {
+    "prompt": "Will there be another successful use of a nuke in war by 2050?",
+    "link": "https://manifold.markets/JoshGarrison/will-there-be-another-successful-us",
+    "risk_score": 87,
+    "reasons": "This is highly risky because 'successful use' is a loaded interpretive phrase layered onto an already extreme geopolitical event. Even if a detonation occurred, qualifying it could be contested."
+  },
+  {
+    "prompt": "Will the PRC seize a Taiwanese island by 2027?",
+    "link": "https://manifold.markets/Tossup/will-the-prc-seize-a-taiwanese-isla",
+    "risk_score": 88,
+    "reasons": "This is highly risky because terms like 'seize' and which islands count can become disputed in a military crisis. Territorial-control markets often turn on ambiguous reports and intent."
+  },
+  {
+    "prompt": "Will the PRC attempt to seize a Taiwanese island by 2027?",
+    "link": "https://manifold.markets/Tossup/will-the-prc-attempt-to-seize-a-taiw",
+    "risk_score": 90,
+    "reasons": "This is highly risky because 'attempt' is even more ambiguous than 'seize' and can cover a wide range of escalatory behavior. That makes settlement depend heavily on interpretation."
+  },
+  {
+    "prompt": "Will there be a direct conflict between China and Taiwan by 2030?",
+    "link": "https://manifold.markets/Brendan/will-there-be-a-direct-conflict-be",
+    "risk_score": 88,
+    "reasons": "This market is highly risky because 'direct conflict' sits on a spectrum from harassment to war, and attribution can be unclear. The threshold is not naturally binary."
+  },
+  {
+    "prompt": "What is the chance Anthropic goes bankrupt before 2029?",
+    "link": "https://manifold.markets/gobonobo/what-is-the-chance-anthropic-goes",
+    "risk_score": 75,
+    "reasons": "This market is risky because 'bankrupt' can refer to formal legal bankruptcy, effective insolvency, rescue acquisition, or restructuring. Corporate end-state markets often hide definitional landmines."
+  },
+  {
+    "prompt": "Will an open-source agent earn a gold medal at IMO before 2027?",
+    "link": "https://manifold.markets/life/will-an-open-source-agent-earn-a-go",
+    "risk_score": 82,
+    "reasons": "This is risky because 'open-source agent' and what counts as earning a medal can both become complicated depending on team structure and evaluation rules. Technical-achievement markets often hinge on hidden assumptions."
+  },
+  {
+    "prompt": "Will AI systems be authors on a Top 100 all-time academic paper by 2030?",
+    "link": "https://manifold.markets/gobonobo/will-ai-systems-be-authors-on-a-to",
+    "risk_score": 86,
+    "reasons": "This market is highly risky because authorship and 'Top 100 all-time' are both contested categories. Bibliometric prestige and formal authorship rules do not map neatly to a binary outcome."
+  },
+  {
+    "prompt": "What is the chance of human extinction caused by AI before 2030?",
+    "link": "https://manifold.markets/ThomDS/will-ai-cause-human-extinction-be",
+    "risk_score": 98,
+    "reasons": "This is extremely risky because it is a counterfactual catastrophe market with immense causal and definitional ambiguity. Even the framing of the event is not operationally clean."
+  },
+  {
+    "prompt": "Will the US and Europe cut off all military aid to Ukraine before 2029?",
+    "link": "https://manifold.markets/Constant/will-the-us-and-europe-cut-off-a",
+    "risk_score": 84,
+    "reasons": "This is highly risky because 'all military aid' can be interpreted differently across funding lines, equipment categories, and institutional channels. Partial suspensions create major edge cases."
+  },
+  {
+    "prompt": "Will OpenAI replace ChatGPT with a new product by 2027?",
+    "link": "https://manifold.markets/old_book/will-openai-replace-chatgpt-with-a",
+    "risk_score": 77,
+    "reasons": "This is risky because 'replace' can mean rebrand, sunset, absorb, or functionally supersede, none of which are perfectly clean thresholds. Product-transition markets are easy to contest."
+  },
+  {
+    "prompt": "Will there be an attempt on President Trump's life?",
+    "link": "https://manifold.markets/Constant/will-there-be-another-attempt-on-p",
+    "risk_score": 89,
+    "reasons": "This is highly risky because 'attempt' can range from a credible plot to an actual attack and may be defined differently across legal or media sources. High-salience security events are often messy to classify."
+  },
+  {
+    "prompt": "Will BTC first hit 100k before the next additional Trump tariff?",
+    "link": "https://manifold.markets/TvD/will-btc-first-hit-100k-before-the",
+    "risk_score": 70,
+    "reasons": "This market is risky because it is a race market involving a price threshold and a policy action, and the latter can be surprisingly ambiguous in timing and legal form. Multi-event races often magnify small settlement uncertainties."
+  },
+  {
+    "prompt": "By 2050, how many core human brain areas can science understand?",
+    "link": "https://manifold.markets/JoshT/by-2050-how-many-core-human-brain-a",
+    "risk_score": 93,
+    "reasons": "This is extremely risky because it asks for a future scientific-understanding threshold with no standardized binary definition. The underlying concept is fuzzy and deeply interpretive."
+  },
+  {
+    "prompt": "Should millionaires and billionaires be able to enjoy skiing as a sport?",
+    "link": "https://manifold.markets/Atreides/should-millionaires-and-billionai",
+    "risk_score": 99,
+    "reasons": "This is extremely risky because it is a normative opinion question rather than an externally verifiable event. There is no clean factual trigger at all."
+  },
+  {
+    "prompt": "Will there be a currency crisis in Egypt before Jan 1, 2025?",
+    "link": "https://manifold.markets/4thEditonofTeddyKGB/will-there-be-a-currency-crisis-in",
+    "risk_score": 83,
+    "reasons": "This market is highly risky because 'currency crisis' is a fuzzy macro label rather than a single official event. Exchange rates, capital controls, inflation spikes, and policy responses can point in different directions."
+  },
+  {
+    "prompt": "Will Microsoft abandon OpenAI before 2026?",
+    "link": "https://manifold.markets/251/will-microsoft-abandon-openai-bef",
+    "risk_score": 79,
+    "reasons": "This is risky because 'abandon' is not a formal corporate status and could mean many different degrees of separation in practice. Strategic partnerships can weaken, change form, or be partially unwound without a clean binary break."
+  },
+  {
+    "prompt": "Who will likely be the next president of Syria?",
+    "link": "https://manifold.markets/JoelZ/who-will-likely-be-the-next-presi",
+    "risk_score": 90,
+    "reasons": "This market is highly risky because it asks for a likelihood judgment about a future political office in an unstable environment rather than a formal outcome. The concept of 'likely' makes settlement deeply subjective."
+  },
+  {
+    "prompt": "Will a New York Times journalist publish an article that endorses AI extinction in 2024?",
+    "link": "https://manifold.markets/Odoacre/will-a-new-york-times-journalist-p",
+    "risk_score": 85,
+    "reasons": "This market is highly risky because whether an article 'endorses AI extinction' is an interpretive reading of text, not a clean factual trigger. Author identity, editorial role, and article framing all create edge cases."
+  }
+]
