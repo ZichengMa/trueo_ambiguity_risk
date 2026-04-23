@@ -37,7 +37,13 @@ RISK_TAGS = [
 
 # Few-shot Examples Path
 FEW_SHOT_EXAMPLES_PATH = os.path.join(
-    os.path.dirname(__file__), 
-    "few_shot_examples", 
+    os.path.dirname(__file__),
+    "few_shot_examples",
     "examples.json"
+)
+
+# RAG dataset path
+PREDICTION_MARKET_EXAMPLES_PATH = os.path.join(
+    os.path.dirname(__file__),
+    "prediction_market_200_examples.json"
 )

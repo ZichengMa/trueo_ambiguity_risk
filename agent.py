@@ -13,6 +13,7 @@ from zhipuai import ZhipuAI
 from config import ZHIPU_API_KEY, ZHIPU_MODEL
 from models import RiskScoreResult
 from prompts import build_analysis_prompt, SYSTEM_PROMPT
+from rag import retrieve_few_shot_examples
 
 
 class SemanticAnalysisAgent:
@@ -67,11 +68,16 @@ class SemanticAnalysisAgent:
         Raises:
             ValueError: If the API response cannot be parsed
         """
+        # Resolve few-shot examples: prefer explicit ones, then RAG retrieval
+        few_shot_examples = self.few_shot_examples
+        if include_few_shot and few_shot_examples is None:
+            few_shot_examples = retrieve_few_shot_examples(question)
+
         # Build the prompt
         prompt = build_analysis_prompt(
             question=question,
             context=context,
-            few_shot_examples=self.few_shot_examples,
+            few_shot_examples=few_shot_examples,
             include_few_shot=include_few_shot
         )
         
