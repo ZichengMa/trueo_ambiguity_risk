@@ -1,0 +1,1264 @@
+{
+  "0": {
+    "question": "Will Verizon (VZ) beat quarterly earnings?",
+    "gt": {
+      "risk_score": 18,
+      "reasons": "This is low risk because the trigger is numerical and the page points to a single authoritative source: Verizon’s official earnings documents. There is little room for interpretation beyond the reported non-GAAP EPS crossing the stated threshold."
+    },
+    "A_baseline": {
+      "risk_score": 70,
+      "risk_tags": [
+        "ambiguous_time",
+        "undefined_term",
+        "vague_condition",
+        "unverified_source"
+      ],
+      "rationale": "The question contains significant ambiguity regarding the specific time frame, as 'quarterly earnings' is a relative term that changes depending on when the market is resolved (e.g., Q1 vs. Q2). The term 'beat' is undefined; it is unclear if this refers to beating consensus estimates, whisper numbers, or year-over-year performance. Furthermore, 'earnings' is ambiguous as it could refer to Earnings Per Share (EPS), Revenue, or Net Income, and does not specify whether to use GAAP or Non-GAAP (adjusted) figures. Finally, there is no authoritative source cited (e.g., Yahoo Finance, Bloomberg, or the official press release) to verify the numbers for resolution."
+    },
+    "B_system_basic": {
+      "risk_score": 18,
+      "risk_tags": [],
+      "rationale": "This is low risk because the resolution relies on a specific, verifiable financial metric (EPS) reported in Verizon's official earnings documents. 'Beating' earnings is a standard market term comparing reported EPS against established consensus estimates, leaving little room for subjective interpretation once the data is published."
+    },
+    "C_system_full": {
+      "error": "Request timed out."
+    },
+    "A_baseline_eval": {
+      "own_assessment": {
+        "risk_score": 20,
+        "key_issues": [
+          "Definition of 'beat' (Consensus vs Guidance)",
+          "GAAP vs Non-GAAP reporting standards",
+          "Specific quarter reference not in text (though implied by context)"
+        ]
+      },
+      "qualitative_analysis": "The model's assessment is fundamentally flawed because it applies generic linguistic analysis to a domain-specific financial term of art. In financial markets, 'beat earnings' has a standard, widely accepted definition (Reported EPS > Consensus Estimate), rendering the model's concerns about 'undefined terms' and 'vague conditions' spurious. Furthermore, the model assigns a high-risk score (70) and claims there is 'no authoritative source cited,' which directly contradicts the Ground Truth's assertion that the page points to a specific authoritative source. The model failed to recognize the low ambiguity inherent in binary earnings questions and ignored the context provided in the ground truth.",
+      "score_accuracy": 1,
+      "rationale_quality": 1,
+      "tag_correctness": 1,
+      "overall_quality": 1
+    },
+    "B_system_basic_eval": {
+      "own_assessment": {
+        "risk_score": 18,
+        "key_issues": [
+          "Definition of 'beat' (consensus estimates vs specific guidance)",
+          "Source of consensus estimates (variability between providers like IBES, Refinitiv)",
+          "GAAP vs non-GAAP EPS reporting",
+          "Timing of resolution (earnings release date)"
+        ]
+      },
+      "qualitative_analysis": "The model's output aligns very closely with the ground truth. Both correctly identify the question as low risk due to the reliance on a specific, verifiable financial metric (EPS) and an authoritative source (official earnings documents). The model explicitly mentions 'consensus estimates' as the benchmark for 'beating' earnings, which addresses the primary potential ambiguity (what constitutes a beat). The ground truth focuses on the numerical trigger and single source, while the model adds a bit more detail about the standard market terminology. Both agree that there is little room for subjective interpretation. The model's empty risk tags are appropriate given the low risk score and the lack of significant structural ambiguity.",
+      "score_accuracy": 5,
+      "rationale_quality": 5,
+      "tag_correctness": 5,
+      "overall_quality": 5
+    },
+    "C_system_full_eval": null
+  },
+  "1": {
+    "question": "Will Goldman Sachs (GS) beat quarterly earnings?",
+    "gt": {
+      "risk_score": 18,
+      "reasons": "This is low risk because it resolves against a specific GAAP EPS threshold using Goldman Sachs’s official earnings release. The event is objective, time-bounded, and tied to a clearly named source."
+    },
+    "A_baseline": {
+      "risk_score": 85,
+      "risk_tags": [
+        "ambiguous_time",
+        "undefined_term",
+        "vague_condition",
+        "unverified_source"
+      ],
+      "rationale": "The question is critically ambiguous because it fails to specify which quarterly earnings period is being referenced (e.g., Q3 2024 vs. Q4 2024), making it impossible to determine the relevant reporting event. Furthermore, 'beat' is an undefined term in this context; it is unclear if the condition requires beating EPS estimates, revenue estimates, or both. Finally, the question lacks an authoritative source for the consensus estimates (e.g., Refinitiv, Bloomberg, Yahoo Finance), leading to high disputability regarding the benchmark number."
+    },
+    "B_system_basic": {
+      "risk_score": 18,
+      "risk_tags": [],
+      "rationale": "This is low risk because it resolves against a specific GAAP EPS threshold using Goldman Sachs’s official earnings release. The event is objective, time-bounded, and tied to a clearly named source."
+    },
+    "C_system_full": {
+      "risk_score": 30,
+      "risk_tags": [
+        "ambiguous_time",
+        "undefined_term"
+      ],
+      "rationale": "The question lacks a specific timeframe (e.g., 'Q1 2026' or 'the next earnings release') and does not specify the metric (EPS vs. Revenue). While the provided search context clarifies that the reference is likely to Q1 2026 EPS performance against forecasts, the question text itself is ambiguous. Strict resolution criteria require explicit definition of the quarter and the financial metric to prevent disputes. The context helps infer the meaning, reducing the risk from moderate to minor, but the text remains imprecise."
+    },
+    "A_baseline_eval": {
+      "own_assessment": {
+        "risk_score": 20,
+        "key_issues": [
+          "Lack of specific quarter date (relies on 'next' earnings convention)",
+          "Definition of 'beat' relies on standard market convention (EPS vs Consensus)"
+        ]
+      },
+      "qualitative_analysis": "The model's assessment is fundamentally flawed because it applies a strict, context-free linguistic analysis rather than evaluating the question within the domain of financial prediction markets. While the model correctly notes that the text does not explicitly state 'EPS' or a specific date, it fails to recognize that 'beat earnings' is a standard industry idiom implying EPS vs. Consensus estimates, and that the timeframe is universally understood to be the next scheduled report in this context. The ground truth correctly identifies this as low risk (18) because these ambiguities are resolved by standard market conventions and official data sources. The model's score of 85 and its rationale that the question is 'impossible to determine' represent a severe overestimation of risk and a lack of domain knowledge.",
+      "score_accuracy": 1,
+      "rationale_quality": 1,
+      "tag_correctness": 1,
+      "overall_quality": 1
+    },
+    "B_system_basic_eval": {
+      "own_assessment": {
+        "risk_score": 18,
+        "key_issues": [
+          "Definition of 'beat' (requires a specific benchmark or consensus estimate)",
+          "Source of truth (official press release vs. data provider)",
+          "Timing of the earnings release"
+        ]
+      },
+      "qualitative_analysis": "The model's output is identical to the ground truth. It correctly identifies the low-risk nature of the market, noting the objectivity of the GAAP EPS metric, the time-bounded event, and the reliance on a clearly named source (Goldman Sachs's official release). There are no missing issues or spurious concerns; the analysis is perfectly aligned with the ground truth.",
+      "score_accuracy": 5,
+      "rationale_quality": 5,
+      "tag_correctness": 5,
+      "overall_quality": 5
+    },
+    "C_system_full_eval": {
+      "own_assessment": {
+        "risk_score": 45,
+        "key_issues": [
+          "Missing specific timeframe/quarter",
+          "Ambiguous metric (earnings vs revenue)",
+          "No reference to consensus estimates"
+        ]
+      },
+      "qualitative_analysis": "The model correctly identifies that the question text, in isolation, lacks a specific timeframe and metric definition. However, the ground truth establishes that the market is tied to a specific event (Q1 2026) and metric (GAAP EPS) via context/resolution criteria. The model acknowledges this context ('provided search context clarifies...') but fails to give it sufficient weight, maintaining a moderate risk score (30) compared to the ground truth's low risk score (18). The model effectively penalizes the phrasing of the title rather than evaluating the resolvability of the market as a whole. Consequently, the risk tags ('ambiguous_time', 'undefined_term') contradict the ground truth's assertion that the event is time-bounded and specific.",
+      "score_accuracy": 3,
+      "rationale_quality": 2,
+      "tag_correctness": 2,
+      "overall_quality": 2
+    }
+  },
+  "2": {
+    "question": "Will Oracle (ORCL) beat quarterly earnings?",
+    "gt": {
+      "risk_score": 19,
+      "reasons": "This market is low risk because it asks about a precise earnings number and uses Oracle’s official non-GAAP EPS as the resolution source. The rule is straightforward and leaves very little judgment to the resolver."
+    },
+    "A_baseline": {
+      "risk_score": 80,
+      "risk_tags": [
+        "ambiguous_time",
+        "undefined_term",
+        "vague_condition",
+        "high_disputability"
+      ],
+      "rationale": "The question is highly ambiguous because it fails to specify the exact reporting period (e.g., Q1 FY2025), the specific metric being evaluated (EPS vs. Revenue), and the benchmark for comparison (e.g., Wall Street consensus estimates). Without these definitions, a scenario where Oracle beats earnings per share but misses revenue targets would create unresolvable disputes."
+    },
+    "B_system_basic": {
+      "risk_score": 19,
+      "risk_tags": [],
+      "rationale": "This market is low risk because it asks about a precise earnings number and uses Oracle’s official non-GAAP EPS as the resolution source. The rule is straightforward and leaves very little judgment to the resolver."
+    },
+    "C_system_full": {
+      "risk_score": 85,
+      "risk_tags": [
+        "ambiguous_time",
+        "undefined_term",
+        "vague_condition"
+      ],
+      "rationale": "This market question is severely ambiguous because it completely lacks a specific timeframe or quarter identifier (e.g., 'Q3 2025' or 'the next earnings release'). Without a defined time, it is impossible to determine which earnings report is the subject of the market, making resolution impossible. Additionally, the term 'beat' is undefined—it could refer to beating analyst expectations, beating the previous quarter's results, or beating year-over-year figures—and the specific earnings metric (EPS vs. Revenue) is not specified. These multiple omissions violate the strict requirement for explicit time and clear resolution criteria."
+    },
+    "A_baseline_eval": {
+      "own_assessment": {
+        "risk_score": 20,
+        "key_issues": [
+          "Lack of explicit consensus data provider (e.g., Refinitiv vs Bloomberg)",
+          "Potential ambiguity regarding the specific reporting quarter if the market remains open for an extended period"
+        ]
+      },
+      "qualitative_analysis": "The model significantly overestimates the ambiguity risk by failing to recognize standard financial terminology. While the model is technically correct that the words 'EPS' and 'Consensus' are absent, it ignores the universal industry convention that 'beat earnings' specifically refers to reported EPS exceeding analyst consensus estimates. The ground truth correctly identifies this as low risk because the resolution relies on a single, objective number (Oracle's official non-GAAP EPS). The model's rationale treats a standard financial idiom as a vague, undefined condition, leading to a spurious 'high_disputability' tag and a wildly inflated risk score.",
+      "score_accuracy": 1,
+      "rationale_quality": 1,
+      "tag_correctness": 1,
+      "overall_quality": 1
+    },
+    "B_system_basic_eval": {
+      "own_assessment": {
+        "risk_score": 20,
+        "key_issues": [
+          "Low ambiguity due to reliance on objective financial data",
+          "Clear resolution source (Oracle official non-GAAP EPS)",
+          "Minimal judgment required from the resolver"
+        ]
+      },
+      "qualitative_analysis": "The model's output is identical to the ground truth. It correctly identifies the market as low risk, citing the precision of the earnings number and the use of an official, objective source (Oracle's non-GAAP EPS). The model accurately captures the lack of resolver discretion required. There are no missing issues or hallucinated concerns.",
+      "score_accuracy": 5,
+      "rationale_quality": 5,
+      "tag_correctness": 5,
+      "overall_quality": 5
+    },
+    "C_system_full_eval": {
+      "own_assessment": {
+        "risk_score": 20,
+        "key_issues": [
+          "Missing specific timeframe/quarter identifier (e.g., 'Q3 2025' or 'next earnings release')",
+          "Ambiguous definition of 'beat' (analyst expectations vs. previous quarter vs. year-over-year)",
+          "Unspecified earnings metric (EPS vs. Revenue vs. other metrics)"
+        ]
+      },
+      "qualitative_analysis": "The model's assessment is significantly more severe than the ground truth, which suggests the market is low risk (score 19) due to reliance on Oracle's official non-GAAP EPS. The model correctly identifies critical ambiguities: missing timeframe, undefined 'beat', and unspecified metric. However, the ground truth implies these are resolvable via standard conventions (e.g., 'beat' typically means analyst expectations, and Oracle's non-GAAP EPS is a standard metric). The model's rationale is thorough but overestimates the ambiguity by assuming no default conventions apply. The tags ('ambiguous_time', 'undefined_term', 'vague_condition') are appropriate for the issues raised but inconsistent with the ground truth's low-risk view.",
+      "score_accuracy": 1,
+      "rationale_quality": 4,
+      "tag_correctness": 5,
+      "overall_quality": 3
+    }
+  },
+  "3": {
+    "question": "Will Strategy (MSTR) beat quarterly earnings?",
+    "gt": {
+      "risk_score": 20,
+      "reasons": "This is low risk because the outcome depends on a single company-reported GAAP EPS figure versus a fixed threshold. Company earnings filings make the resolution concrete and easy to verify."
+    },
+    "A_baseline": {
+      "risk_score": 75,
+      "risk_tags": [
+        "undefined_term",
+        "vague_condition",
+        "ambiguous_time",
+        "unverified_source"
+      ],
+      "rationale": "The question presents significant ambiguity, particularly regarding the specific financial metric and the benchmark for comparison. For MicroStrategy (MSTR), the distinction between GAAP and Non-GAAP (Adjusted) earnings is critical due to Bitcoin impairment volatility, yet the prompt does not specify which standard applies. Additionally, 'beat' is a vague condition; it is unclear if this refers to Earnings Per Share (EPS) or Revenue, and whether the benchmark is the 'Consensus Estimate' or a 'Whisper Number.' The time reference is also relative ('quarterly') rather than specifying a particular fiscal quarter and year (e.g., Q3 2024), and the prompt lacks an authoritative source for the estimate data."
+    },
+    "B_system_basic": {
+      "risk_score": 20,
+      "risk_tags": [],
+      "rationale": "This is low risk because the outcome depends on a single company-reported GAAP EPS figure versus a fixed threshold. Company earnings filings make the resolution concrete and easy to verify."
+    },
+    "C_system_full": {
+      "risk_score": 65,
+      "risk_tags": [
+        "ambiguous_time",
+        "undefined_term",
+        "vague_condition",
+        "unverified_source"
+      ],
+      "rationale": "The question is moderately to highly ambiguous due to several undefined critical elements. First, the time reference 'quarterly' is vague; it does not specify which fiscal quarter or year (e.g., Q4 2025 vs. Q1 2026), making it impossible to determine the relevant reporting period. Second, the term 'earnings' is undefined and prone to misinterpretation. The provided search evidence highlights this risk explicitly: headlines state MSTR 'beat revenue estimates' while the body text reports a 'quarterly loss' on EPS. Without specifying whether 'earnings' refers to Revenue, GAAP EPS, or Adjusted EPS, traders cannot agree on the outcome. Third, 'beat' lacks a defined benchmark—does it refer to analyst consensus (e.g., Zacks, Bloomberg), company guidance, or year-over-year growth? Finally, no authoritative source is designated to resolve these discrepancies."
+    },
+    "A_baseline_eval": {
+      "own_assessment": {
+        "risk_score": 20,
+        "key_issues": [
+          "The question lacks a specific fiscal quarter (e.g., Q3 2024), though 'quarterly' typically implies the next reporting date in market contexts.",
+          "The term 'beat' relies on the market convention of comparing reported GAAP EPS against the consensus estimate.",
+          "While GAAP vs. Non-GAAP is a distinction, 'earnings' defaults to GAAP EPS in standard financial reporting unless specified otherwise.",
+          "The resolution is ultimately verifiable via a single company press release, minimizing ambiguity."
+        ]
+      },
+      "qualitative_analysis": "The model significantly overestimates the ambiguity risk compared to the ground truth. While the model correctly identifies technical points of confusion—such as the GAAP vs. Non-GAAP distinction and the specific benchmark (Consensus vs. Whisper)—it fails to account for standard market conventions that resolve these ambiguities. In the context of financial markets, 'beat earnings' is a well-understood phrase referring to GAAP EPS versus the consensus estimate. The ground truth correctly identifies this as low risk because the outcome depends on a single, verifiable company filing. The model's rationale, while factually accurate regarding the existence of different metrics, treats these nuances as fatal flaws rather than standard resolvable context, leading to an inflated risk score and spurious risk tags.",
+      "score_accuracy": 1,
+      "rationale_quality": 2,
+      "tag_correctness": 2,
+      "overall_quality": 2
+    },
+    "B_system_basic_eval": {
+      "own_assessment": {
+        "risk_score": 20,
+        "key_issues": [
+          "Definition of 'beat' (requires specific consensus source like Refinitiv or Bloomberg)",
+          "Specification of the quarter (date dependency)",
+          "GAAP vs Non-GAAP EPS distinction"
+        ]
+      },
+      "qualitative_analysis": "The model's output is a verbatim replication of the ground truth. It correctly identifies the market as low risk, accurately citing the reliance on a single company-reported figure (GAAP EPS) against a fixed threshold. The model successfully captures the core reasoning regarding the concreteness and verifiability of company filings. No spurious concerns were raised, and no key issues were missed relative to the ground truth.",
+      "score_accuracy": 5,
+      "rationale_quality": 5,
+      "tag_correctness": 5,
+      "overall_quality": 5
+    },
+    "C_system_full_eval": {
+      "own_assessment": {
+        "risk_score": 20,
+        "key_issues": [
+          "Undefined fiscal quarter/year",
+          "Ambiguous definition of 'earnings' (Revenue vs. EPS vs. Adjusted)",
+          "Undefined benchmark for 'beat' (analyst consensus vs. guidance vs. YoY)"
+        ]
+      },
+      "qualitative_analysis": "The model's assessment is significantly more pessimistic than the ground truth, which views the question as low risk (score 20) because company filings provide a concrete GAAP EPS figure. The model correctly identifies the same core ambiguities: the lack of a specific time frame ('quarterly'), the undefined nature of 'earnings' (Revenue vs. EPS), and the missing benchmark for 'beat'. However, the model overestimates the impact of these issues, assigning a high risk score (65) and tags like 'unverified_source', whereas the ground truth assumes standard market conventions (GAAP EPS vs. analyst consensus) and authoritative company filings will resolve the question. The model's rationale is thorough but fails to recognize that these ambiguities are often resolved by standard market practices, making the question less risky in practice.",
+      "score_accuracy": 1,
+      "rationale_quality": 4,
+      "tag_correctness": 3,
+      "overall_quality": 3
+    }
+  },
+  "4": {
+    "question": "Trump wins every swing state?",
+    "gt": {
+      "risk_score": 24,
+      "reasons": "This market is relatively clear because it explicitly lists the relevant swing states and uses major election-call sources for resolution. The only modest risk is the possibility of delayed calls or recount-related timing issues, but the underlying condition is still objective."
+    },
+    "A_baseline": {
+      "risk_score": 85,
+      "risk_tags": [
+        "undefined_term",
+        "vague_condition",
+        "high_disputability"
+      ],
+      "rationale": "The primary risk stems from the term 'swing state,' which lacks a standardized, objective definition. Political analysts and polling aggregators (e.g., Cook Political Report, Sabato's Crystal Ball, 538) use varying criteria to classify swing states, and these lists can change dynamically based on polling data leading up to the election. Without a specific list of states or a definitive authoritative source cited in the market rules to define the scope of 'every swing state,' it is impossible to determine objectively which states Trump must win to resolve the market as 'Yes.' This subjectivity makes the resolution conditions highly prone to disputes."
+    },
+    "B_system_basic": {
+      "risk_score": 72,
+      "risk_tags": [
+        "undefined_term",
+        "unverified_source",
+        "vague_condition"
+      ],
+      "rationale": "This question is highly ambiguous primarily because 'swing state' is a subjective political classification rather than an objective legal term. Different organizations (e.g., Cook Political Report, Sabato's Crystal Ball, NYT) define swing states differently, and these lists can change leading up to the election. Without an explicit list of states or a specific reference source defining the set of swing states, the condition 'every swing state' is impossible to resolve objectively. Furthermore, 'wins' is undefined regarding whether it refers to the popular vote, the Electoral College outcome, media projections (e.g., AP), or final certification, and no authoritative resolution source is specified."
+    },
+    "C_system_full": {
+      "risk_score": 65,
+      "risk_tags": [
+        "undefined_term",
+        "unverified_source",
+        "ambiguous_time"
+      ],
+      "rationale": "The market question is moderately to significantly ambiguous due to the lack of a concrete definition for 'swing state.' While the search context implies a consensus of seven states for the 2024 election, the market question itself does not list these states or cite a specific authoritative source (e.g., Cook Political Report, AP) to define the term. This leaves the resolution condition subjective; traders could disagree on whether a state like Florida or Minnesota should have been included. Furthermore, the question lacks a specific year in the text (relying entirely on context) and does not specify the official source for calling the winner (e.g., AP vs. Edison Research), which introduces additional resolution risks."
+    },
+    "A_baseline_eval": {
+      "own_assessment": {
+        "risk_score": 25,
+        "key_issues": [
+          "Resolution timing delays due to recounts",
+          "Discrepancies between different news organizations calling elections",
+          "Potential legal challenges affecting final certification"
+        ]
+      },
+      "qualitative_analysis": "The model's assessment is fundamentally flawed because it fails to acknowledge the context provided in the ground truth: that the market explicitly lists the relevant swing states. The model argues that 'swing state' is undefined and that no list is provided, which directly contradicts the ground truth's assertion that the market 'explicitly lists the relevant swing states.' Consequently, the model identified a major ambiguity risk (undefined terms) where none exists, leading to a grossly inflated risk score (85 vs 24). The model effectively hallucinated a missing definition, missing the actual, modest risks related to election timing and recounts.",
+      "score_accuracy": 1,
+      "rationale_quality": 1,
+      "tag_correctness": 1,
+      "overall_quality": 1
+    },
+    "B_system_basic_eval": {
+      "own_assessment": {
+        "risk_score": 70,
+        "key_issues": [
+          "Subjective definition of 'swing state' without an explicit list in the provided text",
+          "Ambiguity in 'wins' (popular vote vs. Electoral College vs. projection)",
+          "Lack of specified resolution source or criteria"
+        ]
+      },
+      "qualitative_analysis": "The model's output is consistent with an analysis of the market title in isolation, correctly identifying that 'swing state' is subjective and 'wins' requires definition. However, the Ground Truth reveals that the actual market description includes an explicit list of states and uses major election-call sources, which the model completely failed to account for. Because the model missed the defining context that resolves the ambiguity it identified, its risk score (72) is a gross overestimation compared to the Ground Truth (24). The model's rationale is factually incorrect regarding the market's content (claiming no list exists when one does), and the risk tags applied ('undefined_term', 'unverified_source') are invalid given the market's actual structure.",
+      "score_accuracy": 1,
+      "rationale_quality": 1,
+      "tag_correctness": 1,
+      "overall_quality": 1
+    },
+    "C_system_full_eval": {
+      "own_assessment": {
+        "risk_score": 25,
+        "key_issues": [
+          "Definition of 'swing state' is not explicitly listed in the question text",
+          "Reliance on external context (search results) to determine the specific states",
+          "Potential for disagreement if a state outside the consensus list becomes competitive",
+          "Resolution source for election calls is not specified in the prompt text"
+        ]
+      },
+      "qualitative_analysis": "The model significantly overestimates the ambiguity risk compared to the ground truth. The ground truth asserts the market is 'relatively clear' because it explicitly lists the states and uses major sources, implying the model might have missed specific details present in the full market context (e.g., a description or rules section not fully visible in the prompt but assumed by the ground truth). However, based strictly on the provided text 'Trump wins every swing state?', the model correctly identifies the lack of a concrete definition for 'swing state' and the missing resolution source as key issues. The ground truth's low score (24) suggests these issues are considered minor or resolved by context, whereas the model treats them as major flaws (score 65). The model's rationale is logically sound based on the text provided but fails to align with the ground truth's assessment that the market is well-defined. The tags 'undefined_term' and 'unverified_source' are appropriate given the text, but 'ambiguous_time' is less relevant unless the resolution date is the primary concern, which isn't the focus of the rationale.",
+      "score_accuracy": 1,
+      "rationale_quality": 3,
+      "tag_correctness": 4,
+      "overall_quality": 2
+    }
+  },
+  "5": {
+    "question": "Which party will win the Senate in 2026?",
+    "gt": {
+      "risk_score": 32,
+      "reasons": "This is on the lower-risk side because Senate control is a standard election outcome with official results. Some modest ambiguity can arise around independents, caucusing, or temporary post-election uncertainty, but the question is still much clearer than intent-based or subjective markets."
+    },
+    "A_baseline": {
+      "risk_score": 45,
+      "risk_tags": [
+        "undefined_term",
+        "vague_condition",
+        "high_disputability"
+      ],
+      "rationale": "The question has moderate ambiguity risk primarily around what constitutes 'winning' the Senate. It's unclear whether this means having a simple majority (51+ seats), a plurality (most seats even if not a majority), or control of leadership positions. This becomes particularly problematic in scenarios with ties or when independents hold the balance of power. The time reference 'in 2026' is relatively clear but doesn't specify the exact resolution point (Election Day, certification, swearing in, etc.). The question also doesn't address how to classify independents who caucus with a major party, which could lead to disputes in close outcomes."
+    },
+    "B_system_basic": {
+      "risk_score": 40,
+      "risk_tags": [
+        "undefined_term",
+        "unidentified_subject",
+        "ambiguous_time"
+      ],
+      "rationale": "While the intent is clearly the U.S. Senate majority, the question lacks necessary precision for a strict market. 'The Senate' is an unidentified subject; it does not explicitly specify the U.S. Senate, leaving room for pedantic disputes about other nations. 'Win' is an undefined term: it is unclear if this requires a simple majority of seats (51+) or effective control (50 seats plus the Vice President's tie-breaking vote). 'In 2026' is an ambiguous time reference, as the election occurs in November 2026, but the winners are not sworn in until January 2027, and control could theoretically shift due to resignations or party switching before the new session. These edge cases regarding the definition of 'winning' and the specific resolution timestamp elevate the risk score."
+    },
+    "C_system_full": {
+      "risk_score": 38,
+      "risk_tags": [
+        "vague_condition",
+        "ambiguous_time",
+        "undefined_term"
+      ],
+      "rationale": "While the question refers to a standard political event, the term 'win' is imprecise for a parliamentary body. It fails to define the resolution criteria for a 50-50 split (e.g., whether 50 seats plus the Vice President constitutes a 'win' or if a 51-seat majority is strictly required). The time reference 'in 2026' is also slightly ambiguous, as it could refer to the immediate election results in November or the formal organization of the Senate in January 2027. Furthermore, the question does not specify how to categorize Independent senators who may caucus with a major party. These factors introduce ambiguity despite the general clarity of the subject matter."
+    },
+    "A_baseline_eval": {
+      "own_assessment": {
+        "risk_score": 30,
+        "key_issues": [
+          "Definition of 'winning' (simple majority vs. organizing majority)",
+          "Treatment of independents and caucusing agreements",
+          "Resolution timing (Election Day vs. swearing-in)",
+          "Potential for ties or power-sharing arrangements"
+        ]
+      },
+      "qualitative_analysis": "The model correctly identifies the core ambiguity regarding the definition of 'winning' the Senate, highlighting the distinction between simple majority, plurality, and control of leadership. It also appropriately raises the issue of independents and their caucusing behavior, which aligns with the ground truth's mention of 'independents, caucusing, or temporary post-election uncertainty.' However, the model overestimates the risk score (45 vs. ground truth 32), suggesting a higher level of ambiguity than warranted. The ground truth notes that this is a 'standard election outcome with official results,' implying lower risk. The model's rationale is thorough but perhaps overly cautious, while the tags ('undefined_term', 'vague_condition', 'high_disputability') are somewhat accurate but 'high_disputability' may be an exaggeration given the ground truth's assessment of 'modest ambiguity.'",
+      "score_accuracy": 3,
+      "rationale_quality": 4,
+      "tag_correctness": 3,
+      "overall_quality": 4
+    },
+    "B_system_basic_eval": {
+      "own_assessment": {
+        "risk_score": 35,
+        "key_issues": [
+          "Subject specificity (US Senate vs other nations)",
+          "Definition of 'win' (simple majority vs effective control with VP tie-breaker)",
+          "Resolution timing (Election Day vs Inauguration Day)"
+        ]
+      },
+      "qualitative_analysis": "The model adopts a stricter, more pedantic stance compared to the ground truth. While the ground truth views the question as lower-risk (32) with only modest ambiguity regarding standard election mechanics, the model assigns a higher risk score (40) by emphasizing specific definitional gaps. The model correctly identifies the ambiguity surrounding the definition of 'win' (mapping to the ground truth's 'caucusing/control' point) and the timing of resolution (mapping to 'post-election uncertainty'). Additionally, the model raises a valid technical point about the lack of 'US' specification, which the ground truth omits but is a legitimate source of ambiguity in a strict context. The model's rationale is logical and consistent with its score, though it interprets the ambiguity more severely than the ground truth.",
+      "score_accuracy": 4,
+      "rationale_quality": 4,
+      "tag_correctness": 5,
+      "overall_quality": 4
+    },
+    "C_system_full_eval": {
+      "own_assessment": {
+        "risk_score": 30,
+        "key_issues": [
+          "Definition of 'win' (simple majority vs. effective control)",
+          "Handling of 50-50 split and Vice President tie-breaker",
+          "Role of Independents and caucusing agreements",
+          "Resolution timing (Election Day vs. swearing-in)"
+        ]
+      },
+      "qualitative_analysis": "The model's assessment aligns well with the ground truth's identification of modest ambiguity. Both the model and ground truth recognize that while the subject matter is standard (Senate elections), specific edge cases exist. The model correctly identifies the ambiguity of the term 'win' regarding 50-50 splits and the Vice President's role, as well as the handling of Independents. The model also correctly points out the timing ambiguity (November vs. January), which the ground truth alludes to as 'post-election uncertainty'. The model's score of 38 is slightly higher than the ground truth's 32, but both fall within the 'low-to-moderate' risk range. The tags selected by the model ('vague_condition', 'ambiguous_time', 'undefined_term') accurately reflect the specific issues raised in its rationale.",
+      "score_accuracy": 4,
+      "rationale_quality": 5,
+      "tag_correctness": 5,
+      "overall_quality": 5
+    }
+  },
+  "6": {
+    "question": "Maduro guilty of all counts?",
+    "gt": {
+      "risk_score": 22,
+      "reasons": "This market is low risk because it resolves off a court verdict in a named indictment. Court outcomes are formal and well documented, so the main condition is clear even if the case timeline is uncertain."
+    },
+    "A_baseline": {
+      "risk_score": 90,
+      "risk_tags": [
+        "undefined_term",
+        "vague_condition",
+        "ambiguous_time",
+        "high_disputability"
+      ],
+      "rationale": "The question is critically ambiguous because it fails to specify the jurisdiction or the specific legal case (e.g., US indictment, ICC investigation, or domestic charges). Consequently, 'all counts' is an undefined term because the total number of applicable counts is unknown without context. Additionally, there is no timeframe for when a verdict must be reached. These omissions make the resolution conditions highly disputable, as traders cannot agree on which court's ruling matters or whether a conviction in absentia would count."
+    },
+    "B_system_basic": {
+      "risk_score": 75,
+      "risk_tags": [
+        "ambiguous_time",
+        "unverified_source",
+        "undefined_term",
+        "vague_condition"
+      ],
+      "rationale": "This market is significantly ambiguous because it lacks a specified jurisdiction (e.g., US Federal Court vs. ICC) and a resolution deadline. Without a timeframe, it is unclear when the market should resolve if Maduro is never extradited or tried. Additionally, 'all counts' is undefined without referencing a specific indictment, and the condition of a verdict relies on the highly uncertain event of his apprehension."
+    },
+    "C_system_full": {
+      "risk_score": 65,
+      "risk_tags": [
+        "ambiguous_time",
+        "vague_condition",
+        "undefined_term"
+      ],
+      "rationale": "The question lacks a specific deadline or timeframe for resolution, which is a critical flaw for a prediction market. Without an end date, it is unclear when the market should resolve to 'NO' if a verdict is not reached (e.g., if Maduro never stands trial or the case is dismissed). While the context references a specific 2026 indictment, the question text itself does not explicitly bind the market to that case, leaving ambiguity regarding which 'counts' apply if other charges are filed. Furthermore, the resolution criteria are deferred to an external 'Rules' section rather than being explicit in the question, increasing the risk of disputes regarding edge cases like plea deals or appellate outcomes."
+    },
+    "A_baseline_eval": {
+      "own_assessment": {
+        "risk_score": 25,
+        "key_issues": [
+          "Timeline uncertainty (trial date unknown)",
+          "Dependence on specific market description for context"
+        ]
+      },
+      "qualitative_analysis": "The model's assessment is significantly misaligned with the ground truth because it evaluates the question title in isolation, ignoring the standard prediction market format where a detailed description provides necessary context. The Ground Truth explicitly states the market resolves based on a 'named indictment,' which defines the jurisdiction, the specific case, and the counts. Consequently, the model's rationale regarding 'undefined terms' and 'vague conditions' is spurious in this context, as these are resolved by the market description. The model's score of 90 represents a massive overestimation of risk compared to the ground truth's 22, failing to recognize that court verdicts are formal, objective resolution sources.",
+      "score_accuracy": 1,
+      "rationale_quality": 1,
+      "tag_correctness": 1,
+      "overall_quality": 1
+    },
+    "B_system_basic_eval": {
+      "own_assessment": {
+        "risk_score": 25,
+        "key_issues": [
+          "Lack of specific indictment reference in title",
+          "Indefinite timeframe"
+        ]
+      },
+      "qualitative_analysis": "The model significantly overestimates the ambiguity risk by conflating the improbability of the event (Maduro being apprehended and tried) with the ambiguity of the resolution criteria. While the model correctly notes the lack of a specific jurisdiction or deadline in the text, it fails to recognize that 'Maduro guilty of all counts' refers to a specific, well-documented legal process (likely the US DOJ indictment) where the resolution condition (a court verdict) is binary and formal. The Ground Truth correctly identifies this as low risk because court outcomes are objective. The model's tags like 'unverified_source' are incorrect for a court verdict, and 'undefined_term' ignores the context of the specific case.",
+      "score_accuracy": 1,
+      "rationale_quality": 1,
+      "tag_correctness": 1,
+      "overall_quality": 1
+    },
+    "C_system_full_eval": {
+      "own_assessment": {
+        "risk_score": 25,
+        "key_issues": [
+          "Lack of explicit resolution deadline (what if no trial occurs?)",
+          "Strict condition 'all counts' vs 'any count'",
+          "Dependence on specific indictment context not visible in title alone"
+        ]
+      },
+      "qualitative_analysis": "The model significantly overestimates the ambiguity risk compared to the ground truth. While the model correctly identifies the lack of a deadline and the potential for confusion regarding which specific indictment applies, it treats these as critical flaws warranting a high-risk score (65). The ground truth, conversely, views the market as low risk (22) because the resolution source—a court verdict on a named indictment—is a formal, objective event. The model fails to weigh the high clarity of a legal verdict against the procedural ambiguity of the timeline. The model's rationale is technically sound regarding the text provided but misaligned with the standard interpretation of legal resolution markets, where verdicts are considered definitive resolution sources even if the timeline is open-ended.",
+      "score_accuracy": 1,
+      "rationale_quality": 2,
+      "tag_correctness": 2,
+      "overall_quality": 2
+    }
+  },
+  "7": {
+    "question": "Who will buy the Seattle Seahawks?",
+    "gt": {
+      "risk_score": 34,
+      "reasons": "This market is fairly clear because it specifies that a binding agreement to sell a majority interest must be publicly announced. It has a bit more risk than a pure numeric market because deal structures and announcements can be messy, but the page still gives a concrete threshold."
+    },
+    "A_baseline": {
+      "risk_score": 90,
+      "risk_tags": [
+        "ambiguous_time",
+        "vague_condition",
+        "undefined_term",
+        "high_disputability"
+      ],
+      "rationale": "The question lacks a specific timeframe (e.g., 'by 2025' or 'before the start of the next season'), making it impossible to resolve if the team is not sold in the near future. Additionally, the term 'buy' is undefined regarding the threshold of ownership required (e.g., 100% acquisition vs. controlling interest vs. minority stake). The resolution conditions are also vague, failing to specify if the market resolves upon a formal announcement, a signed agreement, or the final closing of the transaction, all of which contribute to a high risk of disputes."
+    },
+    "B_system_basic": {
+      "risk_score": 80,
+      "risk_tags": [
+        "ambiguous_time",
+        "undefined_term",
+        "vague_condition",
+        "unverified_source",
+        "high_disputability"
+      ],
+      "rationale": "1) **Missing Timeframe:** The question lacks a specific deadline or timeframe (e.g., 'by 2026' or 'within 5 years'), making it impossible to determine when the market should resolve if no immediate sale occurs. 2) **Presupposition of Outcome:** The phrasing 'Who will buy' assumes a sale will definitely happen. It fails to define the resolution criteria if the team is not sold (e.g., remains under current ownership). 3) **Undefined Term 'Buy':** It is ambiguous whether purchasing a minority stake, a controlling interest, or 100% of the team is required to satisfy the condition. 4) **Unverified Source:** No authoritative source (e.g., NFL official press release, SEC filing) is specified to confirm the transaction. 5) **High Disputability:** Identifying the specific 'buyer' can be complex in consortium deals or corporate structures, leading to disputes over which individual or entity counts as the purchaser."
+    },
+    "C_system_full": {
+      "risk_score": 85,
+      "risk_tags": [
+        "ambiguous_time",
+        "undefined_term",
+        "unidentified_subject",
+        "vague_condition",
+        "high_disputability"
+      ],
+      "rationale": "1) **Ambiguous Time**: The question lacks any deadline or timeframe (e.g., 'by 2026' or 'before the start of the next season'). Without a closing date, the market cannot be resolved if a sale does not occur quickly. 2) **Undefined Term ('Buy')**: It is unclear what stage of the purchase constitutes a 'buy'. Does this refer to a signed agreement of sale, NFL approval (which is required for all team sales), or the final closing of the transaction? These events can be months apart. 3) **Unidentified Subject ('Who')**: NFL team sales are typically conducted by billionaire-led *groups* or LLCs rather than individuals. It is ambiguous whether the resolution should name the lead investor, the investment group, or the legal entity. 4) **Vague Condition**: As an open-ended 'Who' question, it lacks a defined list of outcomes, making it impossible to resolve as a binary market without a specific set of candidates. 5) **High Disputability**: Given the complexity of NFL ownership structures, determining the single 'buyer' is highly subjective and prone to disputes (e.g., if a consortium buys it, which name is the 'winner'?)."
+    },
+    "A_baseline_eval": {
+      "own_assessment": {
+        "risk_score": 35,
+        "key_issues": [
+          "deal_complexity",
+          "announcement_ambiguity"
+        ]
+      },
+      "qualitative_analysis": "The model failed to incorporate the market description which explicitly defines the resolution criteria (binding agreement to sell a majority interest). The Ground Truth notes that the market is 'fairly clear' because it specifies these terms, yet the model claimed terms were 'undefined' and conditions 'vague'. The model evaluated the question title in isolation, ignoring the context that lowers the risk, resulting in a grossly inflated risk score and spurious tags.",
+      "score_accuracy": 1,
+      "rationale_quality": 1,
+      "tag_correctness": 1,
+      "overall_quality": 1
+    },
+    "B_system_basic_eval": {
+      "own_assessment": {
+        "risk_score": 35,
+        "key_issues": [
+          "Missing timeframe/deadline for the sale",
+          "Ambiguity in what constitutes a 'buy' (minority vs majority stake)",
+          "Resolution criteria if no sale occurs",
+          "Complexity in identifying the specific buyer in consortium deals"
+        ]
+      },
+      "qualitative_analysis": "The model significantly overestimated the risk (80 vs 34). While the model correctly identified several valid issues (missing timeframe, undefined 'buy', consortium complexity), it failed to acknowledge the mitigating context provided in the ground truth—that the market specifies a 'binding agreement to sell a majority interest' must be publicly announced. The ground truth notes this provides a concrete threshold, lowering the risk. The model's rationale treats the question as if it exists in a vacuum, ignoring the specific resolution criteria mentioned in the ground truth explanation. Consequently, the tags like 'unverified_source' and 'high_disputability' are overstated given the existence of a public announcement requirement.",
+      "score_accuracy": 1,
+      "rationale_quality": 2,
+      "tag_correctness": 2,
+      "overall_quality": 2
+    },
+    "C_system_full_eval": {
+      "own_assessment": {
+        "risk_score": 35,
+        "key_issues": [
+          "Complexity of deal structures (consortium vs individual)",
+          "Timing of NFL approval vs agreement signing",
+          "Potential for delayed announcements"
+        ]
+      },
+      "qualitative_analysis": "The model's assessment is significantly misaligned with the ground truth because it appears to have evaluated the market question in isolation, ignoring the clarifying context referenced in the ground truth. The ground truth explicitly states that the market 'specifies that a binding agreement to sell a majority interest must be publicly announced,' which resolves the model's primary concern regarding the 'Undefined Term ('Buy')'. Furthermore, the model assigned an excessively high risk score (85) compared to the ground truth (34), failing to recognize that the 'concrete threshold' provided in the market description mitigates most of the ambiguity. While the model correctly identifies that NFL sales can be complex (groups vs individuals), it overestimates the 'disputability' given the specific resolution criteria mentioned in the ground truth.",
+      "score_accuracy": 1,
+      "rationale_quality": 1,
+      "tag_correctness": 1,
+      "overall_quality": 1
+    }
+  },
+  "8": {
+    "question": "Will the Supreme Court rule on Trump's tariffs by the listed date?",
+    "gt": {
+      "risk_score": 23,
+      "reasons": "This is low risk because the question points to an official Supreme Court ruling in a named case and even defines what counts as a ruling on the merits. That makes the resolution source and event boundary unusually clean."
+    },
+    "A_baseline": {
+      "risk_score": 80,
+      "risk_tags": [
+        "undefined_term",
+        "vague_condition",
+        "high_disputability"
+      ],
+      "rationale": "The question suffers from significant ambiguity regarding the subject matter and the resolution criteria. 'Trump's tariffs' is an undefined term; it is unclear if this refers to tariffs implemented during his presidency, specific tariff policies currently in litigation, or future tariff proposals. Furthermore, 'rule on' is a vague condition that could be interpreted to mean a decision on the merits, a grant of certiorari, or a procedural ruling (such as a stay). This lack of specificity makes the market highly prone to disputes over whether a specific judicial action qualifies as a ruling on the subject."
+    },
+    "B_system_basic": {
+      "risk_score": 75,
+      "risk_tags": [
+        "ambiguous_time",
+        "undefined_term",
+        "vague_condition",
+        "high_disputability"
+      ],
+      "rationale": "1) 'By the listed date' is a placeholder reference rather than a specific timestamp; the question text itself lacks the necessary temporal boundary for resolution. 2) 'Trump's tariffs' is an undefined term—Trump has implemented or proposed multiple tariff measures (e.g., on China, steel, aluminum) across different administrations, and it is unclear which specific tariff policy or legal challenge is being referenced. 3) 'Rule on' is vague regarding the type of judicial action required; it is unclear if this necessitates a final decision on the merits, or if procedural actions (such as granting a stay, denying certiorari, or issuing an injunction) would count. 4) 'The Supreme Court' is not explicitly defined as the US Supreme Court, though implied, adding a minor layer of ambiguity."
+    },
+    "C_system_full": {
+      "risk_score": 90,
+      "risk_tags": [
+        "ambiguous_time",
+        "undefined_term",
+        "vague_condition",
+        "unidentified_subject"
+      ],
+      "rationale": "1) **Missing Critical Variable (Ambiguous Time):** The question asks for a resolution 'by the listed date,' but no date is provided in the question text. This is a fatal flaw; without the specific deadline, the question cannot be resolved objectively. 2) **Unidentified Subject:** 'Trump's tariffs' is overly broad. Trump implemented multiple tariff policies (e.g., Section 232 steel/aluminum, Section 301 China trade war, IEEPA emergency tariffs). It is unclear if a ruling on a specific case (like the IEEPA case mentioned in the evidence) counts as ruling on 'Trump's tariffs' in general, or if the market requires a ruling covering all of them. 3) **Undefined Term:** 'Rule on' is ambiguous. It could refer to a final merits decision, a per curiam order, a grant or denial of certiorari, or a procedural ruling. 4) **Vague Condition:** Due to the missing date and broad subject scope, the conditions for a 'Yes' or 'No' outcome are entirely subjective and dependent on information not present in the question."
+    },
+    "A_baseline_eval": {
+      "own_assessment": {
+        "risk_score": 25,
+        "key_issues": [
+          "Definition of 'rule on' (merits vs procedural)",
+          "Specificity of 'Trump's tariffs' (which specific case/policy)",
+          "Clarity of resolution source (Supreme Court is specific)"
+        ]
+      },
+      "qualitative_analysis": "The model's assessment is significantly misaligned with the ground truth. The ground truth asserts that the question is low risk (score 23) because it points to an official Supreme Court ruling in a named case and defines what counts as a ruling on the merits. The model, however, assigns a high risk score (80) and cites ambiguity in 'Trump's tariffs' and 'rule on' as major issues. The model fails to recognize that the question likely includes sufficient context (e.g., a named case) to mitigate these concerns, as indicated by the ground truth. The model's rationale raises spurious concerns that contradict the ground truth's assessment of the resolution source and event boundary being 'unusually clean.'",
+      "score_accuracy": 1,
+      "rationale_quality": 1,
+      "tag_correctness": 1,
+      "overall_quality": 1
+    },
+    "B_system_basic_eval": {
+      "own_assessment": {
+        "risk_score": 23,
+        "key_issues": [
+          "Minimal ambiguity given the full context described in ground truth",
+          "Potential minor confusion if the case is dismissed on standing (though GT implies this is handled)"
+        ]
+      },
+      "qualitative_analysis": "The model's assessment is fundamentally flawed because it appears to have evaluated only the headline text in isolation, ignoring the context provided in the Ground Truth. The Ground Truth explicitly states that the market points to a 'named case' and 'defines what counts as a ruling on the merits,' which directly resolves the model's concerns about 'undefined terms' and 'vague conditions.' The model incorrectly flagged 'listed date' as a placeholder rather than a specific date found in the full description. As a result, the model's high risk score (75) is a severe overestimation compared to the actual low risk (23).",
+      "score_accuracy": 1,
+      "rationale_quality": 1,
+      "tag_correctness": 1,
+      "overall_quality": 1
+    },
+    "C_system_full_eval": {
+      "own_assessment": {
+        "risk_score": 25,
+        "key_issues": [
+          "Missing resolution date in the prompt text (though likely present in the original market context)",
+          "Potential ambiguity regarding which specific tariff case constitutes 'Trump's tariffs' if multiple are pending",
+          "Definition of 'rule on' (merits vs procedural)"
+        ]
+      },
+      "qualitative_analysis": "The model's assessment is significantly misaligned with the ground truth. The ground truth asserts the question is low risk (23) because it points to an official ruling in a named case and defines 'ruling on the merits.' The model, however, assigns a high risk score (90) based on the absence of the 'listed date' within the provided text snippet and broad interpretations of 'Trump's tariffs' and 'rule on.' While the model correctly identifies that the date is missing from the *provided text*, the ground truth implies that in the full market context, these details were resolved (e.g., 'named case', 'defines what counts'). The model's rationale treats the question in isolation and assumes worst-case ambiguity for terms that the ground truth states are actually well-defined. The model missed the nuance that the ground truth claims the resolution source and event boundary are 'unusually clean.' Consequently, the model raised spurious concerns about 'unidentified_subject' and 'vague_condition' that contradict the ground truth's assessment of clarity.",
+      "score_accuracy": 1,
+      "rationale_quality": 1,
+      "tag_correctness": 1,
+      "overall_quality": 1
+    }
+  },
+  "9": {
+    "question": "Google (GOOGL) closes above the listed price on April 14?",
+    "gt": {
+      "risk_score": 15,
+      "reasons": "This is low risk because it uses the official closing price for a named stock on a named date. The market even addresses shortened sessions, so there is very little room for dispute."
+    },
+    "A_baseline": {
+      "risk_score": 95,
+      "risk_tags": [
+        "vague_condition",
+        "undefined_term",
+        "high_disputability",
+        "ambiguous_time"
+      ],
+      "rationale": "The question is critically flawed because it references 'the listed price' without providing a specific numerical value or defining what constitutes the 'listed price' (e.g., opening price, previous close, or a specific strike price). Without a clear target value, the resolution condition is impossible to verify objectively. Furthermore, the date 'April 14' lacks a year, creating temporal ambiguity regarding which expiration cycle applies."
+    },
+    "B_system_basic": {
+      "risk_score": 90,
+      "risk_tags": [
+        "ambiguous_time",
+        "undefined_term",
+        "unverified_source",
+        "vague_condition",
+        "high_disputability"
+      ],
+      "rationale": "1) 'April 14' lacks a specific year, making the timeframe completely undefined. 2) 'The listed price' is critically ambiguous; it is unclear what specific price point this refers to (e.g., opening price, previous close, or a specific target value missing from the text). 3) No authoritative data source is specified (e.g., NYSE, NASDAQ, Bloomberg). 4) The timezone for the market close is not defined. The question cannot be resolved objectively without these critical details."
+    },
+    "C_system_full": {
+      "risk_score": 90,
+      "risk_tags": [
+        "ambiguous_time",
+        "undefined_term",
+        "vague_condition",
+        "unverified_source"
+      ],
+      "rationale": "1) **Missing Year:** The date 'April 14' lacks a specific year (e.g., 2025, 2026), making the resolution timeframe completely ambiguous. 2) **Undefined Threshold:** The phrase 'the listed price' is critically vague. It does not provide a specific numerical value (e.g., $150) required to evaluate the condition. It is unclear if 'listed price' refers to the opening price, the previous day's closing price, or a specific target number that is missing from the text. 3) **Vague Condition:** Without a specific numerical target, the condition 'closes above the listed price' is impossible to resolve objectively. 4) **Missing Authoritative Source:** The question does not specify which financial data source (e.g., NASDAQ, NYSE, Bloomberg, Yahoo Finance) determines the 'official closing price,' leaving room for discrepancies in data reporting."
+    },
+    "A_baseline_eval": {
+      "own_assessment": {
+        "risk_score": 20,
+        "key_issues": [
+          "The phrase 'the listed price' is context-dependent and requires a specific numerical value from the market description to be resolvable.",
+          "The date 'April 14' omits the year, though standard convention implies the next upcoming occurrence."
+        ]
+      },
+      "qualitative_analysis": "The model's assessment is significantly misaligned with the ground truth. The model interprets 'the listed price' as a vague, undefined linguistic term, failing to recognize that in the context of a prediction market, this refers to a specific target value defined in the market's parameters (as implied by the ground truth's reference to shortened sessions and official closing prices). Additionally, the model flags the missing year in 'April 14' as a critical ambiguity ('temporal ambiguity'), whereas standard market convention resolves this by defaulting to the next occurrence of the date. The ground truth correctly identifies that stock closing prices are objective data points, resulting in low ambiguity. The model's high risk score and rationale reflect a failure to apply domain-specific knowledge and standard conventions, treating the question as an isolated linguistic puzzle rather than a resolvable market contract.",
+      "score_accuracy": 1,
+      "rationale_quality": 1,
+      "tag_correctness": 1,
+      "overall_quality": 1
+    },
+    "B_system_basic_eval": {
+      "own_assessment": {
+        "risk_score": 15,
+        "key_issues": [
+          "The question relies on standard prediction market conventions (e.g., 'April 14' implies the next occurrence, 'GOOGL' implies NASDAQ closing price).",
+          "The Ground Truth indicates that 'listed price' and 'shortened sessions' are addressed in the full market context, removing ambiguity.",
+          "Stock price markets are generally low risk due to objective, verifiable data sources."
+        ]
+      },
+      "qualitative_analysis": "The model's assessment is significantly flawed because it applies a strict, literalist interpretation to a domain that relies on standard conventions. It flags the lack of a specific year for 'April 14' as a critical error, whereas in prediction markets, a date without a year universally implies the next upcoming occurrence. It also claims 'listed price' is ambiguous and that no data source is specified; however, for a named stock like GOOGL, the primary exchange (NASDAQ) and the closing price are the standard defaults. The Ground Truth confirms that the market context (likely the description) clarifies the 'listed price' and addresses edge cases like shortened sessions. The model failed to recognize these conventions and the implied context, resulting in a gross overestimation of risk.",
+      "score_accuracy": 1,
+      "rationale_quality": 1,
+      "tag_correctness": 1,
+      "overall_quality": 1
+    },
+    "C_system_full_eval": {
+      "own_assessment": {
+        "risk_score": 15,
+        "key_issues": [
+          "Low ambiguity risk",
+          "Standard financial market resolution",
+          "Official closing price is well-defined",
+          "Date is specific enough in context (usually implies upcoming or current year)",
+          "Shortened sessions are addressed"
+        ]
+      },
+      "qualitative_analysis": "The model's assessment is significantly off-base compared to the ground truth. The ground truth correctly identifies this as a low-risk market (score 15) because 'official closing price' is a standard, well-defined term in financial markets, and the date 'April 14' is typically interpreted in the context of the current or upcoming market year. The model, however, raises spurious concerns: 1) It claims the date lacks a year, but in prediction markets, dates without years are commonly interpreted as the next occurrence of that date. 2) It argues 'listed price' is vague, but this is a standard term referring to the price displayed in the market question itself (which is implied to be provided elsewhere in the full market context). 3) It questions the authoritative source for closing price, but this is rarely an issue for major stocks like GOOGL, where NASDAQ/NYSE data is universally accepted. The model's high risk score (90) and tags (e.g., 'undefined_term', 'vague_condition') are unjustified and reflect a misunderstanding of standard market conventions.",
+      "score_accuracy": 1,
+      "rationale_quality": 1,
+      "tag_correctness": 1,
+      "overall_quality": 1
+    }
+  },
+  "10": {
+    "question": "Inflation in April 2026 (CPI YoY)?",
+    "gt": {
+      "risk_score": 14,
+      "reasons": "This is low risk because it resolves directly from the Bureau of Labor Statistics CPI release. The source is authoritative, the metric is standardized, and the settlement rule is numerical."
+    },
+    "A_baseline": {
+      "risk_score": 45,
+      "risk_tags": [
+        "unidentified_subject",
+        "unverified_source"
+      ],
+      "rationale": "The question clearly specifies the metric (CPI YoY) and the timeframe (April 2026). However, it fails to identify the geographic region or country (e.g., United States, Eurozone, UK) to which the inflation data applies, as rates vary significantly by jurisdiction. Furthermore, it lacks a specification for the authoritative data source (e.g., the U.S. Bureau of Labor Statistics), leaving room for disputes regarding which specific report or revision should be used for resolution."
+    },
+    "B_system_basic": {
+      "risk_score": 75,
+      "risk_tags": [
+        "unidentified_subject",
+        "unverified_source",
+        "undefined_term",
+        "vague_condition"
+      ],
+      "rationale": "1) **Unidentified Subject:** The question fails to specify the country or jurisdiction (e.g., USA, UK, Eurozone). Inflation rates vary significantly by region, making the question impossible to resolve objectively without an assumption. 2) **Unverified Source:** No authoritative source is cited (e.g., U.S. Bureau of Labor Statistics). Different agencies may report different figures or apply different methodologies. 3) **Undefined Term:** 'CPI YoY' lacks specificity regarding the index type (e.g., All Items/Headline vs. Core CPI) and adjustment status (Seasonally Adjusted vs. Not Seasonally Adjusted). 4) **Vague Condition:** The question asks about 'Inflation in April', but this data is typically released in May. It is unclear if the market resolves based on the data release date or the end of the month of April (when the data is not yet known)."
+    },
+    "C_system_full": {
+      "risk_score": 90,
+      "risk_tags": [
+        "vague_condition",
+        "unidentified_subject",
+        "undefined_term",
+        "high_disputability"
+      ],
+      "rationale": "1) **Missing Resolution Condition**: The question is a noun phrase rather than a complete proposition. It lacks a specific condition or threshold for resolution (e.g., 'Will inflation be above 3%?'), making it impossible to determine a Yes/No outcome. 2) **Unidentified Subject (Geography)**: The question does not specify the country or region for the CPI data (e.g., US, Eurozone, UK). While search results imply US data, the question text itself is ambiguous. 3) **Undefined Term (Index Type)**: 'CPI' is generic. It fails to specify the precise index, such as CPI-U (All Urban Consumers) vs. CPI-W, or whether it refers to Headline CPI vs. Core CPI. 4) **High Disputability**: Without a defined threshold, specific geography, or index type, the market cannot be objectively resolved."
+    },
+    "A_baseline_eval": {
+      "own_assessment": {
+        "risk_score": 15,
+        "key_issues": [
+          "Implicit assumption of US jurisdiction (standard in many markets but technically unstated)",
+          "Implicit reliance on BLS as the standard source",
+          "Standardized metric (CPI YoY) reduces ambiguity"
+        ]
+      },
+      "qualitative_analysis": "The model applied a hyper-literal interpretation, flagging the absence of an explicit country designation and data source as critical flaws. However, the ground truth establishes that this is a low-risk market because it relies on the standard convention within prediction markets where 'Inflation' implicitly refers to US CPI released by the Bureau of Labor Statistics. The model failed to recognize this domain convention, treating standard implicit context as fatal ambiguity. Consequently, the model's rationale is technically valid in a linguistic vacuum but is incorrect relative to the operational reality of the market as defined by the ground truth.",
+      "score_accuracy": 1,
+      "rationale_quality": 1,
+      "tag_correctness": 1,
+      "overall_quality": 1
+    },
+    "B_system_basic_eval": {
+      "own_assessment": {
+        "risk_score": 18,
+        "key_issues": [
+          "Implicit assumption of US jurisdiction (standard convention)",
+          "Implicit assumption of Headline CPI (standard convention)",
+          "Standard market conventions apply to timing and source"
+        ]
+      },
+      "qualitative_analysis": "The model applied a hyper-literal interpretation, failing to recognize standard domain conventions where 'CPI' defaults to the US BLS Headline CPI in prediction markets. While the text technically omits the country and source, the Ground Truth correctly identifies that the metric is standardized and the source is authoritative by convention. The model's concerns regarding 'unidentified subject' and 'unverified source' are spurious in this context, as 'CPI' is a well-defined financial term. The model's risk score of 75 is drastically inflated compared to the Ground Truth's 14, indicating a fundamental misunderstanding of the question's resolvability and the implicit context of the market.",
+      "score_accuracy": 1,
+      "rationale_quality": 1,
+      "tag_correctness": 1,
+      "overall_quality": 1
+    },
+    "C_system_full_eval": {
+      "own_assessment": {
+        "risk_score": 15,
+        "key_issues": [
+          "Missing geographic scope (assumed US but not stated)",
+          "Ambiguous index type (CPI-U vs CPI-W, Headline vs Core)",
+          "Lack of resolution threshold (noun phrase vs binary question)",
+          "Potential for data revisions (though standard for CPI)"
+        ]
+      },
+      "qualitative_analysis": "The model's assessment is significantly harsher than the ground truth. While the model correctly identifies technical ambiguities (geography, index type, lack of threshold), it fails to contextualize them within standard prediction market conventions. The ground truth assumes standard US CPI-U data, which is a reasonable default for a platform like Manifold. The model treats the lack of a binary threshold as a fatal flaw ('vague_condition'), whereas the ground truth implies this is a numeric market (e.g., a scalar or range market) rather than a Yes/No market. The model's score of 90 suggests the market is unresolvable, which contradicts the ground truth's view that it is low risk due to the authoritative BLS source. The model missed the 'standardized metric' aspect that mitigates these risks.",
+      "score_accuracy": 1,
+      "rationale_quality": 2,
+      "tag_correctness": 2,
+      "overall_quality": 2
+    }
+  },
+  "11": {
+    "question": "Highest temperature in Boston today?",
+    "gt": {
+      "risk_score": 12,
+      "reasons": "This market is low risk because it resolves from the National Weather Service daily climatological report. It uses a concrete observed temperature and a named source, so interpretation risk is minimal."
+    },
+    "A_baseline": {
+      "risk_score": 70,
+      "risk_tags": [
+        "unverified_source",
+        "ambiguous_quantity",
+        "ambiguous_time",
+        "unidentified_subject"
+      ],
+      "rationale": "The question lacks a specific authoritative source for the data (e.g., NOAA, Weather.com, or a specific station ID like Logan Airport), making it prone to disputes if sources vary. The unit of measurement (Fahrenheit vs. Celsius) is not specified, which creates a critical ambiguity in the numerical answer. The time reference 'today' is relative and requires a specific timezone context for resolution. Additionally, 'Boston' is not geographically specific enough to determine which reporting station within the metropolitan area should be used."
+    },
+    "B_system_basic": {
+      "risk_score": 70,
+      "risk_tags": [
+        "ambiguous_time",
+        "undefined_term",
+        "unverified_source",
+        "vague_condition"
+      ],
+      "rationale": "1) 'Today' is a relative time reference that lacks a specific calendar date and timezone (e.g., EST vs UTC), making the resolution window unclear. 2) 'Boston' is ambiguous; it does not specify the state or country (e.g., Boston, MA vs Boston, UK). 3) The unit of measurement for 'temperature' is not specified (Fahrenheit vs Celsius), leading to potential disputes over the numerical value. 4) No authoritative source is defined (e.g., National Weather Service, specific weather station like KBOS), leaving the resolution data source open to interpretation."
+    },
+    "C_system_full": {
+      "risk_score": 65,
+      "risk_tags": [
+        "ambiguous_time",
+        "undefined_term",
+        "unverified_source",
+        "vague_condition"
+      ],
+      "rationale": "1) Ambiguous Time: 'Today' is a relative term that lacks a specific date or timezone definition (e.g., end of day in Boston local time vs. UTC), creating uncertainty about the measurement window. 2) Undefined Term (Location): 'Boston' is a geographic region, not a specific weather station. Temperatures can vary significantly across the city; the question fails to specify the official reporting station (e.g., Logan International Airport). 3) Unverified Source: The question does not name an authoritative source (e.g., National Weather Service). Without this, discrepancies between data providers (e.g., AccuWeather vs. NWS) regarding the exact high temperature could lead to unresolvable disputes. 4) Vague Condition: While 'highest temperature' usually implies dry-bulb temperature, the lack of explicit definition leaves room for confusion with 'feels like' or 'heat index' values in edge cases."
+    },
+    "A_baseline_eval": {
+      "own_assessment": {
+        "risk_score": 30,
+        "key_issues": [
+          "Missing explicit resolution source in the text",
+          "Ambiguous unit of measurement (Fahrenheit vs Celsius)",
+          "Relative time reference 'today' requires timezone context"
+        ]
+      },
+      "qualitative_analysis": "The model's assessment is significantly misaligned with the Ground Truth. While the model correctly identifies linguistic ambiguities present in the isolated question text (lack of source, units, timezone), it fails to recognize the context established in the Ground Truth: that the market resolves specifically via the National Weather Service. The model's claim of an 'unverified_source' directly contradicts the Ground Truth's assertion of a 'named source.' Consequently, the model vastly overestimates the risk (70 vs 12) by treating the question as a generic, unresolvable query rather than a market with a defined resolution mechanism.",
+      "score_accuracy": 1,
+      "rationale_quality": 1,
+      "tag_correctness": 1,
+      "overall_quality": 1
+    },
+    "B_system_basic_eval": {
+      "own_assessment": {
+        "risk_score": 15,
+        "key_issues": [
+          "Source dependency: While standard for the platform, the title lacks the explicit NWS citation found in the full market description.",
+          "Time definition: 'Today' relies on the implicit understanding of the local calendar day vs market close time."
+        ]
+      },
+      "qualitative_analysis": "The model's output is a classic example of over-pedantic, context-free analysis. While the model correctly identifies that the *title text alone* lacks specific details (source, unit, timezone), it fails to account for the standard conventions of prediction markets or the specific resolution criteria cited in the Ground Truth. The Ground Truth confirms the market resolves via the National Weather Service (NWS), which nullifies the model's concerns about 'unverified_source', 'undefined_term' (units), and 'vague_condition'. The model's flagging of 'Boston' as ambiguous (potentially UK) and 'Temperature' as ambiguous (F vs C) are spurious in the context of a US-centric weather market, representing false positives that inflate the risk score to 70—nearly 6x the Ground Truth's score of 12. The model missed the core reality that this is a low-risk, observational market.",
+      "score_accuracy": 1,
+      "rationale_quality": 1,
+      "tag_correctness": 1,
+      "overall_quality": 1
+    },
+    "C_system_full_eval": {
+      "own_assessment": {
+        "risk_score": 12,
+        "key_issues": [
+          "Standard market convention implies a specific source (NWS) and location (Logan Airport)",
+          "Weather data is objective and historically verifiable",
+          "Ambiguity is minimal due to common usage of terms in this domain"
+        ]
+      },
+      "qualitative_analysis": "The model applies a hyper-literal, legalistic interpretation that ignores standard prediction market conventions. While the model correctly identifies that the text *lacks* specific details (source, exact station), it fails to recognize that 'Highest temperature in Boston' is a standard query with a de facto resolution source (NWS/Logan). The ground truth correctly identifies this as low risk due to the existence of a concrete, authoritative report. The model's score of 65 is drastically inflated, treating a standard weather market as a high-risk contract. The model raised spurious concerns by treating standard industry definitions as fatal flaws.",
+      "score_accuracy": 1,
+      "rationale_quality": 1,
+      "tag_correctness": 1,
+      "overall_quality": 1
+    }
+  },
+  "12": {
+    "question": "Fed rate cut in 2026?",
+    "gt": {
+      "risk_score": 18,
+      "reasons": "This is low risk because Federal Reserve target-range changes are official and publicly announced. The event is institutionally defined and not dependent on fuzzy interpretation."
+    },
+    "A_baseline": {
+      "risk_score": 35,
+      "risk_tags": [
+        "undefined_term",
+        "unverified_source"
+      ],
+      "rationale": "The primary ambiguity lies in the term 'Fed rate,' which is colloquial but technically undefined. It could refer to the Federal Funds Target Range, the Effective Federal Funds Rate (EFFR), the Interest on Reserve Balances (IORB), or the Discount Rate. While market convention typically assumes the Target Range, the lack of specificity creates resolution risk. Additionally, the question lacks an authoritative data source (e.g., 'according to FRED' or 'Federal Reserve press releases'), leaving room for disputes if different reporting agencies show slight discrepancies or if the Fed changes its operational framework. The time reference 'in 2026' is clear, and the condition 'rate cut' is generally understood as a lowering of the rate at any point during that calendar year."
+    },
+    "B_system_basic": {
+      "risk_score": 65,
+      "risk_tags": [
+        "undefined_term",
+        "ambiguous_time",
+        "unverified_source",
+        "vague_condition"
+      ],
+      "rationale": "1) 'Fed rate' is colloquial and undefined; it should specify the 'Federal Funds Target Range' to distinguish from the Discount Rate or Effective Federal Funds Rate. 2) 'In 2026' lacks a specific timezone. Since the Federal Reserve operates on Eastern Time, a rate cut announced on Dec 31, 2026, at 2:00 PM ET would technically occur on Jan 1, 2027, in UTC, leading to potential disputes. 3) 'Rate cut' does not specify a minimum magnitude (e.g., 25 basis points), leaving ambiguity for micro-adjustments. 4) No authoritative source (e.g., Federal Reserve official press release) is specified for resolution."
+    },
+    "C_system_full": {
+      "risk_score": 60,
+      "risk_tags": [
+        "undefined_term",
+        "unverified_source",
+        "vague_condition",
+        "ambiguous_time"
+      ],
+      "rationale": "1) **Undefined Term**: 'Fed rate cut' does not specify which specific interest rate is being tracked (e.g., the Federal Funds Target Rate, the Discount Rate, or Interest on Reserve Balances). While the Federal Funds Rate is the market standard, the lack of explicit definition creates technical ambiguity. 2) **Unverified Source**: The question fails to cite an authoritative source for resolution (e.g., the Federal Reserve Board's official press release or FRED), leading to potential disputes over data accuracy. 3) **Vague Condition**: The question does not define the minimum magnitude of a cut required (e.g., 25 basis points). A minor technical adjustment could trigger a 'Yes' resolution without meeting trader expectations. 4) **Ambiguous Time**: 'In 2026' is broad; it does not clarify if the resolution depends on the announcement date of the FOMC meeting or the effective date of the policy change."
+    },
+    "A_baseline_eval": {
+      "own_assessment": {
+        "risk_score": 20,
+        "key_issues": [
+          "Colloquial term 'Fed rate' relies on market convention rather than strict legal definition",
+          "Implicit reliance on Federal Reserve press releases as the resolution source"
+        ]
+      },
+      "qualitative_analysis": "The model adopts an overly pedantic and literal interpretation of the question, failing to account for standard financial market conventions. While the model is technically correct that 'Fed rate' is colloquial, it ignores the context that in prediction markets and financial journalism, this term universally refers to the Federal Funds Target Range. The ground truth correctly identifies this as low risk because the event is institutionally defined and publicly announced. The model raises spurious concerns regarding IORB and the Discount Rate, which are highly unlikely to cause resolution disputes for a general market question. Consequently, the model significantly overestimates the risk.",
+      "score_accuracy": 3,
+      "rationale_quality": 2,
+      "tag_correctness": 2,
+      "overall_quality": 2
+    },
+    "B_system_basic_eval": {
+      "own_assessment": {
+        "risk_score": 15,
+        "key_issues": [
+          "The term 'Fed rate' is colloquial but generally understood in prediction markets to refer to the Federal Funds Target Rate.",
+          "The timeframe 'in 2026' is standard for yearly markets and usually implies by the end of the year (Dec 31) or during the calendar year.",
+          "Rate cuts are official, binary events announced by the FOMC, minimizing interpretation risk.",
+          "Potential minor ambiguity regarding the specific rate (Target Range vs Effective) or magnitude of cut, but usually resolved by market conventions."
+        ]
+      },
+      "qualitative_analysis": "The model's assessment is significantly more pessimistic than the ground truth and my own assessment. While the model correctly identifies that 'Fed rate' is colloquial, it treats this as a high-risk ambiguity ('undefined_term'), whereas in the context of prediction markets, this is standard terminology understood to mean the Federal Funds Target Rate. The model's concern about timezones ('ambiguous_time') is technically true but practically negligible for a yearly resolution market, as Fed meetings don't happen on New Year's Eve at 2 PM ET. The concern about 'unverified_source' is spurious because the Federal Reserve is the implicit authority for Fed rates. The model effectively hallucinates ambiguity in a well-defined, institutional event, missing the point that such markets rely on standard conventions and official announcements.",
+      "score_accuracy": 1,
+      "rationale_quality": 1,
+      "tag_correctness": 1,
+      "overall_quality": 1
+    },
+    "C_system_full_eval": {
+      "own_assessment": {
+        "risk_score": 15,
+        "key_issues": [
+          "Minor technicality regarding whether resolution depends on the announcement date or the effective date of the policy change",
+          "Standard market convention implies the Federal Funds Target Rate, making 'undefined term' concerns negligible in practice"
+        ]
+      },
+      "qualitative_analysis": "The model's assessment is fundamentally flawed and overly pedantic. It fails to recognize 'Fed rate' as a standard term of art in financial markets that universally refers to the Federal Funds Target Rate. The application of the 'undefined_term' tag ignores the institutional context provided by the ground truth. The 'unverified_source' tag is spurious, as the Federal Reserve is the implicit, authoritative source for this data. While the model correctly identifies a potential ambiguity regarding the timing (announcement vs. effective date), it vastly overstates the impact of these minor technicalities, resulting in a risk score (60) that is the polar opposite of the ground truth (18). The model treats a standard, low-ambiguity macroeconomic question as a high-risk contract.",
+      "score_accuracy": 1,
+      "rationale_quality": 1,
+      "tag_correctness": 1,
+      "overall_quality": 1
+    }
+  },
+  "13": {
+    "question": "CPI core in January 2026?",
+    "gt": {
+      "risk_score": 13,
+      "reasons": "This market is low risk because it resolves against a published BLS core CPI figure. It is quantitative, standardized, and tied to a single official data release."
+    },
+    "A_baseline": {
+      "risk_score": 85,
+      "risk_tags": [
+        "undefined_term",
+        "unidentified_subject",
+        "ambiguous_quantity",
+        "unverified_source"
+      ],
+      "rationale": "The question is critically ambiguous and lacks the necessary specificity for objective resolution. First, the subject is unidentified as it does not specify the country or region (e.g., US CPI vs. Eurozone CPI). Second, the term 'CPI core' is undefined regarding the specific metric; it is unclear if the resolution refers to the Year-over-Year percentage change, the Month-over-Month change, or the raw index value. Third, the quantity is ambiguous because the difference between a 0.3% monthly increase and a 3.6% annual increase is substantial. Finally, no authoritative source is specified (e.g., the U.S. Bureau of Labor Statistics), leaving room for disputes if different agencies report slightly different figures."
+    },
+    "B_system_basic": {
+      "risk_score": 90,
+      "risk_tags": [
+        "unidentified_subject",
+        "ambiguous_time",
+        "vague_condition",
+        "undefined_term",
+        "high_disputability"
+      ],
+      "rationale": "1) The question is grammatically incomplete; it is a noun phrase rather than a conditional question (e.g., 'Will CPI be > X?'), making resolution conditions impossible to determine. 2) 'CPI core' lacks a jurisdiction (e.g., US, Eurozone, UK), creating an unidentified subject. 3) The metric is undefined: does it refer to the index level, year-over-year percentage change, or month-over-month change? 4) 'In January 2026' is ambiguous regarding timing—does it refer to the data's reference period (January economic activity) or the release date (which typically occurs in February)?"
+    },
+    "C_system_full": {
+      "risk_score": 85,
+      "risk_tags": [
+        "undefined_term",
+        "vague_condition",
+        "ambiguous_quantity",
+        "unverified_source",
+        "high_disputability"
+      ],
+      "rationale": "1) The question is a sentence fragment lacking a resolution condition (e.g., 'Will it be above X?' or 'What will the value be?'), making it impossible to determine a YES/NO outcome or a specific winning prediction without external assumptions. 2) 'CPI core' is critically undefined regarding the specific metric: it does not specify if the resolution refers to the Month-over-Month (MoM) percentage change or the Year-over-Year (YoY) rate. The provided search evidence explicitly demonstrates this conflict, citing both 0.3% (MoM) and 2.5% (YoY) for the same period. 3) The question omits the country (assumed US), the specific index (CPI-U vs CPI-W), and whether the data is Seasonally Adjusted. 4) No authoritative source (e.g., BLS) is specified within the question text. These multiple undefined variables make the market highly prone to disputes."
+    },
+    "A_baseline_eval": {
+      "own_assessment": {
+        "risk_score": 15,
+        "key_issues": [
+          "Unspecified country/region (assumed US but not stated)",
+          "Unspecified metric type (YoY vs MoM vs Index)",
+          "Unspecified data source (assumed BLS but not stated)",
+          "Potential for confusion between different CPI measures"
+        ]
+      },
+      "qualitative_analysis": "The model's assessment is significantly more severe than the ground truth, which views the market as low risk (score 13) due to reliance on standard BLS data. The model correctly identifies several technical ambiguities: missing country specification, undefined metric type (YoY vs MoM), and lack of explicit source. However, the ground truth assumes standard conventions (US BLS data) that make these issues minimal in practice. The model's score of 85 is an overreaction to these technicalities, treating them as critical flaws rather than minor clarifications. The tags are technically accurate but overly harsh given the context of prediction markets where such conventions are often implied.",
+      "score_accuracy": 1,
+      "rationale_quality": 3,
+      "tag_correctness": 3,
+      "overall_quality": 2
+    },
+    "B_system_basic_eval": {
+      "own_assessment": {
+        "risk_score": 40,
+        "key_issues": [
+          "Grammatically incomplete (noun phrase rather than a conditional or specific query)",
+          "Missing specific metric (Index level vs. Year-over-Year percentage change)",
+          "Relies on implicit convention for jurisdiction (US BLS) and timing (reference month)"
+        ]
+      },
+      "qualitative_analysis": "The model failed to recognize the domain-specific conventions that the ground truth relies upon. While the model's linguistic critique is technically valid in a vacuum—pointing out the lack of a jurisdiction and the grammatical structure—it is incorrect within the context of prediction markets. In this domain, 'CPI' implicitly refers to the US BLS figure, and 'Core' implies the standard exclusion of food and energy. The ground truth correctly identifies this as low risk because it resolves against a standardized, official data release. The model treated the market title as a strict natural language query without context, resulting in a massive overestimation of risk (90 vs 13). The model raised spurious concerns regarding 'unidentified_subject' and 'ambiguous_time' which are considered standard and resolved by convention in this specific market type.",
+      "score_accuracy": 1,
+      "rationale_quality": 1,
+      "tag_correctness": 1,
+      "overall_quality": 1
+    },
+    "C_system_full_eval": {
+      "own_assessment": {
+        "risk_score": 15,
+        "key_issues": [
+          "Missing resolution criteria (e.g., threshold for YES/NO or specific numeric target)",
+          "Ambiguous metric definition (MoM vs YoY)",
+          "Unspecified country (though US is likely implied)",
+          "Unspecified index type (CPI-U vs CPI-W)",
+          "Unspecified seasonal adjustment"
+        ]
+      },
+      "qualitative_analysis": "The model's assessment is significantly more severe than the ground truth. The ground truth treats the question as a low-risk data resolution market, assuming standard BLS reporting conventions. The model, however, correctly identifies that the question text itself is syntactically incomplete ('CPI core in January 2026?' is a fragment, not a proposition) and semantically ambiguous regarding the specific metric (MoM vs YoY). While the ground truth assumes a standard interpretation (likely YoY), the model highlights the lack of explicit resolution criteria which is a valid ambiguity concern. The model's score of 85 is extremely high, suggesting the market is unresolvable, whereas a score of 10-20 would be more appropriate for a market that is technically ambiguous but likely resolvable via standard conventions. The model's rationale is technically correct regarding the flaws in the question text, but the severity of the risk is overstated compared to the ground truth's pragmatic view.",
+      "score_accuracy": 1,
+      "rationale_quality": 4,
+      "tag_correctness": 4,
+      "overall_quality": 2
+    }
+  },
+  "14": {
+    "question": "Number of Fed rate changes before 2027",
+    "gt": {
+      "risk_score": 20,
+      "reasons": "This is low risk because the page defines what counts as a rate change and uses the Federal Reserve as the verification source. Counting official moves is much cleaner than interpreting political or social events."
+    },
+    "A_baseline": {
+      "risk_score": 65,
+      "risk_tags": [
+        "ambiguous_time",
+        "undefined_term",
+        "vague_condition"
+      ],
+      "rationale": "The primary risk is the lack of a specific start date for the measurement window. 'Before 2027' implies an end date (likely the start of the year or end of 2026), but without a defined start point (e.g., 'from market creation' or 'from January 1, 2024'), the quantity cannot be accurately determined. Additionally, 'Fed rate' is an undefined term; while it commonly refers to the Federal Funds Target Range, it should be explicitly specified to avoid disputes regarding other rates (e.g., Discount Rate, IOER). Finally, the condition for a 'change' is vague regarding inter-meeting adjustments or changes in the range width versus the midpoint."
+    },
+    "B_system_basic": {
+      "risk_score": 65,
+      "risk_tags": [
+        "undefined_term",
+        "ambiguous_quantity",
+        "ambiguous_time",
+        "unverified_source"
+      ],
+      "rationale": "1) 'Fed' is colloquial; the specific decision-making body (FOMC) is not named. 2) 'Rate changes' is undefined—it does not specify which interest rate (e.g., Federal Funds Target Rate, Discount Rate, IORB). 3) 'Number of' is highly ambiguous: it is unclear if this refers to the *count* of meetings where rates changed, or the *cumulative magnitude* of the change in basis points (e.g., does a 50bps hike count as 1 change or 50?). 4) 'Before 2027' lacks a precise cutoff timestamp and timezone (e.g., Dec 31, 2026, 11:59 PM UTC). 5) No authoritative source is specified for verifying the data."
+    },
+    "C_system_full": {
+      "risk_score": 75,
+      "risk_tags": [
+        "ambiguous_time",
+        "undefined_term",
+        "ambiguous_quantity",
+        "unverified_source",
+        "vague_condition"
+      ],
+      "rationale": "1) **Missing Start Date:** The question specifies an end point ('before 2027') but fails to define the start point for counting. It is unclear whether this refers to changes from the current date, the start of the current calendar year, or the last Federal Reserve meeting. 2) **Ambiguous End Time:** 'Before 2027' lacks a precise timestamp and timezone (e.g., December 31, 2026, 11:59 PM UTC), creating confusion about whether changes occurring on Dec 31, 2026 count. 3) **Undefined Term ('Rate'):** The question does not specify which interest rate is being tracked (e.g., Federal Funds Target Rate, Discount Rate, IOER). 4) **Ambiguous Quantity ('Changes'):** The counting methodology is undefined. Does a 50 basis point hike count as one change or two? Do emergency inter-meeting adjustments count? 5) **Unverified Source:** No authoritative source (e.g., FRED, FOMC statements) is cited for resolution. 6) **Vague Condition:** As a scalar question, the resolution criteria for the exact number are subjective without strict definitions on how to tally the changes."
+    },
+    "A_baseline_eval": {
+      "own_assessment": {
+        "risk_score": 20,
+        "key_issues": [
+          "The question relies on a well-defined source (Federal Reserve) for rate changes.",
+          "The term 'Fed rate' is commonly understood to refer to the Federal Funds Target Range.",
+          "Counting official rate changes is straightforward and verifiable.",
+          "The time frame 'before 2027' is reasonably clear, though a specific start date could improve precision.",
+          "Overall, the ambiguity risk is low due to the clarity of the Fed's official actions."
+        ]
+      },
+      "qualitative_analysis": "The model's assessment significantly overestimates the ambiguity risk compared to the ground truth. While the model raises valid concerns about the lack of a specific start date and the precise definition of 'Fed rate,' these are minor issues in practice, as the Fed's rate changes are well-defined and widely tracked. The ground truth correctly notes that counting official Fed moves is a clean process with low ambiguity. The model's concerns about 'vague_condition' regarding inter-meeting adjustments or range width changes are overly technical and unlikely to cause disputes in a prediction market context. The model's risk score of 65 is much higher than the ground truth's 20, indicating a misalignment in assessing the practical ambiguity of the question.",
+      "score_accuracy": 1,
+      "rationale_quality": 2,
+      "tag_correctness": 2,
+      "overall_quality": 2
+    },
+    "B_system_basic_eval": {
+      "own_assessment": {
+        "risk_score": 25,
+        "key_issues": [
+          "Definition of 'Fed' (FOMC vs Board)",
+          "Specific rate target (Federal Funds vs others)",
+          "Counting mechanism (meetings vs magnitude)",
+          "Precise end date/timestamp"
+        ]
+      },
+      "qualitative_analysis": "The model's assessment is significantly more pessimistic than the ground truth. While the ground truth views the market as low risk (20) because the page defines terms and uses the Fed as a source, the model (65) identifies multiple potential ambiguities: the colloquial use of 'Fed', the specific interest rate, whether 'number' refers to count or magnitude, and the lack of a precise timestamp. The model correctly raises valid linguistic and logical ambiguities that exist in the raw question text. However, the ground truth implies that context (the page itself) resolves these. The model's output is technically sound regarding the text provided but fails to account for the implied context or standard conventions in prediction markets that often resolve these specific issues (e.g., 'Fed' implies FOMC, 'rate changes' implies target rate). The model's tags are consistent with its rationale but represent a stricter interpretation than the ground truth.",
+      "score_accuracy": 1,
+      "rationale_quality": 3,
+      "tag_correctness": 4,
+      "overall_quality": 2
+    },
+    "C_system_full_eval": {
+      "own_assessment": {
+        "risk_score": 25,
+        "key_issues": [
+          "Implicit start date (usually market creation, but not explicit)",
+          "Colloquial end time phrasing ('before 2027' vs 'end of 2026')",
+          "Assumption that 'Fed rate' refers to the Federal Funds Target Rate (standard but implicit)"
+        ]
+      },
+      "qualitative_analysis": "The model's assessment is hyper-literal and ignores standard financial market conventions, leading to a massive overestimation of risk. While the model correctly identifies that the text in isolation lacks definitions, it fails to recognize that 'Fed rate' is a standard metonym for the Federal Funds Target Rate and that counting FOMC decisions is an objective, verifiable process. The ground truth correctly notes that the market page (context available to the real-world trader) defines these terms, rendering the model's concerns about 'undefined terms' and 'unverified sources' spurious. The model treats a standard macroeconomic counting question as a vague, subjective social science problem, missing the core fact that central bank rate changes are discrete, official events.",
+      "score_accuracy": 1,
+      "rationale_quality": 1,
+      "tag_correctness": 1,
+      "overall_quality": 1
+    }
+  },
+  "15": {
+    "question": "Oscar for Best International Feature Film? (2026)",
+    "gt": {
+      "risk_score": 21,
+      "reasons": "This market is relatively clear because the Academy’s official award result is the settlement source. Awards can be uncertain to predict, but they are usually not ambiguous to resolve."
+    },
+    "A_baseline": {
+      "risk_score": 15,
+      "risk_tags": [
+        "ambiguous_time"
+      ],
+      "rationale": "The primary ambiguity lies in the time reference '2026'. It is unclear if this refers to the year of the ceremony (the 98th Academy Awards, held in 2026 honoring 2025 films) or the eligibility year of the films (honored in 2027). While industry convention typically refers to the ceremony year, this distinction is a frequent source of confusion in prediction markets. The category 'Best International Feature Film' is a well-defined term by the Academy of Motion Picture Arts and Sciences, and the resolution source is authoritative."
+    },
+    "B_system_basic": {
+      "risk_score": 75,
+      "risk_tags": [
+        "vague_condition",
+        "ambiguous_time",
+        "unverified_source"
+      ],
+      "rationale": "1) **Vague Condition / Incomplete Question:** The prompt is a noun phrase rather than a specific proposition. It is unclear what outcome is being predicted (e.g., 'Who will win?', 'Will a specific country win?', 'Will the ceremony take place?'). Without a defined event or condition, the market cannot be resolved objectively. 2) **Ambiguous Time:** '(2026)' is imprecise. It could refer to the year of the ceremony (typically held in early 2026 for 2025 films) or the film eligibility year (films released in 2026, ceremony in 2027). 3) **Unverified Source:** The prompt does not explicitly cite The Academy of Motion Picture Arts and Sciences as the authoritative source for the resolution."
+    },
+    "C_system_full": {
+      "risk_score": 75,
+      "risk_tags": [
+        "vague_condition",
+        "unidentified_subject",
+        "ambiguous_time"
+      ],
+      "rationale": "1) The question is a noun phrase rather than a complete question, lacking a predicate or specific outcome to predict (e.g., 'Who will win?', 'Will a specific country win?'). This makes the resolution conditions undefined without knowing the market type (binary vs. categorical). 2) The subject of the prediction is unidentified; the text names the award but not the specific entity or outcome being wagered on. 3) The time reference '(2026)' is ambiguous regarding eligibility: it refers to the 98th Academy Awards ceremony (held in March 2026) for films released in 2025, which could confuse traders regarding which films qualify for the '2026' market."
+    },
+    "A_baseline_eval": {
+      "own_assessment": {
+        "risk_score": 20,
+        "key_issues": [
+          "Potential confusion regarding the '2026' designation (ceremony year vs. eligibility year)",
+          "Standard award market risks (subjectivity of voters) are not ambiguity risks"
+        ]
+      },
+      "qualitative_analysis": "The model correctly identifies the primary ambiguity regarding the time reference '2026', distinguishing between the ceremony year and the eligibility year. This aligns with the ground truth's acknowledgment that the market is relatively clear but highlights a specific point of confusion. The model's rationale is sound and correctly notes that the category and resolution source are well-defined. The ground truth explanation is more general, focusing on the clarity of the Academy's official result, while the model provides a more detailed analysis of the specific temporal ambiguity. Both agree that the core resolution mechanism is unambiguous.",
+      "score_accuracy": 4,
+      "rationale_quality": 5,
+      "tag_correctness": 5,
+      "overall_quality": 5
+    },
+    "B_system_basic_eval": {
+      "own_assessment": {
+        "risk_score": 20,
+        "key_issues": [
+          "Standard market shorthand implies 'Who will win?'",
+          "Resolution source is objective (The Academy)",
+          "Date convention (2026) clearly refers to the ceremony year in industry context"
+        ]
+      },
+      "qualitative_analysis": "The model failed to distinguish between linguistic pedantry and actual ambiguity risk. While the market title is a noun phrase rather than a full sentence, this is standard convention in prediction markets (implying 'Who will win...?'), and the ground truth correctly identifies that the resolution is unambiguous because the Academy's decision is an objective fact. The model incorrectly flagged the title as a 'vague_condition' and 'unverified_source' despite the Oscars being a globally recognized, verifiable event. Furthermore, the model's concern about 'ambiguous_time' regarding the year 2026 ignores the standard industry terminology where the year refers to the ceremony, not the film eligibility. The model's high risk score of 75 is a severe overestimation compared to the ground truth's 21, as it focused on formal sentence structure rather than the resolvability of the event.",
+      "score_accuracy": 1,
+      "rationale_quality": 1,
+      "tag_correctness": 1,
+      "overall_quality": 1
+    },
+    "C_system_full_eval": {
+      "own_assessment": {
+        "risk_score": 20,
+        "key_issues": [
+          "The question is a shorthand fragment common in prediction markets, implying 'Who will win...?'",
+          "The resolution source is the Academy of Motion Picture Arts and Sciences, which provides an objective, singular outcome.",
+          "The '2026' label refers to the year of the ceremony (covering 2025 releases), which is standard convention and introduces minimal ambiguity.",
+          "Overall, the market is low risk because the resolution criteria are well-defined by the awarding body."
+        ]
+      },
+      "qualitative_analysis": "The model's assessment is significantly misaligned with the ground truth. The ground truth correctly identifies that while predicting the winner is difficult, the resolution mechanism is unambiguous because it relies on an official, objective source (The Academy). The model, however, focuses on syntactic issues (noun phrase vs. full sentence) and standard industry terminology (2026 ceremony for 2025 films) to justify a high risk score. The model interprets the lack of a specific nominee in the prompt as an 'unidentified_subject' or 'vague_condition', failing to recognize that this is a categorical market where the options are typically provided by the platform. The concerns raised about 'ambiguous_time' are technically accurate regarding film eligibility but represent standard industry practice rather than a fatal ambiguity for resolution. The model effectively hallucinated ambiguity in a standard, resolvable market structure.",
+      "score_accuracy": 1,
+      "rationale_quality": 1,
+      "tag_correctness": 1,
+      "overall_quality": 1
+    }
+  }
+}

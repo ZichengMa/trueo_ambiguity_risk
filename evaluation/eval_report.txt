@@ -1,0 +1,18 @@
+======================================================================
+SocREval Evaluation Report
+======================================================================
+
+Condition                      MAE   Spearman ρ   Somers D  Tag Jaccard
+----------------------------------------------------------------------
+A: Baseline                  29.33        0.362      0.632        0.167
+B: System (no search)        33.47        0.406      0.634        0.090
+C: System (full)              8.35        0.859      0.274        0.255
+
+SocREval Dimension Scores (1-5):
+Condition                    Score  Rationale     Tags    Overall
+----------------------------------------------------------------------
+A: Baseline                   2.83       3.17     3.27       3.03
+B: System (no search)         2.57       3.00     3.00       2.93
+C: System (full)              4.31       4.46     4.23       4.35
+
+Total examples evaluated: 30

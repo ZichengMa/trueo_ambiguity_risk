@@ -302,11 +302,12 @@ def metric_card(label: str, value: str, help_text: str) -> None:
 
 
 def panel_card(title: str, body: str) -> None:
+    escaped_body = escape(body).replace('\n', '<br>')
     st.markdown(
         f"""
         <div class="panel-card">
             <div class="panel-title">{escape(title)}</div>
-            <div class="panel-text">{escape(body).replace('\n', '<br>')}</div>
+            <div class="panel-text">{escaped_body}</div>
         </div>
         """,
         unsafe_allow_html=True,
