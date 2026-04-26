@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>TrueO — Research Poster</title>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Source+Sans+3:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: #111; min-height: 100vh; display: flex; flex-direction: column; align-items: center; padding: 20px 0 40px; }
+
+    .poster { width: 1500px; height: 1200px; background: #ECEAE7; display: flex; flex-direction: column; transform-origin: top center; font-family: 'Source Sans 3', sans-serif; }
+
+    /* HEADER */
+    .hdr { background: #A51C30; height: 178px; flex-shrink: 0; display: flex; align-items: center; padding: 14px 26px; gap: 22px; }
+    .hdr-center { flex: 1; text-align: center; }
+    h1.ptitle  { font-family: 'EB Garamond', serif; font-size: 38px; font-weight: 700; color: #fff; line-height: 1.18; white-space: nowrap; }
+    .pauthors  { font-size: 21px; font-weight: 600; color: rgba(255,255,255,.93); margin-top: 7px; }
+    .paffil    { font-size: 16px; font-weight: 300; color: rgba(255,255,255,.75); margin-top: 3px; }
+    .pmeta     { font-size: 14px; color: rgba(255,255,255,.58); margin-top: 3px; }
+    .pbadge    { display:inline-block; margin-top:8px; padding:5px 12px; background:rgba(255,255,255,.14); border:1px solid rgba(255,255,255,.4); border-radius:3px; font-family:'EB Garamond',serif; font-size:18px; font-weight:600; color:#fff; letter-spacing:.02em; }
+    .pbadge b  { font-weight:700; }
+
+    /* BODY */
+    .body { flex: 1; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 9px; padding: 9px; min-height: 0; }
+    .col  { display: flex; flex-direction: column; gap: 9px; min-height: 0; }
+
+    /* SECTION */
+    .sec    { background: #fff; display: flex; flex-direction: column; overflow: hidden; }
+    .sec-hd { background: #A51C30; padding: 6px 13px; font-size: 14px; font-weight: 700; color: #fff; letter-spacing: .07em; text-transform: uppercase; flex-shrink: 0; }
+    .sec-bd { flex: 1; padding: 11px 13px; font-size: 19px; color: #1a1a1a; line-height: 1.42; overflow: hidden; }
+
+    p + p { margin-top: 6px; }
+    svg text { font-family: 'Source Sans 3', sans-serif; }
+
+    ul.bl { list-style: none; padding: 0; }
+    ul.bl li { padding: 2px 0 2px 16px; position: relative; font-size: 18px; line-height: 1.38; }
+    ul.bl li + li { margin-top: 4px; }
+    ul.bl li::before { content: '▸'; position: absolute; left: 0; color: #A51C30; font-size: 11px; top: 6px; }
+
+    /* CALLOUTS */
+    .callout { padding: 7px 11px; border-left: 4px solid #A51C30; background: #FDF5F6; }
+    .callout + .callout { margin-top: 7px; }
+    .callout.green { border-color: #2E7D32; background: #F1F8F1; }
+    .callout-lbl  { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; color: #A51C30; margin-bottom: 2px; }
+    .callout.green .callout-lbl { color: #2E7D32; }
+    .callout-body { font-size: 16px; color: #333; font-style: italic; line-height: 1.36; }
+    .callout-note { font-size: 15px; color: #888; margin-top: 2px; }
+
+    /* METRIC CARDS */
+    .metrics { display: flex; gap: 7px; margin-bottom: 10px; }
+    .mc      { flex: 1; border-left: 4px solid #A51C30; padding: 8px 10px; background: #FDF5F6; }
+    .mc-val  { font-family: 'EB Garamond', serif; font-size: 44px; font-weight: 700; color: #A51C30; line-height: 1; }
+    .mc-lbl  { font-size: 16px; color: #555; margin-top: 3px; line-height: 1.3; }
+
+    /* REFS */
+    ol.refs { list-style: none; counter-reset: rc; padding: 0; }
+    ol.refs li { counter-increment: rc; padding: 2px 0 2px 20px; position: relative; font-size: 15px; line-height: 1.38; color: #333; }
+    ol.refs li + li { margin-top: 3px; }
+    ol.refs li::before { content: '[' counter(rc) ']'; position: absolute; left: 0; color: #A51C30; font-weight: 700; font-size: 12px; top: 3px; }
+
+    /* FOOTER */
+    .ftr  { background: #A51C30; height: 62px; flex-shrink: 0; display: flex; align-items: center; padding: 0 26px; }
+    .fb   { color: #fff; padding-right: 26px; margin-right: 26px; border-right: 1px solid rgba(255,255,255,.25); }
+    .fb:last-child { border-right: none; }
+    .fb-lbl { font-size: 11px; text-transform: uppercase; letter-spacing: .08em; font-weight: 700; color: rgba(255,255,255,.6); }
+    .fb-val { font-size: 16px; color: rgba(255,255,255,.93); }
+    .fsp { flex: 1; }
+    .fack     { text-align: right; font-size: 16px; color: rgba(255,255,255,.85); }
+    .fack-lbl { font-size: 11px; text-transform: uppercase; letter-spacing: .08em; color: rgba(255,255,255,.6); font-weight: 700; }
+  </style>
+</head>
+<body>
+<div class="poster" id="poster">
+
+  <!-- HEADER -->
+  <header class="hdr">
+    <img src="harvard-shield.png" alt="Harvard Shield" style="height:110px;flex-shrink:0;">
+    <div class="hdr-center">
+      <h1 class="ptitle">TrueO: Ambiguity Risk Scoring for Prediction Market Prompts</h1>
+      <div class="pauthors">Yushu Qiu &nbsp;·&nbsp; Zicheng Ma &nbsp;·&nbsp; Jiaheng Wen &nbsp;·&nbsp; Roger Xu</div>
+      <div class="paffil">Harvard John A. Paulson School of Engineering and Applied Sciences &nbsp;·&nbsp; Harvard Data Science Initiative</div>
+      <div class="pmeta">Advisor: Prof. Christopher Thorpe &nbsp;|&nbsp; TF: Rachit Bansal &nbsp;|&nbsp; Project Partner: Trueo</div>
+      <div class="pbadge">RAG retrieval + web search deliver <b>expert-level accuracy</b> and interpretable rationales across all difficulty levels</div>
+    </div>
+    <img src="harvard-seas-logo.png" alt="Harvard SEAS" style="height:86px;flex-shrink:0;background:white;padding:6px 12px;border-radius:3px;">
+  </header>
+
+  <!-- BODY -->
+  <div class="body">
+
+    <!-- COL 1: Background · Objectives · Example -->
+    <div class="col">
+
+      <div class="sec" style="flex:1.6">
+        <div class="sec-hd">Background</div>
+        <div class="sec-bd">
+          <p>Prediction markets let people trade on real-world outcomes, where resolution depends on <strong>clear prompts</strong> defining what counts as a win or loss. Yet many prompts are <strong>ambiguous or underspecified</strong>, causing <strong>disputes</strong>, inconsistent outcomes, and reduced trust. Our mission is to build an <strong>AI system</strong> that <strong>detects ambiguity pre-launch</strong>, assigns a <strong>risk score</strong>, and suggests <strong>clear revisions</strong> to ensure fair and reliable markets.</p>
+        </div>
+      </div>
+
+      <div class="sec" style="flex:1.25">
+        <div class="sec-hd">Objectives</div>
+        <div class="sec-bd">
+          <ul class="bl">
+            <li><strong>Detect ambiguity</strong> — unclear time windows, vague terms, missing resolution sources, and subjective conditions in market prompts</li>
+            <li style="margin-top:6px;"><strong>Generate rewrites</strong> — add explicit dates, time zones, definitions, and authoritative resolution sources while preserving original intent</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="sec" style="flex:1.35">
+        <div class="sec-hd">Example</div>
+        <div class="sec-bd" style="padding:10px 13px;">
+          <div class="callout">
+            <div class="callout-lbl">⚠ Ambiguous</div>
+            <div class="callout-body">"Will the Fed raise rates next quarter?"</div>
+            <div class="callout-note">Missing: exact date · rate definition · official source</div>
+          </div>
+          <div class="callout green">
+            <div class="callout-lbl">✓ TrueO Rewrite</div>
+            <div class="callout-body">"Will the FOMC raise the federal funds target rate at its May 7, 2025 meeting, per the official FOMC press release?"</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="sec" style="flex:1.5">
+        <div class="sec-hd">How It Works</div>
+        <div class="sec-bd" style="padding:10px 13px;">
+          <ul class="bl">
+            <li><strong>GLM-4.7</strong> reads the prompt with an expert scoring rubric and outputs a structured risk assessment</li>
+            <li style="margin-top:5px;"><strong>RAG retrieval</strong> finds the most similar past examples from our labeled corpus and provides them as scoring anchors</li>
+            <li style="margin-top:5px;"><strong>Web search</strong> (Tavily) checks official sources and definitions to determine if apparent ambiguity resolves in context</li>
+          </ul>
+        </div>
+      </div>
+
+    </div><!-- /col 1 -->
+
+    <!-- COL 2: Methods Pipeline · Data · Evaluation -->
+    <div class="col">
+
+      <div class="sec" style="flex:1.8">
+        <div class="sec-hd">System Pipeline</div>
+        <div class="sec-bd" style="padding:10px 13px 6px;">
+          <svg width="100%" viewBox="0 0 430 280" style="display:block;">
+            <defs>
+              <marker id="a1" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8Z" fill="#A51C30"/></marker>
+              <marker id="a2" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8Z" fill="#1565C0"/></marker>
+              <marker id="a3" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8Z" fill="#2E7D32"/></marker>
+            </defs>
+            <!-- INPUT -->
+            <rect x="2" y="6"   width="128" height="44" rx="4" fill="#F5E8EA" stroke="#A51C30" stroke-width="2"/>
+            <text x="66" y="24" text-anchor="middle" font-size="16" font-weight="700" fill="#A51C30">INPUT</text>
+            <text x="66" y="42" text-anchor="middle" font-size="14" fill="#555">Market Prompt</text>
+            <line x1="66" y1="50" x2="66" y2="76" stroke="#A51C30" stroke-width="2" marker-end="url(#a1)"/>
+            <!-- RAG -->
+            <rect x="2" y="76"  width="128" height="54" rx="4" fill="#E3F2FD" stroke="#1565C0" stroke-width="2"/>
+            <text x="66" y="96" text-anchor="middle" font-size="15" font-weight="700" fill="#1565C0">RAG RETRIEVAL</text>
+            <text x="66" y="112" text-anchor="middle" font-size="13" fill="#444">Finds similar past</text>
+            <text x="66" y="126" text-anchor="middle" font-size="13" fill="#444">market examples</text>
+            <line x1="130" y1="103" x2="157" y2="116" stroke="#1565C0" stroke-width="2" marker-end="url(#a2)"/>
+            <!-- WEB -->
+            <rect x="2" y="162" width="128" height="54" rx="4" fill="#E8F5E9" stroke="#2E7D32" stroke-width="2"/>
+            <text x="66" y="182" text-anchor="middle" font-size="15" font-weight="700" fill="#2E7D32">WEB SEARCH</text>
+            <text x="66" y="198" text-anchor="middle" font-size="13" fill="#444">Checks official sources</text>
+            <text x="66" y="212" text-anchor="middle" font-size="13" fill="#444">&amp; definitions online</text>
+            <line x1="130" y1="189" x2="157" y2="162" stroke="#2E7D32" stroke-width="2" marker-end="url(#a3)"/>
+            <!-- GLM -->
+            <rect x="157" y="100" width="116" height="68" rx="4" fill="#A51C30"/>
+            <text x="215" y="122" text-anchor="middle" font-size="17" font-weight="700" fill="white">GLM-4.7</text>
+            <text x="215" y="142" text-anchor="middle" font-size="13" fill="rgba(255,255,255,.88)">AI Language Model</text>
+            <!-- fan lines to outputs -->
+            <line x1="273" y1="134" x2="290" y2="107" stroke="#A51C30" stroke-width="1.5"/>
+            <line x1="273" y1="134" x2="290" y2="133" stroke="#A51C30" stroke-width="1.5"/>
+            <line x1="273" y1="134" x2="290" y2="159" stroke="#A51C30" stroke-width="1.5"/>
+            <line x1="273" y1="134" x2="290" y2="185" stroke="#A51C30" stroke-width="1.5"/>
+            <!-- OUTPUTS -->
+            <rect x="290" y="94"  width="138" height="26" rx="3" fill="#F5E8EA" stroke="#A51C30" stroke-width="1.5"/>
+            <text x="359" y="111" text-anchor="middle" font-size="14" fill="#A51C30" font-weight="700">Risk Score (0–100)</text>
+            <rect x="290" y="123" width="138" height="26" rx="3" fill="#F5E8EA" stroke="#A51C30" stroke-width="1.5"/>
+            <text x="359" y="140" text-anchor="middle" font-size="14" fill="#A51C30" font-weight="700">Risk Tags</text>
+            <rect x="290" y="152" width="138" height="26" rx="3" fill="#F5E8EA" stroke="#A51C30" stroke-width="1.5"/>
+            <text x="359" y="169" text-anchor="middle" font-size="14" fill="#A51C30" font-weight="700">Rationale</text>
+            <rect x="290" y="181" width="138" height="26" rx="3" fill="#F5E8EA" stroke="#A51C30" stroke-width="1.5"/>
+            <text x="359" y="198" text-anchor="middle" font-size="14" fill="#A51C30" font-weight="700">Rewrite Suggestion</text>
+            <!-- corpus note -->
+            <rect x="55" y="240" width="318" height="38" rx="3" fill="#F5F5F5" stroke="#DDD" stroke-width="1"/>
+            <text x="214" y="256" text-anchor="middle" font-size="14" font-weight="600" fill="#555">200 labeled market examples in retrieval corpus</text>
+            <text x="214" y="273" text-anchor="middle" font-size="13" fill="#888">sourced from Polymarket · Kalshi · Manifold Markets</text>
+          </svg>
+        </div>
+      </div>
+
+      <div class="sec" style="flex:1.4">
+        <div class="sec-hd">Data</div>
+        <div class="sec-bd">
+          <ul class="bl">
+            <li><strong>200 scraped labeled market prompts</strong> by the team, serving as the <strong>RAG retrieval corpus</strong> — each annotated with a ground-truth risk score, expert rationale, and market link</li>
+            <li style="margin-top:5px;"><strong>30-sample stratified evaluation set</strong> — 10 easy · 10 medium · 10 hard prompts. Test questions excluded from retrieval to prevent data leakage.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="sec" style="flex:2.7">
+        <div class="sec-hd">Evaluation</div>
+        <div class="sec-bd">
+          <p><strong>Baseline:</strong> bare GLM-4.7, no rubric, no retrieved examples, no web search.</p>
+          <p style="margin-top:5px;"><strong>SocREval</strong> (He et al., 2023) — a reference-free framework that uses Socratic-method prompting to have an LLM judge outputs on <strong>four 1–5 dimensions</strong>:</p>
+          <ul class="bl" style="margin-top:5px;">
+            <li><strong>Score Accuracy</strong> — proximity of predicted risk score to ground truth</li>
+            <li style="margin-top:3px;"><strong>Rationale Quality</strong> — whether the rationale identifies the same ambiguity issues as the ground-truth annotation</li>
+            <li style="margin-top:3px;"><strong>Tag Correctness</strong> — consistency of risk tags with the identified issues</li>
+            <li style="margin-top:3px;"><strong>Overall Quality</strong> — holistic assessment combining the three above</li>
+          </ul>
+        </div>
+      </div>
+
+    </div><!-- /col 2 -->
+
+    <!-- COL 3: Results · Conclusions · References -->
+    <div class="col">
+
+      <div class="sec" style="flex:3.25">
+        <div class="sec-hd">Results</div>
+        <div class="sec-bd">
+
+          <!-- Headline metrics -->
+          <div class="metrics">
+            <div class="mc">
+              <div class="mc-val">71.5%</div>
+              <div class="mc-lbl">reduction in average score deviation from expert ground truth (29.3 → 8.4 pts off)</div>
+            </div>
+            <div class="mc">
+              <div class="mc-val">4.4<span style="font-size:26px;">/5</span></div>
+              <div class="mc-lbl">SocREval rationale quality — AI explanations of ambiguity match expert annotations (bare LLM: 3.2)</div>
+            </div>
+          </div>
+
+          <!-- Scoring Error horizontal bars — Baseline vs TrueO -->
+          <div style="font-size:16px;font-weight:700;color:#333;margin-bottom:6px;">Scoring Error by Prompt Difficulty (MAE) — lower is better</div>
+          <svg width="100%" viewBox="0 0 430 165" style="display:block;margin-bottom:9px;">
+            <!-- Legend -->
+            <rect x="110" y="1" width="13" height="11" fill="#C0C0C0" rx="1"/>
+            <text x="127" y="12" font-size="13" fill="#555">Baseline (bare LLM)</text>
+            <rect x="258" y="1" width="13" height="11" fill="#A51C30" rx="1"/>
+            <text x="275" y="12" font-size="13" fill="#555">TrueO (full system)</text>
+
+            <!-- max=56; bar scale: (v/56)*310; x-start=110 -->
+            <!-- EASY -->
+            <text x="105" y="40" text-anchor="end" font-size="15" font-weight="600" fill="#333">Easy</text>
+            <text x="105" y="55" text-anchor="end" font-size="12" fill="#888">Prompts</text>
+            <rect x="110" y="24" width="287.5" height="20" rx="2" fill="#C0C0C0"/>
+            <text x="401" y="39" font-size="13" fill="#888">51.9</text>
+            <rect x="110" y="47" width="57.6"  height="20" rx="2" fill="#A51C30"/>
+            <text x="172" y="61" font-size="13" font-weight="700" fill="#A51C30">10.4</text>
+
+            <!-- MEDIUM -->
+            <text x="105" y="92" text-anchor="end" font-size="15" font-weight="600" fill="#333">Medium</text>
+            <text x="105" y="107" text-anchor="end" font-size="12" fill="#888">Prompts</text>
+            <rect x="110" y="77"  width="164.3" height="20" rx="2" fill="#C0C0C0"/>
+            <text x="278" y="91" font-size="13" fill="#888">29.7</text>
+            <rect x="110" y="100"  width="64.2"  height="20" rx="2" fill="#A51C30"/>
+            <text x="178" y="114" font-size="13" font-weight="700" fill="#A51C30">11.6</text>
+
+            <!-- HARD -->
+            <text x="105" y="144" text-anchor="end" font-size="15" font-weight="600" fill="#333">Hard</text>
+            <text x="105" y="159" text-anchor="end" font-size="12" fill="#888">Prompts</text>
+            <rect x="110" y="129" width="41.5" height="20" rx="2" fill="#C0C0C0"/>
+            <text x="155" y="143" font-size="13" fill="#888">7.5</text>
+            <rect x="110" y="152" width="13.3" height="11" rx="2" fill="#A51C30"/>
+            <text x="127" y="161" font-size="12" font-weight="700" fill="#A51C30">2.4</text>
+          </svg>
+
+          <!-- SocREval dot chart — Baseline vs TrueO -->
+          <div style="font-size:16px;font-weight:700;color:#333;margin-bottom:6px;">SocREval Quality Assessment — Baseline vs. TrueO (out of 5)</div>
+          <svg width="100%" viewBox="0 0 430 134" style="display:block;">
+            <!-- column headers -->
+            <text x="194" y="14" text-anchor="middle" font-size="13" font-weight="700" fill="#888">BASELINE</text>
+            <text x="340" y="14" text-anchor="middle" font-size="13" font-weight="700" fill="#A51C30">TRUEO</text>
+
+            <!-- Score Accuracy -->
+            <text x="140" y="38" text-anchor="end" font-size="15" fill="#333">Score Accuracy</text>
+            <circle cx="158" cy="32" r="7" fill="#C0C0C0"/><circle cx="176" cy="32" r="7" fill="#C0C0C0"/><circle cx="194" cy="32" r="7" fill="#C0C0C0"/>
+            <circle cx="212" cy="32" r="7" fill="#EEE" stroke="#CCC" stroke-width="1"/><circle cx="230" cy="32" r="7" fill="#EEE" stroke="#CCC" stroke-width="1"/>
+            <text x="246" y="36" font-size="13" fill="#888">2.8</text>
+            <circle cx="304" cy="32" r="7" fill="#A51C30"/><circle cx="322" cy="32" r="7" fill="#A51C30"/><circle cx="340" cy="32" r="7" fill="#A51C30"/><circle cx="358" cy="32" r="7" fill="#A51C30"/>
+            <circle cx="376" cy="32" r="7" fill="#F5E8EA" stroke="#A51C30" stroke-width="1.5"/>
+            <text x="388" y="36" font-size="13" fill="#A51C30" font-weight="700">4.3</text>
+
+            <!-- Rationale Quality -->
+            <text x="140" y="68" text-anchor="end" font-size="15" fill="#333">Rationale Quality</text>
+            <circle cx="158" cy="62" r="7" fill="#C0C0C0"/><circle cx="176" cy="62" r="7" fill="#C0C0C0"/><circle cx="194" cy="62" r="7" fill="#C0C0C0"/>
+            <circle cx="212" cy="62" r="7" fill="#EEE" stroke="#CCC" stroke-width="1"/><circle cx="230" cy="62" r="7" fill="#EEE" stroke="#CCC" stroke-width="1"/>
+            <text x="246" y="66" font-size="13" fill="#888">3.2</text>
+            <circle cx="304" cy="62" r="7" fill="#A51C30"/><circle cx="322" cy="62" r="7" fill="#A51C30"/><circle cx="340" cy="62" r="7" fill="#A51C30"/><circle cx="358" cy="62" r="7" fill="#A51C30"/><circle cx="376" cy="62" r="7" fill="#A51C30"/>
+            <text x="388" y="66" font-size="13" fill="#A51C30" font-weight="700">4.5</text>
+
+            <!-- Tag Correctness -->
+            <text x="140" y="98" text-anchor="end" font-size="15" fill="#333">Tag Correctness</text>
+            <circle cx="158" cy="92" r="7" fill="#C0C0C0"/><circle cx="176" cy="92" r="7" fill="#C0C0C0"/><circle cx="194" cy="92" r="7" fill="#C0C0C0"/>
+            <circle cx="212" cy="92" r="7" fill="#EEE" stroke="#CCC" stroke-width="1"/><circle cx="230" cy="92" r="7" fill="#EEE" stroke="#CCC" stroke-width="1"/>
+            <text x="246" y="96" font-size="13" fill="#888">3.3</text>
+            <circle cx="304" cy="92" r="7" fill="#A51C30"/><circle cx="322" cy="92" r="7" fill="#A51C30"/><circle cx="340" cy="92" r="7" fill="#A51C30"/><circle cx="358" cy="92" r="7" fill="#A51C30"/>
+            <circle cx="376" cy="92" r="7" fill="#F5E8EA" stroke="#A51C30" stroke-width="1.5"/>
+            <text x="388" y="96" font-size="13" fill="#A51C30" font-weight="700">4.2</text>
+
+            <!-- Overall -->
+            <text x="140" y="128" text-anchor="end" font-size="15" fill="#333">Overall Quality</text>
+            <circle cx="158" cy="122" r="7" fill="#C0C0C0"/><circle cx="176" cy="122" r="7" fill="#C0C0C0"/><circle cx="194" cy="122" r="7" fill="#C0C0C0"/>
+            <circle cx="212" cy="122" r="7" fill="#EEE" stroke="#CCC" stroke-width="1"/><circle cx="230" cy="122" r="7" fill="#EEE" stroke="#CCC" stroke-width="1"/>
+            <text x="246" y="126" font-size="13" fill="#888">3.0</text>
+            <circle cx="304" cy="122" r="7" fill="#A51C30"/><circle cx="322" cy="122" r="7" fill="#A51C30"/><circle cx="340" cy="122" r="7" fill="#A51C30"/><circle cx="358" cy="122" r="7" fill="#A51C30"/>
+            <circle cx="376" cy="122" r="7" fill="#F5E8EA" stroke="#A51C30" stroke-width="1.5"/>
+            <text x="388" y="126" font-size="13" fill="#A51C30" font-weight="700">4.4</text>
+          </svg>
+
+        </div>
+      </div>
+
+      <div class="sec" style="flex:1.3">
+        <div class="sec-hd">Conclusions</div>
+        <div class="sec-bd">
+          <ul class="bl">
+            <li><strong>A working end-to-end pipeline.</strong> TrueO achieves a 71.5% reduction in scoring error against expert ground truth — demonstrating that automated ambiguity assessment is feasible at production quality.</li>
+            <li style="margin-top:5px;"><strong>RAG + web search</strong> — retrieved examples calibrate the scoring scale; live search distinguishes true underspecification from domain unfamiliarity.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="sec" style="flex:0.5">
+        <div class="sec-hd">References</div>
+        <div class="sec-bd" style="padding:7px 13px;">
+          <ol class="refs">
+            <li>He, H., Zhang, H., &amp; Roth, D. SocREval: LLMs with the Socratic Method for Reference-Free Reasoning Evaluation. <em>arXiv:2310.00074</em>, 2023.</li>
+          </ol>
+        </div>
+      </div>
+
+    </div><!-- /col 3 -->
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="ftr">
+    <div class="fb">
+      <div class="fb-lbl">Contact</div>
+      <div class="fb-val" style="line-height:1.35;">Yushu Qiu · yushuqiu@g.harvard.edu &nbsp;·&nbsp; Zicheng Ma · zichengma@g.harvard.edu<br>Jiaheng Wen · ewen@g.harvard.edu &nbsp;·&nbsp; Roger Xu · rogerxu@g.harvard.edu</div>
+    </div>
+    <div class="fb">
+      <div class="fb-lbl">Affiliation</div>
+      <div class="fb-val">Harvard SEAS · Harvard Data Science Initiative</div>
+    </div>
+    <div class="fsp"></div>
+    <div class="fack">
+      <div class="fack-lbl">Acknowledgements</div>
+      <div>Prof. Christopher Thorpe &nbsp;·&nbsp; TF Rachit Bansal &nbsp;·&nbsp; Trueo</div>
+    </div>
+  </footer>
+
+</div>
+<script>
+  function scale() {
+    const p = document.getElementById('poster');
+    const s = Math.min((window.innerWidth - 20) / 1500, (window.innerHeight - 40) / 1200);
+    p.style.transform = 'scale(' + s + ')';
+    document.body.style.height = (1200 * s + 60) + 'px';
+  }
+  scale();
+  window.addEventListener('resize', scale);
+</script>
+</body>
+</html>

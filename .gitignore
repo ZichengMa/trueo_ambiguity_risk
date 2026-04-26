@@ -55,3 +55,9 @@ web/node_modules/
 web/.next/
 web/.git_embedded_backup/
 web/.env.local
+
+# Design System
+Design System (1)/node_modules/
+Design System (1)/uploads/
+Design System (1)/export/
+Design System (1)/.claude/

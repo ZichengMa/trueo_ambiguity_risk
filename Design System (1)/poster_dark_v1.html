@@ -1,0 +1,445 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Trueo × Harvard Capstone Poster — v1 Skeleton</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    /* Fintech-dark palette (option 3) adapted for academic poster */
+    --bg:        #0E1116;   /* deep charcoal, not pure black */
+    --panel:     #151A21;   /* subtle panel lift */
+    --panel-2:   #1B222B;
+    --ink:       #E6EDF3;   /* primary text */
+    --ink-2:     #B9C2CC;   /* secondary */
+    --ink-3:     #7D8590;   /* tertiary / captions */
+    --hair:      #262D37;   /* hairlines */
+    --hair-2:    #2E3744;
+    --up:        #22C55E;   /* market green */
+    --down:      #EF4444;   /* market red */
+    --accent:    #E6B35A;   /* warm gold — Harvard crimson felt wrong against dark; gold reads academic+financial */
+    --crimson:   #A51C30;   /* Harvard crimson, used sparingly */
+
+    --serif: "Source Serif 4", "Source Serif Pro", Georgia, serif;
+    --sans:  "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+    --mono:  "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  }
+
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;background:#06080b;color:var(--ink);font-family:var(--sans)}
+
+  /* Stage — scales the fixed 36x48 poster to fit the viewport */
+  .stage{
+    position:fixed; inset:0;
+    display:grid; place-items:center;
+    background:
+      radial-gradient(ellipse at top, #0a0e14 0%, #06080b 60%);
+  }
+  .poster{
+    width:1080px;     /* 36 in @ 30dpi preview */
+    height:1440px;    /* 48 in */
+    background:var(--bg);
+    color:var(--ink);
+    position:relative;
+    box-shadow:0 40px 120px rgba(0,0,0,.6), 0 0 0 1px #20262f inset;
+    transform-origin:center center;
+    overflow:hidden;
+  }
+  /* faint grid texture — market paper feel */
+  .poster::before{
+    content:"";
+    position:absolute; inset:0;
+    background-image:
+      linear-gradient(rgba(125,133,144,.035) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(125,133,144,.035) 1px, transparent 1px);
+    background-size:40px 40px;
+    pointer-events:none;
+  }
+
+  /* -------------------- HEADER -------------------- */
+  .header{
+    display:grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items:center;
+    gap:32px;
+    padding: 44px 56px 28px;
+    border-bottom:1px solid var(--hair);
+    position:relative;
+  }
+  .header::after{
+    content:""; position:absolute; left:56px; right:56px; bottom:-1px; height:2px;
+    background:linear-gradient(90deg, transparent, var(--accent), transparent);
+    opacity:.55;
+  }
+
+  .brand-left, .brand-right{ display:flex; align-items:center; gap:14px; }
+  .brand-right{ justify-content:flex-end; }
+
+  .logo-chip{
+    display:inline-flex; align-items:center; justify-content:center;
+    height:52px; padding:0 16px; border:1px solid var(--hair-2); border-radius:6px;
+    background:var(--panel); color:var(--ink-2);
+    font-family:var(--serif); font-size:16px; letter-spacing:.02em;
+  }
+  .logo-chip.crimson{ background:var(--crimson); color:#fff; border-color:#701224; font-weight:600 }
+
+  .title-block{ text-align:center; }
+  .kicker{
+    display:inline-block;
+    font-family:var(--sans); font-size:12px; letter-spacing:.28em; text-transform:uppercase;
+    color:var(--accent); margin-bottom:10px;
+  }
+  .title{
+    font-family:var(--serif);
+    font-weight:600;
+    font-size:58px;
+    line-height:1.02;
+    letter-spacing:-.01em;
+    margin:0;
+    text-wrap:balance;
+  }
+  .subtitle{
+    margin-top:14px;
+    font-family:var(--serif); font-style:italic;
+    font-size:22px; color:var(--ink-2); line-height:1.35;
+    text-wrap:balance;
+  }
+  .authors{
+    margin-top:18px;
+    font-family:var(--sans); font-size:14px; color:var(--ink-3);
+    letter-spacing:.04em;
+  }
+  .authors strong{ color:var(--ink-2); font-weight:500; }
+
+  /* -------------------- BODY GRID -------------------- */
+  .body{
+    padding: 28px 56px 24px;
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap:24px;
+  }
+
+  .section{
+    background:var(--panel);
+    border:1px solid var(--hair);
+    border-radius:10px;
+    padding:22px 24px;
+    position:relative;
+  }
+  .section.tall{ min-height:0 }
+
+  .section-num{
+    font-family:var(--mono);
+    font-size:11px;
+    color:var(--accent);
+    letter-spacing:.18em;
+    text-transform:uppercase;
+  }
+  .section-title{
+    font-family:var(--serif);
+    font-weight:600;
+    font-size:26px;
+    letter-spacing:-.005em;
+    margin:4px 0 12px;
+    color:var(--ink);
+    line-height:1.1;
+  }
+  .section-title .accent{ color:var(--accent); font-style:italic; font-weight:400 }
+  .section-body{
+    font-family:var(--serif);
+    font-size:15.5px;
+    line-height:1.5;
+    color:var(--ink-2);
+  }
+
+  /* --- PLACEHOLDER styling (v1 skeleton only) --- */
+  .placeholder{
+    border:1.5px dashed var(--hair-2);
+    border-radius:8px;
+    padding:18px 18px;
+    color:var(--ink-3);
+    background:
+      repeating-linear-gradient(
+        135deg,
+        rgba(125,133,144,.03) 0 8px,
+        transparent 8px 16px
+      );
+  }
+  .placeholder .ph-label{
+    font-family:var(--mono);
+    font-size:10.5px;
+    letter-spacing:.2em;
+    text-transform:uppercase;
+    color:var(--accent);
+    display:block;
+    margin-bottom:8px;
+  }
+  .placeholder .ph-hint{
+    font-family:var(--sans);
+    font-size:13px;
+    line-height:1.5;
+    color:var(--ink-2);
+  }
+  .placeholder .ph-hint em{ color:var(--ink-3); font-style:italic }
+  .placeholder .ph-ask{
+    margin-top:12px;
+    padding-top:10px;
+    border-top:1px dashed var(--hair-2);
+    font-family:var(--mono);
+    font-size:11px;
+    letter-spacing:.04em;
+    color:var(--up);
+  }
+  .placeholder .ph-ask::before{ content:"▸ need from you: "; color:var(--ink-3); }
+
+  /* -------------------- FOOTER -------------------- */
+  .footer{
+    position:absolute; left:0; right:0; bottom:0;
+    padding:20px 56px 22px;
+    border-top:1px solid var(--hair);
+    display:grid;
+    grid-template-columns: 1.1fr 1fr auto;
+    align-items:center;
+    gap:24px;
+    background:linear-gradient(180deg, transparent, rgba(0,0,0,.25));
+  }
+  .footer .lbl{
+    font-family:var(--mono); font-size:10px; letter-spacing:.24em;
+    text-transform:uppercase; color:var(--ink-3); display:block; margin-bottom:4px;
+  }
+  .footer .val{ font-family:var(--serif); font-size:14px; color:var(--ink-2); line-height:1.4 }
+  .qr{
+    width:90px; height:90px; background:#fff; border-radius:6px;
+    display:grid; place-items:center;
+    color:#111; font-family:var(--mono); font-size:9px; text-align:center;
+  }
+
+  /* big hook block */
+  .hook .section-title{ font-size:32px; }
+  .hook-quote{
+    font-family:var(--serif); font-style:italic;
+    font-size:19px; line-height:1.35;
+    color:var(--ink);
+    border-left:3px solid var(--accent);
+    padding:4px 0 4px 16px;
+    margin:0 0 12px;
+  }
+
+  /* KPI / metrics row */
+  .kpi-row{ display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-top:10px }
+  .kpi{
+    background:var(--panel-2); border:1px solid var(--hair);
+    border-radius:8px; padding:14px 12px; text-align:center;
+  }
+  .kpi .k-val{ font-family:var(--serif); font-size:30px; font-weight:600; color:var(--ink); letter-spacing:-.01em }
+  .kpi .k-val.up{ color:var(--up) }
+  .kpi .k-val.down{ color:var(--down) }
+  .kpi .k-lbl{ display:block; margin-top:4px; font-family:var(--sans); font-size:10.5px; letter-spacing:.16em; text-transform:uppercase; color:var(--ink-3) }
+
+  /* small util */
+  .mt-8{ margin-top:8px } .mt-12{ margin-top:12px } .mt-16{ margin-top:16px }
+
+  /* dev banner at top of screen to explain skeleton */
+  .devnote{
+    position:fixed; top:10px; left:10px; right:10px;
+    background:#1b222b; color:#E6EDF3;
+    border:1px solid #2E3744; border-radius:8px;
+    padding:10px 14px; font-family:var(--sans); font-size:13px;
+    z-index:10; line-height:1.4;
+  }
+  .devnote b{ color:var(--accent); letter-spacing:.04em }
+</style>
+</head>
+<body>
+  <div class="devnote">
+    <b>POSTER SKELETON v1</b> — 36×48 in portrait. Dashed blocks are placeholders showing what goes where and what I need from you. Review the section breakdown and layout feel, then we fill it in one by one.
+  </div>
+
+  <div class="stage">
+    <div class="poster" id="poster" data-screen-label="01 Poster v1 skeleton">
+
+      <!-- =================== HEADER =================== -->
+      <header class="header">
+        <div class="brand-left">
+          <div class="logo-chip crimson">HARVARD</div>
+          <div style="font-family:var(--serif);font-size:13px;color:var(--ink-3);line-height:1.3">
+            SEAS / IACS<br><span style="color:var(--ink-2)">Capstone 2026</span>
+          </div>
+        </div>
+
+        <div class="title-block">
+          <span class="kicker">Trueo × Harvard Capstone · Spring 2026</span>
+          <h1 class="title">Resolving Ambiguity Before It Trades</h1>
+          <p class="subtitle">An LLM risk‑scoring pipeline that flags ambiguous prediction‑market prompts <em>before</em> they go live — protecting payouts, user trust, and platform reputation.</p>
+          <p class="authors"><strong>Yushu Qiu · Zicheng Ma · Jiaheng Wen · Roger Xu</strong> &nbsp;|&nbsp; Partner: <strong>Trueo</strong> &nbsp;|&nbsp; Advisor: <em>[name]</em></p>
+        </div>
+
+        <div class="brand-right">
+          <div style="font-family:var(--serif);font-size:13px;color:var(--ink-3);text-align:right;line-height:1.3">
+            Industry Partner<br><span style="color:var(--ink-2)">Prediction Market</span>
+          </div>
+          <div class="logo-chip">TRUEO</div>
+        </div>
+      </header>
+
+      <!-- =================== BODY =================== -->
+      <div class="body">
+
+        <!-- ============ LEFT COLUMN ============ -->
+
+        <!-- 1 · THE PROBLEM (hook) -->
+        <section class="section hook">
+          <span class="section-num">01 · The Problem</span>
+          <h2 class="section-title">When a market asks <span class="accent">“Will the U.S. invade Venezuela?”</span> — does a Maduro capture count?</h2>
+          <p class="hook-quote">Ambiguous event descriptions cause payout disputes, slow community‑juror votes, and erode user trust in the platform.</p>
+          <div class="placeholder">
+            <span class="ph-label">Evocative opener</span>
+            <div class="ph-hint">Short punchy paragraph (≈60 words) establishing the stakes for a business/general audience. Will tighten the Maduro example, one more real dispute, and “why this matters to Trueo's bottom line.”</div>
+            <div class="ph-ask">confirm the Maduro framing is OK to feature + any 2nd concrete dispute example you'd like to cite</div>
+          </div>
+        </section>
+
+        <!-- 2 · WHY IT MATTERS (business stakes) -->
+        <section class="section">
+          <span class="section-num">02 · Why It Matters</span>
+          <h2 class="section-title">Disputes are a silent churn engine.</h2>
+          <div class="section-body">
+            Prediction markets earn trust through <em>clear settlement</em>. Every contested payout means: delayed juror voting, public disputes on social media, and traders who don't come back.
+          </div>
+          <div class="kpi-row">
+            <div class="kpi"><span class="k-val down">?%</span><span class="k-lbl">Markets disputed</span></div>
+            <div class="kpi"><span class="k-val down">?d</span><span class="k-lbl">Avg. juror resolve</span></div>
+            <div class="kpi"><span class="k-val down">$?</span><span class="k-lbl">At stake / dispute</span></div>
+          </div>
+          <div class="placeholder mt-12">
+            <span class="ph-label">Business framing stats</span>
+            <div class="ph-hint">Three numbers that make faculty + industry visitors stop walking. Ideally sourced from Trueo internal data or Polymarket public data.</div>
+            <div class="ph-ask">any stats you have from Trueo — dispute rate, avg resolution time, $ volume affected? If none, I'll use Polymarket public figures.</div>
+          </div>
+        </section>
+
+        <!-- 3 · OUR SOLUTION -->
+        <section class="section">
+          <span class="section-num">03 · Our Solution</span>
+          <h2 class="section-title">A <span class="accent">pre‑launch</span> risk score, not a post‑hoc fix.</h2>
+          <div class="section-body">
+            Instead of letting ambiguous prompts go live and arguing later, we score every market <strong>before launch</strong>. Our pipeline returns a risk tier, an interpretable list of ambiguity factors, and a revised‑prompt suggestion — all in under 30 seconds.
+          </div>
+          <div class="placeholder mt-12">
+            <span class="ph-label">Value‑prop bullets (3)</span>
+            <div class="ph-hint">Short icon‑led bullets: <em>(1) Pre‑launch, not post‑hoc  (2) Interpretable factors  (3) Actionable rewrite.</em> I'll draft — no ask needed yet.</div>
+          </div>
+        </section>
+
+        <!-- ============ RIGHT COLUMN ============ -->
+
+        <!-- 4 · PIPELINE / ARCHITECTURE -->
+        <section class="section">
+          <span class="section-num">04 · The Pipeline</span>
+          <h2 class="section-title">How it works, end to end.</h2>
+          <div class="placeholder" style="height:300px;display:grid;place-items:center;text-align:center">
+            <div>
+              <span class="ph-label">System diagram</span>
+              <div class="ph-hint">Prompt → Retrieval agent (historical precedent) → GLM risk classifier → Ambiguity‑factor extractor → Suggested rewrite. Clean horizontal flow, minimal labels.</div>
+              <div class="ph-ask">upload your architecture diagram (or describe the boxes &amp; I'll redraw cleanly)</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 5 · DATASET -->
+        <section class="section">
+          <span class="section-num">05 · Dataset</span>
+          <h2 class="section-title">200+ real disputes, labeled.</h2>
+          <div class="section-body">
+            We collected and hand‑labeled <strong>200+ historical dispute cases</strong> from Polymarket‑style platforms, partnered with Trueo to establish ground‑truth labels, and augmented with LLM‑generated synthetic examples to cover long‑tail ambiguity patterns.
+          </div>
+          <div class="placeholder mt-12">
+            <span class="ph-label">Dataset composition chart</span>
+            <div class="ph-hint">Small stacked bar or donut: real vs. synthetic, categories of ambiguity (temporal, entity, outcome‑definition, source‑of‑truth, etc.)</div>
+            <div class="ph-ask">what are your ambiguity categories + roughly how many in each? Also the real/synthetic split</div>
+          </div>
+        </section>
+
+        <!-- 6 · RESULTS -->
+        <section class="section">
+          <span class="section-num">06 · Results</span>
+          <h2 class="section-title">Hits our success bar on all three axes.</h2>
+          <div class="kpi-row">
+            <div class="kpi"><span class="k-val up">?%</span><span class="k-lbl">Agreement w/ experts</span></div>
+            <div class="kpi"><span class="k-val up">?s</span><span class="k-lbl">Avg. inference</span></div>
+            <div class="kpi"><span class="k-val up">?</span><span class="k-lbl">Factors / prompt</span></div>
+          </div>
+          <div class="placeholder mt-12" style="height:170px">
+            <span class="ph-label">Results chart</span>
+            <div class="ph-hint">Confusion matrix OR precision/recall bar chart OR ROC. Pick the strongest visual.</div>
+            <div class="ph-ask">send your evaluation numbers + what chart type you'd prefer (or I'll choose)</div>
+          </div>
+        </section>
+
+        <!-- 7 · PROTOTYPE -->
+        <section class="section">
+          <span class="section-num">07 · In Action</span>
+          <h2 class="section-title">The reviewer's view.</h2>
+          <div class="placeholder" style="height:200px;display:grid;place-items:center;text-align:center">
+            <div>
+              <span class="ph-label">Prototype screenshot</span>
+              <div class="ph-hint">Annotated screenshot: input prompt → risk score, highlighted ambiguous phrases, suggested rewrite.</div>
+              <div class="ph-ask">upload 1–2 screenshots of your pipeline UI/output</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 8 · BUSINESS IMPACT + FUTURE -->
+        <section class="section">
+          <span class="section-num">08 · Business Impact &amp; What's Next</span>
+          <h2 class="section-title">From R&amp;D to the market ops playbook.</h2>
+          <div class="section-body">
+            Integrating this pipeline into Trueo's market‑creation flow means <em>fewer disputes, faster payouts, and higher retained trader trust</em>. Next: deploy inline to the market‑listing flow, expand to bilingual (EN/ZH) detection, and close the loop with live dispute telemetry.
+          </div>
+          <div class="placeholder mt-12">
+            <span class="ph-label">Future work + ask</span>
+            <div class="ph-hint">2–3 crisp future‑work bullets. I'll draft.</div>
+          </div>
+        </section>
+
+      </div>
+
+      <!-- =================== FOOTER =================== -->
+      <footer class="footer">
+        <div>
+          <span class="lbl">Team</span>
+          <span class="val">Yushu Qiu · Zicheng Ma · Jiaheng Wen · Roger Xu</span>
+        </div>
+        <div>
+          <span class="lbl">Acknowledgments</span>
+          <span class="val">Trueo team · Harvard SEAS / IACS Capstone advisors</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:14px">
+          <div style="text-align:right">
+            <span class="lbl">Learn more</span>
+            <span class="val" style="font-family:var(--mono);font-size:11px">github.com/…<br>trueo.com</span>
+          </div>
+          <div class="qr">QR<br>CODE</div>
+        </div>
+      </footer>
+
+    </div>
+  </div>
+
+<script>
+  // Auto-scale the 1080x1440 poster to fit the viewport while preserving ratio.
+  const poster = document.getElementById('poster');
+  function fit(){
+    const pad = 40;
+    const sx = (window.innerWidth - pad) / 1080;
+    const sy = (window.innerHeight - pad) / 1440;
+    const s = Math.min(sx, sy, 1);
+    poster.style.transform = `scale(${s})`;
+  }
+  window.addEventListener('resize', fit);
+  fit();
+</script>
+</body>
+</html>
