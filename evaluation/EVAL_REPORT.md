@@ -22,7 +22,7 @@ We evaluated our **Market Prompt Ambiguity Risk Scoring System** against two bas
 
 ## Evaluation Setup
 
-- **Evaluator:** GLM-4.7 (`glm-4-plus`) via the same API endpoint
+- **Evaluator:** DeepSeek via the same API endpoint
 - **SocREval Strategy:** Combined "All" (Dialectic + Maieutics + Definition)
 - **Dataset:** 30 stratified samples from `prediction_market_200_examples.json`
   - 10 low-risk (score 0–22), 10 mid-risk (23–84), 10 high-risk (85–100)
@@ -57,7 +57,7 @@ We evaluated our **Market Prompt Ambiguity Risk Scoring System** against two bas
 | **Tag Correctness** | 3.27 | 3.00 | **4.23** |
 | **Overall Quality** | 3.03 | 2.93 | **4.35** |
 
-![SocREval Dimension Comparison](eval_dimension_comparison.png)
+![SocREval Dimension Comparison](images/eval_dimension_comparison.png)
 *Figure 1: SocREval dimension scores across three conditions. Condition C (System Full) leads in all four dimensions, with the largest gap in Score Accuracy.*
 
 ---
@@ -99,7 +99,7 @@ This breakdown reveals where each system component adds the most value.
 
 > **Key insight:** All three conditions perform well on high-risk questions. This is expected — LLMs naturally gravitate toward identifying ambiguity. The system's value is most apparent in **avoiding false positives** (low/mid tier), not in detecting high-risk questions.
 
-![Predicted vs Ground Truth Scatter](eval_score_scatter.png)
+![Predicted vs Ground Truth Scatter](images/eval_score_scatter.png)
 *Figure 2: Predicted risk scores vs ground truth. Condition C points cluster tightly along the diagonal (perfect prediction line), while A and B systematically overshoot in the low-risk region.*
 
 ---
@@ -122,7 +122,7 @@ Condition C achieves its advantage through two synergistic mechanisms:
 
 2. **Web search context:** Tavily search results provide real-world information about the question's subject, helping the model distinguish between "genuinely ambiguous" and "just unfamiliar to me." A question about a niche topic may seem ambiguous without context but is actually well-defined once relevant information is provided.
 
-![Score Error Distribution](eval_score_error_boxplot.png)
+![Score Error Distribution](images/eval_score_error_boxplot.png)
 *Figure 3: Distribution of absolute scoring errors. Condition C has a tight, low-error distribution, while A and B show wide spreads with many large outliers in the 40–80 point range.*
 
 ---
@@ -143,6 +143,76 @@ Condition C achieves its advantage through two synergistic mechanisms:
 
 ---
 
+## DeepSeek Cost Evaluation
+
+We reran the cost experiment on **20 stratified examples** from `prediction_market_200_examples.json` with `deepseek-v4-flash`:
+
+- Low-risk examples: 7
+- Mid-risk examples: 7
+- High-risk examples: 6
+- Pricing source: DeepSeek public pricing as of May 4, 2026
+  - Input cache hit: **$0.0028 / 1M tokens**
+  - Input cache miss: **$0.14 / 1M tokens**
+  - Output: **$0.28 / 1M tokens**
+
+The cost calculation uses DeepSeek's returned usage fields: `prompt_cache_hit_tokens`, `prompt_cache_miss_tokens`, and `completion_tokens`.
+
+### A/B/C Generation Cost
+
+This experiment compares the cost of generating each condition's risk assessment before any evaluator is applied:
+
+- **A: Minimal baseline** — bare user prompt only
+- **B: System + few-shot** — expert system prompt, scoring rubric, and default few-shot examples
+- **C: RAG + web search** — RAG examples plus Tavily web-search context
+
+| Metric | A: Minimal Baseline | B: System + Few-Shot | C: RAG + Web Search |
+|---|---:|---:|---:|
+| Successful examples | 20/20 | 20/20 | 20/20 |
+| Total prompt tokens | 4,274 | 18,989 | 52,198 |
+| Total prompt cache hit tokens | 0 | 7,680 | 38,144 |
+| Total prompt cache miss tokens | 4,274 | 11,309 | 14,054 |
+| Total completion tokens | 2,585 | 3,341 | 3,351 |
+| Total tokens | 6,859 | 22,330 | 55,549 |
+| Total cost | $0.001322 | $0.002540 | $0.003013 |
+| Tokens / sample | 343 | 1,116 | 2,777 |
+| USD / sample | $0.000066 | $0.000127 | $0.000151 |
+| USD / 1,000 examples | $0.066 | $0.127 | $0.151 |
+
+Condition C uses **8.1x** as many tokens as Condition A and **2.5x** as many tokens as Condition B, but its dollar cost is only **2.3x** A and **1.2x** B. The gap is smaller in dollars because most of C's long prompt hits DeepSeek's context cache, where input tokens are priced much lower than cache-miss input tokens.
+
+![A/B/C Baseline Cost Comparison](images/eval_baseline_cost_comparison.png)
+*Figure 4: Generation cost and token breakdown for the three evaluated baselines. C is token-heavy because it includes RAG and web-search context, but cache hits keep its dollar cost close to B.*
+
+### Evaluator-Only Cost
+
+| Metric | Plain Eval | SocREval Eval | Difference |
+|---|---:|---:|---:|
+| Total prompt tokens | 10,181 | 13,721 | +3,540 |
+| Total prompt cache hit tokens | 2,432 | 4,992 | +2,560 |
+| Total prompt cache miss tokens | 7,749 | 8,729 | +980 |
+| Total completion tokens | 820 | 4,552 | +3,732 |
+| Total tokens | 11,001 | 18,273 | +7,272 |
+| Total cost | $0.001321 | $0.002511 | +$0.001189 |
+| Per-sample tokens | 550 | 914 | +364 |
+| Per-sample cost | $0.000066 | $0.000126 | +$0.000059 |
+
+SocREval increases evaluator token usage by **66.1%** and evaluator dollar cost by **90.0%**. The dollar overhead is higher than the token overhead because SocREval produces substantially more completion tokens, and DeepSeek output tokens are priced higher than cache-miss input tokens.
+
+### Full Pipeline Cost
+
+| Pipeline Component | Tokens / sample | USD / sample | USD / 1,000 examples |
+|---|---:|---:|---:|
+| Generation only | 2,746 | $0.000315 | $0.315 |
+| Plain evaluator only | 550 | $0.000066 | $0.066 |
+| SocREval evaluator only | 914 | $0.000126 | $0.126 |
+| Full pipeline with plain eval | 3,296 | $0.000381 | $0.381 |
+| Full pipeline with SocREval | 3,659 | $0.000440 | $0.440 |
+
+![DeepSeek Cost Comparison](images/eval_cost_comparison.png)
+*Figure 5: DeepSeek dollar cost per 1,000 examples and evaluator token breakdown. SocREval's added cost is mostly completion tokens from `own_assessment` and qualitative analysis.*
+
+---
+
 ## Conclusion
 
 Our full system — combining RAG-based few-shot retrieval with web search augmentation — represents a **paradigm shift** in automated prediction market risk assessment:
@@ -160,10 +230,16 @@ The most impactful finding is that **the challenge isn't detecting ambiguity —
 
 | File | Description |
 |------|-------------|
-| `eval_results_stratified.json` | Raw cached results for all 30 samples |
-| `eval_report.txt` | Text summary of metrics |
-| `eval_dimension_comparison.png` | Grouped bar chart: 3 conditions × 4 SocREval dimensions |
-| `eval_score_scatter.png` | Scatter plot: predicted vs ground truth risk scores |
-| `eval_score_error_boxplot.png` | Box plot: score error distribution per condition |
-| `eval_socreval.py` | Evaluation pipeline code |
-| `eval_prompts.py` | Baseline prompt + SocREval evaluator prompt templates |
+| `results/eval_results_stratified.json` | Raw cached results for all 30 samples |
+| `results/eval_report.txt` | Text summary of metrics |
+| `images/eval_dimension_comparison.png` | Grouped bar chart: 3 conditions × 4 SocREval dimensions |
+| `images/eval_score_scatter.png` | Scatter plot: predicted vs ground truth risk scores |
+| `images/eval_score_error_boxplot.png` | Box plot: score error distribution per condition |
+| `results/eval_baseline_cost_comparison.json` | DeepSeek generation cost comparison for A/B/C baselines |
+| `images/eval_baseline_cost_comparison.png` | Bar chart: A/B/C generation cost and token breakdown |
+| `results/eval_cost_comparison.json` | DeepSeek token and dollar cost comparison for 20 examples |
+| `images/eval_cost_comparison.png` | Bar chart: DeepSeek cost and token breakdown |
+| `scripts/eval_cost.py` | DeepSeek cost evaluation pipeline |
+| `scripts/eval_baseline_cost.py` | DeepSeek generation cost comparison for A/B/C baselines |
+| `scripts/eval_socreval.py` | Evaluation pipeline code |
+| `scripts/eval_prompts.py` | Baseline prompt + SocREval evaluator prompt templates |

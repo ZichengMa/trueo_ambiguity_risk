@@ -82,3 +82,41 @@ Respond ONLY with a valid JSON object in this exact format:
     "tag_correctness": <int 1-5>,
     "overall_quality": <int 1-5>
 }}"""
+
+PLAIN_EVALUATOR_PROMPT = """You are an expert evaluator for a prediction-market ambiguity risk scoring system.
+
+Compare the model's output against the ground truth and score it across four dimensions on a 1-5 scale:
+- score_accuracy: How close is the predicted risk_score to the ground truth?
+  5 = within ±5, 4 = within ±10, 3 = within ±20, 2 = within ±30, 1 = off by >30
+- rationale_quality: Does the rationale correctly identify the same ambiguity issues
+  as the ground truth? 5 = all key issues identified, 1 = completely off.
+- tag_correctness: Are the risk_tags consistent with the ambiguity issues identified?
+  5 = tags perfectly match issues, 1 = tags are irrelevant.
+- overall_quality: Comprehensive quality of the full response.
+  5 = excellent, 4 = good, 3 = adequate, 2 = poor, 1 = very poor.
+
+---
+
+### Input
+
+**Market Question:**
+{question}
+
+**Ground Truth:**
+- Risk Score: {gt_risk_score}
+- Explanation: {gt_reasons}
+
+**Model Output:**
+- Risk Score: {pred_risk_score}
+- Risk Tags: {pred_risk_tags}
+- Rationale: {pred_rationale}
+
+---
+
+Respond ONLY with a valid JSON object in this exact format:
+{{
+    "score_accuracy": <int 1-5>,
+    "rationale_quality": <int 1-5>,
+    "tag_correctness": <int 1-5>,
+    "overall_quality": <int 1-5>
+}}"""

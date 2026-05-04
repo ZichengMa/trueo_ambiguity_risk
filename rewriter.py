@@ -6,9 +6,8 @@ import json
 import re
 from typing import Optional
 
-from zhipuai import ZhipuAI
-
-from config import ZHIPU_API_KEY, ZHIPU_MODEL
+from config import DEEPSEEK_API_KEY, DEEPSEEK_MODEL
+from llm_client import create_deepseek_client, deepseek_chat_options
 from models import RewriteSuggestionItem, RewriteSuggestions
 
 
@@ -62,10 +61,10 @@ def _suggest_with_llm(
     search_summary: Optional[str],
     max_suggestions: int,
 ) -> RewriteSuggestions:
-    if not ZHIPU_API_KEY:
-        raise ValueError("ZHIPU_API_KEY is missing")
+    if not DEEPSEEK_API_KEY:
+        raise ValueError("DEEPSEEK_API_KEY is missing")
 
-    client = ZhipuAI(api_key=ZHIPU_API_KEY)
+    client = create_deepseek_client()
 
     risk_tags_str = ", ".join(risk_tags) if risk_tags else "none"
     rationale_str = rationale or "none"
@@ -97,12 +96,13 @@ Return JSON in this schema:
 }}"""
 
     response = client.chat.completions.create(
-        model=ZHIPU_MODEL,
+        model=DEEPSEEK_MODEL,
         messages=[
             {"role": "system", "content": REWRITE_SYSTEM_PROMPT},
             {"role": "user", "content": user_prompt},
         ],
         temperature=0.2,
+        **deepseek_chat_options(json_output=True),
     )
 
     content = response.choices[0].message.content

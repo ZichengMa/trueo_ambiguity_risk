@@ -1,10 +1,10 @@
 # Market Prompt Ambiguity Risk Scoring System
 
-A system for analyzing prediction market prompts and detecting ambiguity risks using GLM-4.7.
+A system for analyzing prediction market prompts and detecting ambiguity risks using DeepSeek.
 
 ## Overview
 
-This system analyzes market questions for potential ambiguity, vagueness, or clarity issues that could lead to disputes. It uses GLM-4.7 (via Zhipu AI) to perform semantic analysis and generate risk assessments.
+This system analyzes market questions for potential ambiguity, vagueness, or clarity issues that could lead to disputes. It uses DeepSeek to perform semantic analysis and generate risk assessments.
 
 ## Features
 
@@ -31,16 +31,16 @@ pip install -r requirements.txt
 
 # Set up environment variables
 cp .env.example .env
-# Edit .env and add your Zhipu AI API key
+# Edit .env and add your DeepSeek API key
 ```
 
 ## Configuration
 
-1. Get your API key from [Zhipu AI](https://open.bigmodel.cn/)
+1. Get your API key from [DeepSeek](https://platform.deepseek.com/)
 2. Copy `.env.example` to `.env`
 3. Add your API key to `.env`:
    ```
-   ZHIPU_API_KEY=your_api_key_here
+   DEEPSEEK_API_KEY=your_api_key_here
    ```
 4. Optional: add a Tavily API key to enable `use_web_search=True`:
    ```
@@ -307,7 +307,7 @@ trueo_ambiguity_risk/
 ├── config.py            # Configuration settings
 ├── models.py            # Data models (Pydantic)
 ├── prompts.py           # Prompt templates and context injection logic
-├── agent.py             # LLM Agent (GLM-4.7)
+├── agent.py             # LLM Agent (DeepSeek)
 ├── scorer.py            # Risk Scorer
 ├── main.py              # Main entry point
 ├── search.py            # Tavily search client and evidence formatter
@@ -333,7 +333,7 @@ Quick test (single API call):
 python tests/test_scorer.py --quick
 ```
 
-Note: the examples file and web-search integration tests are local-only, but the main scoring tests still call the live Zhipu API.
+Note: the examples file and web-search integration tests are local-only, but the main scoring tests still call the live DeepSeek API.
 
 Web-search-specific local tests currently cover:
 

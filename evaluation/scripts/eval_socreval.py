@@ -2,19 +2,18 @@
 SocREval-based evaluation orchestrator for the Market Prompt Ambiguity Risk Scoring System.
 
 Compares three conditions:
-  A — Bare GLM baseline (minimal prompt, no system prompt, no few-shot, no web search)
+  A — Bare DeepSeek baseline (minimal prompt, no system prompt, no few-shot, no web search)
   B — Full system without web search
   C — Full system with web search
 
 Uses the combined SocREval "All" strategy (Dialectic + Maieutics + Definition) with
-the same GLM model as evaluator.
+the same DeepSeek model as evaluator.
 
 Usage:
-    cd evaluation
-    python eval_socreval.py                # Run full evaluation (first 50 examples)
-    python eval_socreval.py --resume       # Resume from cache
-    python eval_socreval.py --report-only  # Regenerate report/plots from cached results
-    python eval_socreval.py --n 10         # Run only first 10 examples
+    .venv/bin/python evaluation/scripts/eval_socreval.py
+    .venv/bin/python evaluation/scripts/eval_socreval.py --resume
+    .venv/bin/python evaluation/scripts/eval_socreval.py --report-only
+    .venv/bin/python evaluation/scripts/eval_socreval.py --n 10
 """
 
 import argparse
@@ -30,14 +29,17 @@ from typing import Any, Dict, List, Optional, Tuple
 # ---------------------------------------------------------------------------
 # Paths & import setup
 # ---------------------------------------------------------------------------
-EVAL_DIR = Path(__file__).resolve().parent
+SCRIPT_DIR = Path(__file__).resolve().parent
+EVAL_DIR = SCRIPT_DIR.parent
 PROJECT_ROOT = EVAL_DIR.parent
 DATASET_PATH = PROJECT_ROOT / "prediction_market_200_examples.json"
-RESULTS_PATH = EVAL_DIR / "eval_results.json"
-REPORT_PATH = EVAL_DIR / "eval_report.txt"
+RESULTS_DIR = EVAL_DIR / "results"
+IMAGES_DIR = EVAL_DIR / "images"
+RESULTS_PATH = RESULTS_DIR / "eval_results.json"
+REPORT_PATH = RESULTS_DIR / "eval_report.txt"
 
 sys.path.insert(0, str(PROJECT_ROOT))
-sys.path.insert(0, str(EVAL_DIR))
+sys.path.insert(0, str(SCRIPT_DIR))
 
 import matplotlib
 
@@ -46,10 +48,11 @@ import matplotlib.pyplot as plt
 import numpy as np
 from scipy import stats
 
-from zhipuai import ZhipuAI
+from openai import OpenAI
 
-from config import ZHIPU_API_KEY, ZHIPU_MODEL
+from config import DEEPSEEK_MODEL
 from eval_prompts import BASELINE_PROMPT_TEMPLATE, SOCREVAL_EVALUATOR_PROMPT
+from llm_client import create_deepseek_client, deepseek_chat_options
 
 # ---------------------------------------------------------------------------
 # Constants
@@ -71,11 +74,8 @@ DIMENSIONS = [
 # ========================== Generation helpers =============================
 
 
-def _get_glm_client() -> ZhipuAI:
-    return ZhipuAI(
-        api_key=ZHIPU_API_KEY,
-        base_url="https://open.bigmodel.cn/api/coding/paas/v4",
-    )
+def _get_deepseek_client() -> OpenAI:
+    return create_deepseek_client()
 
 
 def _parse_json_response(content: str) -> Optional[dict]:
@@ -88,21 +88,22 @@ def _parse_json_response(content: str) -> Optional[dict]:
         return None
 
 
-def _call_glm(
-    client: ZhipuAI, messages: list, temperature: float = 0.3, timeout: float = 180
+def _call_deepseek(
+    client: OpenAI, messages: list, temperature: float = 0.3, timeout: float = 180
 ) -> str:
     response = client.chat.completions.create(
-        model=ZHIPU_MODEL,
+        model=DEEPSEEK_MODEL,
         messages=messages,
         temperature=temperature,
         timeout=timeout,
+        **deepseek_chat_options(json_output=True),
     )
     return response.choices[0].message.content
 
 
-def generate_baseline(question: str, client: ZhipuAI) -> dict:
+def generate_baseline(question: str, client: OpenAI) -> dict:
     prompt = BASELINE_PROMPT_TEMPLATE.format(question=question)
-    content = _call_glm(client, [{"role": "user", "content": prompt}])
+    content = _call_deepseek(client, [{"role": "user", "content": prompt}])
     parsed = _parse_json_response(content)
     if parsed is None:
         return {
@@ -121,9 +122,9 @@ def generate_system_basic(question: str, agent=None, client=None) -> dict:
     from prompts import build_analysis_prompt, SYSTEM_PROMPT
 
     if client is None:
-        client = _get_glm_client()
+        client = _get_deepseek_client()
     prompt = build_analysis_prompt(question, include_few_shot=True)
-    content = _call_glm(
+    content = _call_deepseek(
         client,
         [
             {"role": "system", "content": SYSTEM_PROMPT},
@@ -161,7 +162,7 @@ def generate_system_full(question: str, agent=None, client=None) -> dict:
     from config import PREDICTION_MARKET_EXAMPLES_PATH
 
     if client is None:
-        client = _get_glm_client()
+        client = _get_deepseek_client()
     search_client = WebSearchClient()
     web_ctx = search_client.build_context(question)
     ctx = merge_analysis_context(web_search_context=web_ctx)
@@ -204,7 +205,7 @@ def generate_system_full(question: str, agent=None, client=None) -> dict:
     prompt = build_analysis_prompt(
         question, context=ctx, few_shot_examples=rag_examples, include_few_shot=True
     )
-    content = _call_glm(
+    content = _call_deepseek(
         client,
         [
             {"role": "system", "content": SYSTEM_PROMPT},
@@ -232,7 +233,7 @@ def socreval_evaluate(
     question: str,
     ground_truth: dict,
     condition_output: dict,
-    client: ZhipuAI,
+    client: OpenAI,
 ) -> Optional[dict]:
     prompt = SOCREVAL_EVALUATOR_PROMPT.format(
         question=question,
@@ -244,7 +245,9 @@ def socreval_evaluate(
         ),
         pred_rationale=condition_output.get("rationale", ""),
     )
-    content = _call_glm(client, [{"role": "user", "content": prompt}], temperature=0.2)
+    content = _call_deepseek(
+        client, [{"role": "user", "content": prompt}], temperature=0.2
+    )
     parsed = _parse_json_response(content)
     if parsed is None:
         return None
@@ -288,6 +291,7 @@ def load_cache() -> Dict[str, dict]:
 
 
 def save_cache(cache: Dict[str, dict]) -> None:
+    RESULTS_PATH.parent.mkdir(parents=True, exist_ok=True)
     with open(RESULTS_PATH, "w", encoding="utf-8") as f:
         json.dump(cache, f, ensure_ascii=False, indent=2)
 
@@ -297,16 +301,17 @@ def run_evaluation(
 ) -> Dict[str, dict]:
     if stratified > 0:
         dataset = load_stratified_dataset(per_tier=stratified)
-        cache_path = EVAL_DIR / "eval_results_stratified.json"
+        cache_path = RESULTS_DIR / "eval_results_stratified.json"
     else:
         dataset = load_dataset(n_samples)
         cache_path = RESULTS_PATH
 
+    cache_path.parent.mkdir(parents=True, exist_ok=True)
     cache: Dict[str, dict] = {}
     if resume and cache_path.exists():
         with open(cache_path, "r", encoding="utf-8") as f:
             cache = json.load(f)
-    client = _get_glm_client()
+    client = _get_deepseek_client()
 
     total = len(dataset)
     for i, example in enumerate(dataset):
@@ -615,6 +620,7 @@ def print_report(metrics: dict, results: Dict[str, dict]) -> str:
     report = "\n".join(lines)
     print(report)
 
+    REPORT_PATH.parent.mkdir(parents=True, exist_ok=True)
     with open(REPORT_PATH, "w", encoding="utf-8") as f:
         f.write(report)
     print(f"Report saved to {REPORT_PATH}")
@@ -684,7 +690,8 @@ def generate_plots(metrics: dict, results: Dict[str, dict]) -> None:
     ax.legend(fontsize=10)
     ax.grid(axis="y", alpha=0.3)
     fig.tight_layout()
-    path1 = EVAL_DIR / "eval_dimension_comparison.png"
+    IMAGES_DIR.mkdir(parents=True, exist_ok=True)
+    path1 = IMAGES_DIR / "eval_dimension_comparison.png"
     fig.savefig(path1, dpi=150)
     plt.close(fig)
     print(f"Saved {path1}")
@@ -722,7 +729,7 @@ def generate_plots(metrics: dict, results: Dict[str, dict]) -> None:
     ax.legend(fontsize=9)
     ax.grid(alpha=0.3)
     fig.tight_layout()
-    path2 = EVAL_DIR / "eval_score_scatter.png"
+    path2 = IMAGES_DIR / "eval_score_scatter.png"
     fig.savefig(path2, dpi=150)
     plt.close(fig)
     print(f"Saved {path2}")
@@ -749,7 +756,7 @@ def generate_plots(metrics: dict, results: Dict[str, dict]) -> None:
     )
     ax.grid(axis="y", alpha=0.3)
     fig.tight_layout()
-    path3 = EVAL_DIR / "eval_score_error_boxplot.png"
+    path3 = IMAGES_DIR / "eval_score_error_boxplot.png"
     fig.savefig(path3, dpi=150)
     plt.close(fig)
     print(f"Saved {path3}")
@@ -779,7 +786,7 @@ def main() -> None:
 
     if args.report_only:
         if args.stratified > 0:
-            cache_path = EVAL_DIR / "eval_results_stratified.json"
+            cache_path = RESULTS_DIR / "eval_results_stratified.json"
         else:
             cache_path = RESULTS_PATH
         if not cache_path.exists():

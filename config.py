@@ -11,11 +11,10 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # API Configuration
-ZHIPU_API_KEY = os.getenv("ZHIPU_API_KEY", "")
-ZHIPU_MODEL = os.getenv("ZHIPU_MODEL", "glm-5")
-ZHIPU_BASE_URL = os.getenv(
-    "ZHIPUAI_BASE_URL", "https://open.bigmodel.cn/api/coding/paas/v4"
-)
+DEEPSEEK_API_KEY = os.getenv("DEEPSEEK_API_KEY", "")
+DEEPSEEK_MODEL = os.getenv("DEEPSEEK_MODEL", "deepseek-v4-flash")
+DEEPSEEK_BASE_URL = os.getenv("DEEPSEEK_BASE_URL", "https://api.deepseek.com")
+DEEPSEEK_THINKING = os.getenv("DEEPSEEK_THINKING", "disabled")
 TAVILY_API_KEY = os.getenv("TAVILY_API_KEY", "")
 TAVILY_SEARCH_URL = os.getenv("TAVILY_SEARCH_URL", "https://api.tavily.com/search")
 

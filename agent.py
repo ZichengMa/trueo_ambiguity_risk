@@ -2,15 +2,15 @@
 LLM Agent module for the Market Prompt Ambiguity Risk Scoring System.
 
 This module contains the SemanticAnalysisAgent class that interfaces with
-the GLM-4.7 API to perform semantic analysis and ambiguity detection.
+the DeepSeek API to perform semantic analysis and ambiguity detection.
 """
 
 import json
 import re
 from typing import Optional, List
-from zhipuai import ZhipuAI
 
-from config import ZHIPU_API_KEY, ZHIPU_MODEL
+from config import DEEPSEEK_API_KEY, DEEPSEEK_MODEL
+from llm_client import create_deepseek_client, deepseek_chat_options
 from models import RiskScoreResult
 from prompts import build_analysis_prompt, SYSTEM_PROMPT
 from rag import retrieve_few_shot_examples
@@ -18,13 +18,13 @@ from rag import retrieve_few_shot_examples
 
 class SemanticAnalysisAgent:
     """
-    Agent for analyzing market prompts using GLM-4.7.
+    Agent for analyzing market prompts using DeepSeek.
     
-    This agent interfaces with the Zhipu AI API to perform semantic analysis
+    This agent interfaces with the DeepSeek API to perform semantic analysis
     and detect ambiguity risks in market questions.
     
     Attributes:
-        client: ZhipuAI client instance
+        client: OpenAI-compatible DeepSeek client instance
         model: Model identifier to use
         few_shot_examples: Optional list of few-shot examples for prompting
     """
@@ -39,13 +39,13 @@ class SemanticAnalysisAgent:
         Initialize the SemanticAnalysisAgent.
         
         Args:
-            api_key: Zhipu AI API key (defaults to config value)
+            api_key: DeepSeek API key (defaults to config value)
             model: Model identifier (defaults to config value)
             few_shot_examples: Optional few-shot examples for better prompting
         """
-        self.api_key = api_key or ZHIPU_API_KEY
-        self.model = model or ZHIPU_MODEL
-        self.client = ZhipuAI(api_key=self.api_key)
+        self.api_key = api_key or DEEPSEEK_API_KEY
+        self.model = model or DEEPSEEK_MODEL
+        self.client = create_deepseek_client(api_key=self.api_key)
         self.few_shot_examples = few_shot_examples
     
     def analyze(
@@ -89,6 +89,7 @@ class SemanticAnalysisAgent:
                 {"role": "user", "content": prompt}
             ],
             temperature=0.3,  # Lower temperature for more consistent outputs
+            **deepseek_chat_options(json_output=True),
         )
         
         # Extract the response content

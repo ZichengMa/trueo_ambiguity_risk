@@ -1,0 +1,705 @@
+{
+  "n_requested": 20,
+  "model": "deepseek-v4-flash",
+  "sample_tier_counts": {
+    "low": 7,
+    "mid": 7,
+    "high": 6
+  },
+  "sampling_seed": 42,
+  "pricing_per_1m_tokens_usd": {
+    "input_cache_hit": 0.0028,
+    "input_cache_miss": 0.14,
+    "output": 0.28
+  },
+  "condition_labels": {
+    "A_baseline": "A: Minimal baseline",
+    "B_system_basic": "B: System + few-shot",
+    "C_system_full": "C: RAG + web search"
+  },
+  "successes": {
+    "A_baseline": 20,
+    "B_system_basic": 20,
+    "C_system_full": 20
+  },
+  "errors": {
+    "A_baseline": [],
+    "B_system_basic": [],
+    "C_system_full": []
+  },
+  "totals": {
+    "A_baseline": {
+      "prompt_tokens": 4274,
+      "prompt_cache_hit_tokens": 0,
+      "prompt_cache_miss_tokens": 4274,
+      "completion_tokens": 2585,
+      "total_tokens": 6859,
+      "cost_usd": 0.0013221600000000004
+    },
+    "B_system_basic": {
+      "prompt_tokens": 18989,
+      "prompt_cache_hit_tokens": 7680,
+      "prompt_cache_miss_tokens": 11309,
+      "completion_tokens": 3341,
+      "total_tokens": 22330,
+      "cost_usd": 0.002540244
+    },
+    "C_system_full": {
+      "prompt_tokens": 52198,
+      "prompt_cache_hit_tokens": 38144,
+      "prompt_cache_miss_tokens": 14054,
+      "completion_tokens": 3351,
+      "total_tokens": 55549,
+      "cost_usd": 0.0030126432000000002
+    }
+  },
+  "averages_per_success": {
+    "A_baseline": {
+      "prompt_tokens": 213.7,
+      "prompt_cache_hit_tokens": 0.0,
+      "prompt_cache_miss_tokens": 213.7,
+      "completion_tokens": 129.25,
+      "total_tokens": 342.95,
+      "cost_usd": 6.610800000000003e-05
+    },
+    "B_system_basic": {
+      "prompt_tokens": 949.45,
+      "prompt_cache_hit_tokens": 384.0,
+      "prompt_cache_miss_tokens": 565.45,
+      "completion_tokens": 167.05,
+      "total_tokens": 1116.5,
+      "cost_usd": 0.0001270122
+    },
+    "C_system_full": {
+      "prompt_tokens": 2609.9,
+      "prompt_cache_hit_tokens": 1907.2,
+      "prompt_cache_miss_tokens": 702.7,
+      "completion_tokens": 167.55,
+      "total_tokens": 2777.45,
+      "cost_usd": 0.00015063216
+    }
+  },
+  "rows": [
+    {
+      "question": "Bank of Korea rate decision in May 2026",
+      "tier": "low",
+      "gt": 18,
+      "conditions": {
+        "A_baseline": {
+          "prompt_tokens": 214,
+          "prompt_cache_hit_tokens": 0,
+          "prompt_cache_miss_tokens": 214,
+          "completion_tokens": 108,
+          "total_tokens": 322,
+          "cost_usd": 6.02e-05
+        },
+        "B_system_basic": {
+          "prompt_tokens": 949,
+          "prompt_cache_hit_tokens": 384,
+          "prompt_cache_miss_tokens": 565,
+          "completion_tokens": 163,
+          "total_tokens": 1112,
+          "cost_usd": 0.0001258152
+        },
+        "C_system_full": {
+          "prompt_tokens": 3663,
+          "prompt_cache_hit_tokens": 3584,
+          "prompt_cache_miss_tokens": 79,
+          "completion_tokens": 199,
+          "total_tokens": 3862,
+          "cost_usd": 7.68152e-05
+        }
+      }
+    },
+    {
+      "question": "Will Strategy (MSTR) beat quarterly earnings?",
+      "tier": "low",
+      "gt": 20,
+      "conditions": {
+        "A_baseline": {
+          "prompt_tokens": 213,
+          "prompt_cache_hit_tokens": 0,
+          "prompt_cache_miss_tokens": 213,
+          "completion_tokens": 152,
+          "total_tokens": 365,
+          "cost_usd": 7.238000000000001e-05
+        },
+        "B_system_basic": {
+          "prompt_tokens": 949,
+          "prompt_cache_hit_tokens": 384,
+          "prompt_cache_miss_tokens": 565,
+          "completion_tokens": 209,
+          "total_tokens": 1158,
+          "cost_usd": 0.0001386952
+        },
+        "C_system_full": {
+          "prompt_tokens": 3193,
+          "prompt_cache_hit_tokens": 3072,
+          "prompt_cache_miss_tokens": 121,
+          "completion_tokens": 211,
+          "total_tokens": 3404,
+          "cost_usd": 8.46216e-05
+        }
+      }
+    },
+    {
+      "question": "Microsoft (MSFT) closes above ___ on March 31?",
+      "tier": "low",
+      "gt": 16,
+      "conditions": {
+        "A_baseline": {
+          "prompt_tokens": 216,
+          "prompt_cache_hit_tokens": 0,
+          "prompt_cache_miss_tokens": 216,
+          "completion_tokens": 117,
+          "total_tokens": 333,
+          "cost_usd": 6.300000000000001e-05
+        },
+        "B_system_basic": {
+          "prompt_tokens": 952,
+          "prompt_cache_hit_tokens": 384,
+          "prompt_cache_miss_tokens": 568,
+          "completion_tokens": 147,
+          "total_tokens": 1099,
+          "cost_usd": 0.0001217552
+        },
+        "C_system_full": {
+          "prompt_tokens": 3003,
+          "prompt_cache_hit_tokens": 2944,
+          "prompt_cache_miss_tokens": 59,
+          "completion_tokens": 107,
+          "total_tokens": 3110,
+          "cost_usd": 4.64632e-05
+        }
+      }
+    },
+    {
+      "question": "Meta (META) closes above ___ on April 1?",
+      "tier": "low",
+      "gt": 16,
+      "conditions": {
+        "A_baseline": {
+          "prompt_tokens": 216,
+          "prompt_cache_hit_tokens": 0,
+          "prompt_cache_miss_tokens": 216,
+          "completion_tokens": 103,
+          "total_tokens": 319,
+          "cost_usd": 5.9080000000000004e-05
+        },
+        "B_system_basic": {
+          "prompt_tokens": 952,
+          "prompt_cache_hit_tokens": 384,
+          "prompt_cache_miss_tokens": 568,
+          "completion_tokens": 161,
+          "total_tokens": 1113,
+          "cost_usd": 0.00012567520000000002
+        },
+        "C_system_full": {
+          "prompt_tokens": 2140,
+          "prompt_cache_hit_tokens": 384,
+          "prompt_cache_miss_tokens": 1756,
+          "completion_tokens": 125,
+          "total_tokens": 2265,
+          "cost_usd": 0.0002819152
+        }
+      }
+    },
+    {
+      "question": "Will Shopify (SHOP) beat quarterly earnings?",
+      "tier": "low",
+      "gt": 20,
+      "conditions": {
+        "A_baseline": {
+          "prompt_tokens": 213,
+          "prompt_cache_hit_tokens": 0,
+          "prompt_cache_miss_tokens": 213,
+          "completion_tokens": 115,
+          "total_tokens": 328,
+          "cost_usd": 6.202e-05
+        },
+        "B_system_basic": {
+          "prompt_tokens": 949,
+          "prompt_cache_hit_tokens": 384,
+          "prompt_cache_miss_tokens": 565,
+          "completion_tokens": 163,
+          "total_tokens": 1112,
+          "cost_usd": 0.0001258152
+        },
+        "C_system_full": {
+          "prompt_tokens": 3596,
+          "prompt_cache_hit_tokens": 3584,
+          "prompt_cache_miss_tokens": 12,
+          "completion_tokens": 158,
+          "total_tokens": 3754,
+          "cost_usd": 5.59552e-05
+        }
+      }
+    },
+    {
+      "question": "Who will win the 2026 Massachusetts Democratic Senate nomination?",
+      "tier": "low",
+      "gt": 20,
+      "conditions": {
+        "A_baseline": {
+          "prompt_tokens": 215,
+          "prompt_cache_hit_tokens": 0,
+          "prompt_cache_miss_tokens": 215,
+          "completion_tokens": 132,
+          "total_tokens": 347,
+          "cost_usd": 6.706e-05
+        },
+        "B_system_basic": {
+          "prompt_tokens": 951,
+          "prompt_cache_hit_tokens": 384,
+          "prompt_cache_miss_tokens": 567,
+          "completion_tokens": 124,
+          "total_tokens": 1075,
+          "cost_usd": 0.00011517520000000002
+        },
+        "C_system_full": {
+          "prompt_tokens": 2190,
+          "prompt_cache_hit_tokens": 384,
+          "prompt_cache_miss_tokens": 1806,
+          "completion_tokens": 137,
+          "total_tokens": 2327,
+          "cost_usd": 0.00029227520000000006
+        }
+      }
+    },
+    {
+      "question": "Will rates hit zero this year? (2026)",
+      "tier": "low",
+      "gt": 16,
+      "conditions": {
+        "A_baseline": {
+          "prompt_tokens": 214,
+          "prompt_cache_hit_tokens": 0,
+          "prompt_cache_miss_tokens": 214,
+          "completion_tokens": 182,
+          "total_tokens": 396,
+          "cost_usd": 8.092000000000002e-05
+        },
+        "B_system_basic": {
+          "prompt_tokens": 949,
+          "prompt_cache_hit_tokens": 384,
+          "prompt_cache_miss_tokens": 565,
+          "completion_tokens": 164,
+          "total_tokens": 1113,
+          "cost_usd": 0.00012609520000000002
+        },
+        "C_system_full": {
+          "prompt_tokens": 2032,
+          "prompt_cache_hit_tokens": 1920,
+          "prompt_cache_miss_tokens": 112,
+          "completion_tokens": 228,
+          "total_tokens": 2260,
+          "cost_usd": 8.4896e-05
+        }
+      }
+    },
+    {
+      "question": "Who will die in Squid Game Season 3?",
+      "tier": "mid",
+      "gt": 84,
+      "conditions": {
+        "A_baseline": {
+          "prompt_tokens": 214,
+          "prompt_cache_hit_tokens": 0,
+          "prompt_cache_miss_tokens": 214,
+          "completion_tokens": 127,
+          "total_tokens": 341,
+          "cost_usd": 6.552000000000001e-05
+        },
+        "B_system_basic": {
+          "prompt_tokens": 950,
+          "prompt_cache_hit_tokens": 384,
+          "prompt_cache_miss_tokens": 566,
+          "completion_tokens": 165,
+          "total_tokens": 1115,
+          "cost_usd": 0.00012651520000000002
+        },
+        "C_system_full": {
+          "prompt_tokens": 3047,
+          "prompt_cache_hit_tokens": 384,
+          "prompt_cache_miss_tokens": 2663,
+          "completion_tokens": 177,
+          "total_tokens": 3224,
+          "cost_usd": 0.00042345520000000006
+        }
+      }
+    },
+    {
+      "question": "Will Russia and Ukraine reach an official ceasefire agreement by July 2025?",
+      "tier": "mid",
+      "gt": 80,
+      "conditions": {
+        "A_baseline": {
+          "prompt_tokens": 218,
+          "prompt_cache_hit_tokens": 0,
+          "prompt_cache_miss_tokens": 218,
+          "completion_tokens": 114,
+          "total_tokens": 332,
+          "cost_usd": 6.244e-05
+        },
+        "B_system_basic": {
+          "prompt_tokens": 954,
+          "prompt_cache_hit_tokens": 384,
+          "prompt_cache_miss_tokens": 570,
+          "completion_tokens": 189,
+          "total_tokens": 1143,
+          "cost_usd": 0.00013379520000000002
+        },
+        "C_system_full": {
+          "prompt_tokens": 3658,
+          "prompt_cache_hit_tokens": 3584,
+          "prompt_cache_miss_tokens": 74,
+          "completion_tokens": 162,
+          "total_tokens": 3820,
+          "cost_usd": 6.57552e-05
+        }
+      }
+    },
+    {
+      "question": "Will BTC first hit 100k before the next additional Trump tariff?",
+      "tier": "mid",
+      "gt": 70,
+      "conditions": {
+        "A_baseline": {
+          "prompt_tokens": 217,
+          "prompt_cache_hit_tokens": 0,
+          "prompt_cache_miss_tokens": 217,
+          "completion_tokens": 144,
+          "total_tokens": 361,
+          "cost_usd": 7.070000000000001e-05
+        },
+        "B_system_basic": {
+          "prompt_tokens": 953,
+          "prompt_cache_hit_tokens": 384,
+          "prompt_cache_miss_tokens": 569,
+          "completion_tokens": 200,
+          "total_tokens": 1153,
+          "cost_usd": 0.0001367352
+        },
+        "C_system_full": {
+          "prompt_tokens": 2797,
+          "prompt_cache_hit_tokens": 384,
+          "prompt_cache_miss_tokens": 2413,
+          "completion_tokens": 162,
+          "total_tokens": 2959,
+          "cost_usd": 0.0003842552000000001
+        }
+      }
+    },
+    {
+      "question": "Connecticut Democratic governor nominee?",
+      "tier": "mid",
+      "gt": 24,
+      "conditions": {
+        "A_baseline": {
+          "prompt_tokens": 209,
+          "prompt_cache_hit_tokens": 0,
+          "prompt_cache_miss_tokens": 209,
+          "completion_tokens": 132,
+          "total_tokens": 341,
+          "cost_usd": 6.622e-05
+        },
+        "B_system_basic": {
+          "prompt_tokens": 945,
+          "prompt_cache_hit_tokens": 384,
+          "prompt_cache_miss_tokens": 561,
+          "completion_tokens": 161,
+          "total_tokens": 1106,
+          "cost_usd": 0.0001246952
+        },
+        "C_system_full": {
+          "prompt_tokens": 1971,
+          "prompt_cache_hit_tokens": 1920,
+          "prompt_cache_miss_tokens": 51,
+          "completion_tokens": 156,
+          "total_tokens": 2127,
+          "cost_usd": 5.619600000000001e-05
+        }
+      }
+    },
+    {
+      "question": "Which party will control the Senate after the 2026 election?",
+      "tier": "mid",
+      "gt": 34,
+      "conditions": {
+        "A_baseline": {
+          "prompt_tokens": 216,
+          "prompt_cache_hit_tokens": 0,
+          "prompt_cache_miss_tokens": 216,
+          "completion_tokens": 114,
+          "total_tokens": 330,
+          "cost_usd": 6.216e-05
+        },
+        "B_system_basic": {
+          "prompt_tokens": 952,
+          "prompt_cache_hit_tokens": 384,
+          "prompt_cache_miss_tokens": 568,
+          "completion_tokens": 154,
+          "total_tokens": 1106,
+          "cost_usd": 0.0001237152
+        },
+        "C_system_full": {
+          "prompt_tokens": 2733,
+          "prompt_cache_hit_tokens": 384,
+          "prompt_cache_miss_tokens": 2349,
+          "completion_tokens": 74,
+          "total_tokens": 2807,
+          "cost_usd": 0.0003506552
+        }
+      }
+    },
+    {
+      "question": "Alaska Governor winner?",
+      "tier": "mid",
+      "gt": 29,
+      "conditions": {
+        "A_baseline": {
+          "prompt_tokens": 208,
+          "prompt_cache_hit_tokens": 0,
+          "prompt_cache_miss_tokens": 208,
+          "completion_tokens": 113,
+          "total_tokens": 321,
+          "cost_usd": 6.076000000000001e-05
+        },
+        "B_system_basic": {
+          "prompt_tokens": 944,
+          "prompt_cache_hit_tokens": 384,
+          "prompt_cache_miss_tokens": 560,
+          "completion_tokens": 145,
+          "total_tokens": 1089,
+          "cost_usd": 0.00012007519999999999
+        },
+        "C_system_full": {
+          "prompt_tokens": 1995,
+          "prompt_cache_hit_tokens": 1920,
+          "prompt_cache_miss_tokens": 75,
+          "completion_tokens": 134,
+          "total_tokens": 2129,
+          "cost_usd": 5.3396e-05
+        }
+      }
+    },
+    {
+      "question": "April 2026 AI model releases",
+      "tier": "mid",
+      "gt": 78,
+      "conditions": {
+        "A_baseline": {
+          "prompt_tokens": 211,
+          "prompt_cache_hit_tokens": 0,
+          "prompt_cache_miss_tokens": 211,
+          "completion_tokens": 172,
+          "total_tokens": 383,
+          "cost_usd": 7.77e-05
+        },
+        "B_system_basic": {
+          "prompt_tokens": 946,
+          "prompt_cache_hit_tokens": 384,
+          "prompt_cache_miss_tokens": 562,
+          "completion_tokens": 126,
+          "total_tokens": 1072,
+          "cost_usd": 0.0001150352
+        },
+        "C_system_full": {
+          "prompt_tokens": 2381,
+          "prompt_cache_hit_tokens": 2304,
+          "prompt_cache_miss_tokens": 77,
+          "completion_tokens": 184,
+          "total_tokens": 2565,
+          "cost_usd": 6.87512e-05
+        }
+      }
+    },
+    {
+      "question": "IDF entering Lebanon by the end of September",
+      "tier": "high",
+      "gt": 86,
+      "conditions": {
+        "A_baseline": {
+          "prompt_tokens": 213,
+          "prompt_cache_hit_tokens": 0,
+          "prompt_cache_miss_tokens": 213,
+          "completion_tokens": 156,
+          "total_tokens": 369,
+          "cost_usd": 7.350000000000001e-05
+        },
+        "B_system_basic": {
+          "prompt_tokens": 948,
+          "prompt_cache_hit_tokens": 384,
+          "prompt_cache_miss_tokens": 564,
+          "completion_tokens": 168,
+          "total_tokens": 1116,
+          "cost_usd": 0.0001270752
+        },
+        "C_system_full": {
+          "prompt_tokens": 2350,
+          "prompt_cache_hit_tokens": 384,
+          "prompt_cache_miss_tokens": 1966,
+          "completion_tokens": 215,
+          "total_tokens": 2565,
+          "cost_usd": 0.00033651519999999997
+        }
+      }
+    },
+    {
+      "question": "Will the US strike Iraq by February 28?",
+      "tier": "high",
+      "gt": 91,
+      "conditions": {
+        "A_baseline": {
+          "prompt_tokens": 213,
+          "prompt_cache_hit_tokens": 0,
+          "prompt_cache_miss_tokens": 213,
+          "completion_tokens": 115,
+          "total_tokens": 328,
+          "cost_usd": 6.202e-05
+        },
+        "B_system_basic": {
+          "prompt_tokens": 949,
+          "prompt_cache_hit_tokens": 384,
+          "prompt_cache_miss_tokens": 565,
+          "completion_tokens": 178,
+          "total_tokens": 1127,
+          "cost_usd": 0.0001300152
+        },
+        "C_system_full": {
+          "prompt_tokens": 2131,
+          "prompt_cache_hit_tokens": 2048,
+          "prompt_cache_miss_tokens": 83,
+          "completion_tokens": 175,
+          "total_tokens": 2306,
+          "cost_usd": 6.635440000000001e-05
+        }
+      }
+    },
+    {
+      "question": "Lord Miles completes 40-day water fast in the desert",
+      "tier": "high",
+      "gt": 94,
+      "conditions": {
+        "A_baseline": {
+          "prompt_tokens": 215,
+          "prompt_cache_hit_tokens": 0,
+          "prompt_cache_miss_tokens": 215,
+          "completion_tokens": 126,
+          "total_tokens": 341,
+          "cost_usd": 6.538e-05
+        },
+        "B_system_basic": {
+          "prompt_tokens": 950,
+          "prompt_cache_hit_tokens": 384,
+          "prompt_cache_miss_tokens": 566,
+          "completion_tokens": 184,
+          "total_tokens": 1134,
+          "cost_usd": 0.0001318352
+        },
+        "C_system_full": {
+          "prompt_tokens": 1913,
+          "prompt_cache_hit_tokens": 1792,
+          "prompt_cache_miss_tokens": 121,
+          "completion_tokens": 197,
+          "total_tokens": 2110,
+          "cost_usd": 7.711760000000002e-05
+        }
+      }
+    },
+    {
+      "question": "Will China invade Taiwan by end of 2026?",
+      "tier": "high",
+      "gt": 91,
+      "conditions": {
+        "A_baseline": {
+          "prompt_tokens": 214,
+          "prompt_cache_hit_tokens": 0,
+          "prompt_cache_miss_tokens": 214,
+          "completion_tokens": 107,
+          "total_tokens": 321,
+          "cost_usd": 5.992000000000001e-05
+        },
+        "B_system_basic": {
+          "prompt_tokens": 950,
+          "prompt_cache_hit_tokens": 384,
+          "prompt_cache_miss_tokens": 566,
+          "completion_tokens": 157,
+          "total_tokens": 1107,
+          "cost_usd": 0.0001242752
+        },
+        "C_system_full": {
+          "prompt_tokens": 3289,
+          "prompt_cache_hit_tokens": 3200,
+          "prompt_cache_miss_tokens": 89,
+          "completion_tokens": 180,
+          "total_tokens": 3469,
+          "cost_usd": 7.182000000000001e-05
+        }
+      }
+    },
+    {
+      "question": "Will AI resolve this market yes?",
+      "tier": "high",
+      "gt": 95,
+      "conditions": {
+        "A_baseline": {
+          "prompt_tokens": 210,
+          "prompt_cache_hit_tokens": 0,
+          "prompt_cache_miss_tokens": 210,
+          "completion_tokens": 115,
+          "total_tokens": 325,
+          "cost_usd": 6.16e-05
+        },
+        "B_system_basic": {
+          "prompt_tokens": 946,
+          "prompt_cache_hit_tokens": 384,
+          "prompt_cache_miss_tokens": 562,
+          "completion_tokens": 180,
+          "total_tokens": 1126,
+          "cost_usd": 0.0001301552
+        },
+        "C_system_full": {
+          "prompt_tokens": 1973,
+          "prompt_cache_hit_tokens": 1920,
+          "prompt_cache_miss_tokens": 53,
+          "completion_tokens": 148,
+          "total_tokens": 2121,
+          "cost_usd": 5.423600000000001e-05
+        }
+      }
+    },
+    {
+      "question": "Did the U.S. bomb Iran by June 30?",
+      "tier": "high",
+      "gt": 88,
+      "conditions": {
+        "A_baseline": {
+          "prompt_tokens": 215,
+          "prompt_cache_hit_tokens": 0,
+          "prompt_cache_miss_tokens": 215,
+          "completion_tokens": 141,
+          "total_tokens": 356,
+          "cost_usd": 6.958000000000001e-05
+        },
+        "B_system_basic": {
+          "prompt_tokens": 951,
+          "prompt_cache_hit_tokens": 384,
+          "prompt_cache_miss_tokens": 567,
+          "completion_tokens": 203,
+          "total_tokens": 1154,
+          "cost_usd": 0.00013729520000000002
+        },
+        "C_system_full": {
+          "prompt_tokens": 2143,
+          "prompt_cache_hit_tokens": 2048,
+          "prompt_cache_miss_tokens": 95,
+          "completion_tokens": 222,
+          "total_tokens": 2365,
+          "cost_usd": 8.11944e-05
+        }
+      }
+    }
+  ],
+  "chart_path": "/Users/zichengma/Desktop/学习资料/AC297r/evaluation/images/eval_baseline_cost_comparison.png"
+}
